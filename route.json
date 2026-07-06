@@ -1,0 +1,310 @@
+{
+  "route": "Kungsleden",
+  "section": "Kvikkjokk - Abisko",
+  "direction": "south_to_north",
+  "total_distance_km": 192.4,
+  "note_on_direction": "Original source table was recorded north->south (Abisko->Kvikkjokk). This file reverses the order and swaps ascent_m/descent_m so both fields describe hiking south->north (Kvikkjokk->Abisko). Boat-crossing distances are noted per segment but excluded from km_from_start, matching the original trail-km markers, which don't change across a lake crossing.",
+  "waypoints": [
+    {
+      "name": "STF Kvikkjokk",
+      "km_from_start": 0,
+      "type": "hut",
+      "services": "Full services + electricity, latrine at Njahkájåhkå"
+    },
+    {
+      "name": "STF Pårte cabin",
+      "km_from_start": 17,
+      "type": "hut"
+    },
+    {
+      "name": "Stopover cabin Laitaure (shore)",
+      "km_from_start": 40,
+      "type": "hut"
+    },
+    {
+      "name": "Aktse (shore)",
+      "km_from_start": 40,
+      "type": "lake_crossing_point"
+    },
+    {
+      "name": "STF Aktse cabin",
+      "km_from_start": 41,
+      "type": "hut"
+    },
+    {
+      "name": "Skirffe",
+      "km_from_start": 48.5,
+      "type": "hut"
+    },
+    {
+      "name": "Stopover cabin Svijnne (shore)",
+      "km_from_start": 62.1,
+      "type": "hut"
+    },
+    {
+      "name": "STF Sitojaure cabin (shore)",
+      "km_from_start": 62.1,
+      "type": "lake_crossing_point"
+    },
+    {
+      "name": "STF Saltoluokta Station (shore)",
+      "km_from_start": 81.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Vakkotavare cabin (shore)",
+      "km_from_start": 81.4,
+      "type": "lake_crossing_point"
+    },
+    {
+      "name": "Stopover cabin Dievssajávri",
+      "km_from_start": 96.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Teusajaure cabin",
+      "km_from_start": 96.4,
+      "type": "lake_crossing_point"
+    },
+    {
+      "name": "STF Kaitumjaure cabin",
+      "km_from_start": 105.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Singi cabin",
+      "km_from_start": 118.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Sälka cabin",
+      "km_from_start": 130.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Alesjaure cabin",
+      "km_from_start": 155.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Abiskojaure",
+      "km_from_start": 176.4,
+      "type": "hut"
+    },
+    {
+      "name": "STF Abisko Turiststation",
+      "km_from_start": 192.4,
+      "type": "hut"
+    }
+  ],
+  "segments": [
+    {
+      "order": 1,
+      "type": "hike",
+      "from": "STF Kvikkjokk",
+      "to": "STF Pårte cabin",
+      "distance_km": 17,
+      "ascent_m": 80,
+      "descent_m": 270,
+      "notes": "Latrine at Njahkájåhkå",
+      "camping_good": "Forest for most of the stretch, camping is fine almost anywhere",
+      "camping_risky": "Practically no risk spots"
+    },
+    {
+      "order": 2,
+      "type": "hike",
+      "from": "STF Pårte cabin",
+      "to": "Stopover cabin Laitaure (shore)",
+      "distance_km": 23,
+      "ascent_m": 383,
+      "descent_m": 385,
+      "notes": "Stopover cabin Jågge",
+      "camping_good": "",
+      "camping_risky": ""
+    },
+    {
+      "order": 3,
+      "type": "boat",
+      "from": "Stopover cabin Laitaure (shore)",
+      "to": "Aktse (shore)",
+      "distance_km": 3,
+      "ascent_m": 0,
+      "descent_m": 0,
+      "notes": "Motorboat + 3 rowing boats. WARNING: currents and shallows! 9:00/17:00 from the north, 9:15/17:15 from the south. 200 SEK. Contact Anne-Sophie: +46 70 673 55 (call the evening before a morning crossing, or at midday before an afternoon crossing). https://aktsebo.se/",
+      "camping_good": "Deep forest, great bivy spots",
+      "camping_risky": "Open bog/marshland",
+      "lake": "Lájtávrre"
+    },
+    {
+      "order": 4,
+      "type": "hike",
+      "from": "Aktse (shore)",
+      "to": "STF Aktse cabin",
+      "distance_km": 1,
+      "ascent_m": 0,
+      "descent_m": 50,
+      "notes": "",
+      "camping_good": "",
+      "camping_risky": ""
+    },
+    {
+      "order": 5,
+      "type": "hike",
+      "from": "STF Aktse cabin",
+      "to": "Skirffe",
+      "distance_km": 7.5,
+      "ascent_m": 77,
+      "descent_m": 632,
+      "notes": "",
+      "camping_good": "",
+      "camping_risky": ""
+    },
+    {
+      "order": 6,
+      "type": "hike",
+      "from": "Skirffe",
+      "to": "Stopover cabin Svijnne (shore)",
+      "distance_km": 13.6,
+      "ascent_m": 722,
+      "descent_m": 264,
+      "notes": "11.5 km if skipping Skirffe and going direct; STF Aktse mountain cabin",
+      "camping_good": "",
+      "camping_risky": ""
+    },
+    {
+      "order": 7,
+      "type": "boat",
+      "from": "Stopover cabin Svijnne (shore)",
+      "to": "STF Sitojaure cabin (shore)",
+      "distance_km": null,
+      "ascent_m": 0,
+      "descent_m": 0,
+      "notes": "STF Sitojaure Vaggevárasj, 200-350 SEK. Motorboat 7:00/17:45 from the north, 7:15/18:00 from the south. Contact 'Blind family': 073-079 96 03, 070-277 66 88. http://www.sitojaure.com/#om-oss",
+      "camping_good": "Forest around Aktse, low above the valley",
+      "camping_risky": "Skierffe ridge, open plains",
+      "lake": "Gabddajavrre"
+    },
+    {
+      "order": 8,
+      "type": "hike",
+      "from": "STF Sitojaure cabin (shore)",
+      "to": "STF Saltoluokta Station (shore)",
+      "distance_km": 19.3,
+      "ascent_m": 373,
+      "descent_m": 142,
+      "notes": "Stopover cabin Autsutjvagge",
+      "camping_good": "Forest sections after the crossing, sheltered bays",
+      "camping_risky": "Open lakeshore (exposed to wind)"
+    },
+    {
+      "order": 9,
+      "type": "boat",
+      "from": "STF Saltoluokta Station (shore)",
+      "to": "STF Vakkotavare cabin (shore)",
+      "distance_km": null,
+      "ascent_m": 0,
+      "descent_m": 0,
+      "notes": "STF Vakkotavare -> Bus 93 at 13:45 -> Kebnats (continues to the Gällivare exit point); walking alternative 30 km (+190m/-100m); boat to Kebnats 200 SEK (waits for the bus when travelling from the north)",
+      "camping_good": "Forest right after the start, or all the way down before Vakkotavare",
+      "camping_risky": "",
+      "lake": "Áhkajávrre"
+    },
+    {
+      "order": 10,
+      "type": "hike",
+      "from": "STF Vakkotavare cabin (shore)",
+      "to": "Stopover cabin Dievssajávri",
+      "distance_km": 15,
+      "ascent_m": 460,
+      "descent_m": 500,
+      "notes": "",
+      "camping_good": "",
+      "camping_risky": ""
+    },
+    {
+      "order": 11,
+      "type": "boat",
+      "from": "Stopover cabin Dievssajávri",
+      "to": "STF Teusajaure cabin",
+      "distance_km": 0.9,
+      "ascent_m": 0,
+      "descent_m": 0,
+      "notes": "Motorboat (6-10 people) until 14 Sep. Twice daily: 8:00/16:00, 150-200 SEK per person",
+      "camping_good": "Down by the lake among birches (not on the open shore)",
+      "camping_risky": "Upper plateau",
+      "lake": "Dievssajávri"
+    },
+    {
+      "order": 12,
+      "type": "hike",
+      "from": "STF Teusajaure cabin",
+      "to": "STF Kaitumjaure cabin",
+      "distance_km": 9,
+      "ascent_m": 182,
+      "descent_m": 273,
+      "notes": "",
+      "camping_good": "Descending woodland patches, stream beds",
+      "camping_risky": "Open approach ridge"
+    },
+    {
+      "order": 13,
+      "type": "hike",
+      "from": "STF Kaitumjaure cabin",
+      "to": "STF Singi cabin",
+      "distance_km": 13,
+      "ascent_m": 60,
+      "descent_m": 173,
+      "notes": "Side trip east: 5 km to a viewpoint; 14.3 km to Kebnekaise fjällstation (climbing); 18.5 km from Kebnekaise to Nikkaluokta (exit point)",
+      "camping_good": "By the river, micro-terrain, dips",
+      "camping_risky": "Wide open valley"
+    },
+    {
+      "order": 14,
+      "type": "hike",
+      "from": "STF Singi cabin",
+      "to": "STF Sälka cabin",
+      "distance_km": 12,
+      "ascent_m": 172,
+      "descent_m": 70,
+      "notes": "Stopover cabin Kuoperjåkka",
+      "camping_good": "Minor terrain breaks off-trail",
+      "camping_risky": "Open tundra"
+    },
+    {
+      "order": 15,
+      "type": "hike",
+      "from": "STF Sälka cabin",
+      "to": "STF Alesjaure cabin",
+      "distance_km": 25,
+      "ascent_m": 375,
+      "descent_m": 338,
+      "notes": "STF Tjäktja mountain cabin along the way; stopover cabin at Tjäktja Pass",
+      "camping_good": "Down toward Alesjaure past the pass, or low ground before the pass",
+      "camping_risky": "Tjäktja Pass, upper sections (strong wind!)"
+    },
+    {
+      "order": 16,
+      "type": "hike",
+      "from": "STF Alesjaure cabin",
+      "to": "STF Abiskojaure",
+      "distance_km": 21,
+      "ascent_m": 330,
+      "descent_m": 20,
+      "notes": "Latrine; Rádunjárga stopover cabin",
+      "camping_good": "Terrain dips, near streams",
+      "camping_risky": "Around the big lake, no shelter"
+    },
+    {
+      "order": 17,
+      "type": "hike",
+      "from": "STF Abiskojaure",
+      "to": "STF Abisko Turiststation",
+      "distance_km": 16,
+      "ascent_m": 115,
+      "descent_m": 8,
+      "notes": "Windshelter, latrine",
+      "camping_good": "Forest section below the tree line",
+      "camping_risky": "Upper alpine plateau"
+    }
+  ]
+}
