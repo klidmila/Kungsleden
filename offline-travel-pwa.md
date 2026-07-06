@@ -1,17 +1,17 @@
 # Offline Travel PWA
 
-## Potenciální výsledek
+## Potential outcome
 
-Vytvořit aplikaci do mobilu, která bude fungovat i offline.
+Build a mobile app that also works offline.
 
-## Technologie
+## Technology
 
 - GitHub Pages -> smartphone (PWA - offline enabler)
-- Offline mapa
-- Itinerář
-- Klíčové body
-- Deník
-- Možnost exportu do PDF
+- Offline map
+- Itinerary
+- Points of interest
+- Journal
+- PDF export option
 
 ## Tech stack
 
@@ -19,14 +19,14 @@ Vytvořit aplikaci do mobilu, která bude fungovat i offline.
 - PWA
 - CSS
 - JS
-- Žádný framework
-- Knihovna [Leaflet.js](https://leafletjs.com/)
+- No framework
+- [Leaflet.js](https://leafletjs.com/) library
 
-## Co bude aplikace umět
+## App features
 
-- Poradit s trasou
-- Orientační body, názvy, časy, trasy
-- Chalupy
-- Možnost nákupu
-- Spoje přes vodu / silnice
-- Kontakty na chataře a vodní přepravu
+- Route guidance
+- Waypoints, names, times, trails
+- Cabins/huts
+- Shopping options
+- Water/road crossings and connections
+- Contacts for hut wardens and water transport
