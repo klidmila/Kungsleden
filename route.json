@@ -113,7 +113,8 @@
         "size": "none",
         "electricity": false
       },
-      "alt_names": []
+      "alt_names": [],
+      "critical_alert_id": "vakkotavare_kebnats_bus_gap_sep2026"
     },
     {
       "name": "Stopover cabin Dievssajávri",
@@ -348,7 +349,8 @@
       "lake_alt_names": [
         "Áhkajávrre",
         "Akkajaure (surrounding larger lake system)"
-      ]
+      ],
+      "critical_alert_id": "vakkotavare_kebnats_bus_gap_sep2026"
     },
     {
       "order": 10,
@@ -483,5 +485,6 @@
   "schema_note_shelters": "The shelters array on a segment lists unstaffed emergency shelters or small huts passed along that segment. Where the exact sub-distance is confirmed from independent sources (currently only Tjaktja), position gives real km figures. Otherwise position is descriptive only, and should not be treated as a precise km value. The segment own distance_km, ascent_m and descent_m fields are unaffected and still describe the whole segment end to end.",
   "schema_note_shop": "shop.size on a waypoint reflects the original shop/transport column: full (well-stocked shop, matches Full+electricity marking), large, small, or none. shop.electricity is true only where the source table marked the lightning-bolt symbol (mains power available). Small unstaffed emergency shelters (listed under a segment's shelters array) have no shop by definition and are not included here.",
   "schema_note_alt_names": "alt_names lists spelling variants that may appear on physical trail signage, maps, or other apps: an ASCII fold (no Swedish a-ring/a-umlaut/o-umlaut or Sami a-acute) plus any specific alternate names found during research. This list is best-effort from remote research, not confirmed on the ground. Treat it as a search aid for matching a signpost to the right waypoint, not as a verified official naming registry.",
-  "schema_note_lake_names": "lake on a boat segment is the name most likely to appear on the actual boat service, timetable, or ticket (what you would ask for or search when booking). lake_alt_names lists other names for the same body of water, such as the Sami name used in the original source table, which may still appear on maps or signposts. Confirmed by cross-checking against the Swedish Tourist Association boat-service page during research."
+  "schema_note_lake_names": "lake on a boat segment is the name most likely to appear on the actual boat service, timetable, or ticket (what you would ask for or search when booking). lake_alt_names lists other names for the same body of water, such as the Sami name used in the original source table, which may still appear on maps or signposts. Confirmed by cross-checking against the Swedish Tourist Association boat-service page during research.",
+  "schema_note_alerts": "critical_alert_id, where present on a waypoint or segment, references an entry in alerts.json by id. The app should look up that entry and display it prominently rather than treating it as ordinary reference text."
 }
