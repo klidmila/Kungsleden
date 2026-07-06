@@ -1,0 +1,47 @@
+[
+  {
+    "id": "aktse_laitaure",
+    "file": "boat_aktse_laitaure.json",
+    "label": "Laitaure ↔ Aktse",
+    "subtitle": "boat",
+    "segment_ids": [
+      "stopover_cabin_laitaure_shore__aktse_shore"
+    ]
+  },
+  {
+    "id": "sitojaure_svijnne",
+    "file": "boat_sitojaure_svijnne.json",
+    "label": "Svijnne ↔ Sitojaure",
+    "subtitle": "boat",
+    "segment_ids": [
+      "stopover_cabin_svijnne_shore__stf_sitojaure_cabin_vaggevarasj_shore"
+    ]
+  },
+  {
+    "id": "kebnats_saltoluokta",
+    "file": "boat_kebnats_saltoluokta.json",
+    "label": "Kebnats ↔ Saltoluokta",
+    "subtitle": "boat · M/S Langas",
+    "segment_ids": [
+      "stf_saltoluokta_station_shore__stf_vakkotavare_cabin_shore"
+    ]
+  },
+  {
+    "id": "vakkotavare_kebnats_bus",
+    "file": "bus_vakkotavare_kebnants.json",
+    "label": "Vakkotavare ↔ Kebnats",
+    "subtitle": "bus · Road to Ritsem",
+    "segment_ids": [
+      "stf_saltoluokta_station_shore__stf_vakkotavare_cabin_shore"
+    ]
+  },
+  {
+    "id": "teusajaure_vakkotavare",
+    "file": "boat_teusajaure_vakkotavare.json",
+    "label": "Dievssajávri ↔ Teusajaure",
+    "subtitle": "boat",
+    "segment_ids": [
+      "stopover_cabin_dievssajavri__stf_teusajaure_cabin"
+    ]
+  }
+]

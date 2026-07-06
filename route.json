@@ -6,6 +6,7 @@
   "note_on_direction": "Waypoints are ordered south to north (Kvikkjokk to Abisko), matching the actual hike direction. Ascent_m and descent_m are taken directly from the source table and already reflect this south to north direction, as confirmed by the author. Boat-crossing distances are noted per segment but excluded from km_from_start, matching the original trail-km markers, which stay the same across a lake crossing.",
   "waypoints": [
     {
+      "id": "stf_kvikkjokk",
       "kind": "waypoint",
       "name": "STF Kvikkjokk",
       "km_from_start": 0,
@@ -17,6 +18,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_parte_cabin",
       "kind": "waypoint",
       "name": "STF Pårte cabin",
       "km_from_start": 17,
@@ -30,6 +32,7 @@
       ]
     },
     {
+      "id": "stopover_cabin_laitaure_shore",
       "kind": "waypoint",
       "name": "Stopover cabin Laitaure (shore)",
       "km_from_start": 40,
@@ -41,6 +44,7 @@
       "alt_names": []
     },
     {
+      "id": "aktse_shore",
       "kind": "waypoint",
       "name": "Aktse (shore)",
       "km_from_start": 40,
@@ -52,6 +56,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_aktse_cabin",
       "kind": "waypoint",
       "name": "STF Aktse cabin",
       "km_from_start": 41,
@@ -63,6 +68,7 @@
       "alt_names": []
     },
     {
+      "id": "skirffe",
       "kind": "waypoint",
       "name": "Skirffe",
       "km_from_start": 48.5,
@@ -77,6 +83,7 @@
       ]
     },
     {
+      "id": "stopover_cabin_svijnne_shore",
       "kind": "waypoint",
       "name": "Stopover cabin Svijnne (shore)",
       "km_from_start": 62.1,
@@ -88,6 +95,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_sitojaure_cabin_vaggevarasj_shore",
       "kind": "waypoint",
       "name": "STF Sitojaure cabin - Vaggevárasj (shore)",
       "km_from_start": 62.1,
@@ -101,6 +109,7 @@
       ]
     },
     {
+      "id": "stf_saltoluokta_station_shore",
       "kind": "waypoint",
       "name": "STF Saltoluokta Station (shore)",
       "km_from_start": 81.4,
@@ -115,6 +124,7 @@
       ]
     },
     {
+      "id": "stf_vakkotavare_cabin_shore",
       "kind": "waypoint",
       "name": "STF Vakkotavare cabin (shore)",
       "km_from_start": 81.4,
@@ -127,6 +137,7 @@
       "critical_alert_id": "vakkotavare_kebnats_bus_gap_sep2026"
     },
     {
+      "id": "stopover_cabin_dievssajavri",
       "kind": "waypoint",
       "name": "Stopover cabin Dievssajávri",
       "km_from_start": 96.4,
@@ -140,6 +151,7 @@
       ]
     },
     {
+      "id": "stf_teusajaure_cabin",
       "kind": "waypoint",
       "name": "STF Teusajaure cabin",
       "km_from_start": 96.4,
@@ -151,6 +163,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_kaitumjaure_cabin",
       "kind": "waypoint",
       "name": "STF Kaitumjaure cabin",
       "km_from_start": 105.4,
@@ -162,6 +175,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_singi_cabin",
       "kind": "waypoint",
       "name": "STF Singi cabin",
       "km_from_start": 118.4,
@@ -173,6 +187,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_salka_cabin",
       "kind": "waypoint",
       "name": "STF Sälka cabin",
       "km_from_start": 130.4,
@@ -187,6 +202,7 @@
       ]
     },
     {
+      "id": "stf_alesjaure_cabin",
       "kind": "waypoint",
       "name": "STF Alesjaure cabin",
       "km_from_start": 155.4,
@@ -198,6 +214,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_abiskojaure",
       "kind": "waypoint",
       "name": "STF Abiskojaure",
       "km_from_start": 176.4,
@@ -209,6 +226,7 @@
       "alt_names": []
     },
     {
+      "id": "stf_abisko_turiststation",
       "kind": "waypoint",
       "name": "STF Abisko Turiststation",
       "km_from_start": 192.4,
@@ -226,10 +244,13 @@
   ],
   "segments": [
     {
+      "id": "stf_kvikkjokk__stf_parte_cabin",
       "order": 1,
       "type": "hike",
       "from": "STF Kvikkjokk",
+      "from_id": "stf_kvikkjokk",
       "to": "STF Pårte cabin",
+      "to_id": "stf_parte_cabin",
       "distance_km": 17,
       "ascent_m": 270,
       "descent_m": 80,
@@ -239,10 +260,13 @@
       "shelters": []
     },
     {
+      "id": "stf_parte_cabin__stopover_cabin_laitaure_shore",
       "order": 2,
       "type": "hike",
       "from": "STF Pårte cabin",
+      "from_id": "stf_parte_cabin",
       "to": "Stopover cabin Laitaure (shore)",
+      "to_id": "stopover_cabin_laitaure_shore",
       "distance_km": 23,
       "ascent_m": 385,
       "descent_m": 383,
@@ -260,10 +284,13 @@
       ]
     },
     {
+      "id": "stopover_cabin_laitaure_shore__aktse_shore",
       "order": 3,
       "type": "boat",
       "from": "Stopover cabin Laitaure (shore)",
+      "from_id": "stopover_cabin_laitaure_shore",
       "to": "Aktse (shore)",
+      "to_id": "aktse_shore",
       "distance_km": 3,
       "ascent_m": 0,
       "descent_m": 0,
@@ -274,10 +301,13 @@
       "shelters": []
     },
     {
+      "id": "aktse_shore__stf_aktse_cabin",
       "order": 4,
       "type": "hike",
       "from": "Aktse (shore)",
+      "from_id": "aktse_shore",
       "to": "STF Aktse cabin",
+      "to_id": "stf_aktse_cabin",
       "distance_km": 1,
       "ascent_m": 50,
       "descent_m": 0,
@@ -287,10 +317,13 @@
       "shelters": []
     },
     {
+      "id": "stf_aktse_cabin__skirffe",
       "order": 5,
       "type": "hike",
       "from": "STF Aktse cabin",
+      "from_id": "stf_aktse_cabin",
       "to": "Skirffe",
+      "to_id": "skirffe",
       "distance_km": 7.5,
       "ascent_m": 632,
       "descent_m": 77,
@@ -300,10 +333,13 @@
       "shelters": []
     },
     {
+      "id": "skirffe__stopover_cabin_svijnne_shore",
       "order": 6,
       "type": "hike",
       "from": "Skirffe",
+      "from_id": "skirffe",
       "to": "Stopover cabin Svijnne (shore)",
+      "to_id": "stopover_cabin_svijnne_shore",
       "distance_km": 13.6,
       "ascent_m": 264,
       "descent_m": 722,
@@ -313,10 +349,13 @@
       "shelters": []
     },
     {
+      "id": "stopover_cabin_svijnne_shore__stf_sitojaure_cabin_vaggevarasj_shore",
       "order": 7,
       "type": "boat",
       "from": "Stopover cabin Svijnne (shore)",
+      "from_id": "stopover_cabin_svijnne_shore",
       "to": "STF Sitojaure cabin - Vaggevárasj (shore)",
+      "to_id": "stf_sitojaure_cabin_vaggevarasj_shore",
       "distance_km": null,
       "ascent_m": 0,
       "descent_m": 0,
@@ -331,10 +370,13 @@
       ]
     },
     {
+      "id": "stf_sitojaure_cabin_vaggevarasj_shore__stf_saltoluokta_station_shore",
       "order": 8,
       "type": "hike",
       "from": "STF Sitojaure cabin - Vaggevárasj (shore)",
+      "from_id": "stf_sitojaure_cabin_vaggevarasj_shore",
       "to": "STF Saltoluokta Station (shore)",
+      "to_id": "stf_saltoluokta_station_shore",
       "distance_km": 19.3,
       "ascent_m": 142,
       "descent_m": 373,
@@ -352,10 +394,13 @@
       ]
     },
     {
+      "id": "stf_saltoluokta_station_shore__stf_vakkotavare_cabin_shore",
       "order": 9,
       "type": "boat",
       "from": "STF Saltoluokta Station (shore)",
+      "from_id": "stf_saltoluokta_station_shore",
       "to": "STF Vakkotavare cabin (shore)",
+      "to_id": "stf_vakkotavare_cabin_shore",
       "distance_km": null,
       "ascent_m": 0,
       "descent_m": 0,
@@ -371,10 +416,13 @@
       "critical_alert_id": "vakkotavare_kebnats_bus_gap_sep2026"
     },
     {
+      "id": "stf_vakkotavare_cabin_shore__stopover_cabin_dievssajavri",
       "order": 10,
       "type": "hike",
       "from": "STF Vakkotavare cabin (shore)",
+      "from_id": "stf_vakkotavare_cabin_shore",
       "to": "Stopover cabin Dievssajávri",
+      "to_id": "stopover_cabin_dievssajavri",
       "distance_km": 15,
       "ascent_m": 500,
       "descent_m": 460,
@@ -384,10 +432,13 @@
       "shelters": []
     },
     {
+      "id": "stopover_cabin_dievssajavri__stf_teusajaure_cabin",
       "order": 11,
       "type": "boat",
       "from": "Stopover cabin Dievssajávri",
+      "from_id": "stopover_cabin_dievssajavri",
       "to": "STF Teusajaure cabin",
+      "to_id": "stf_teusajaure_cabin",
       "distance_km": 0.9,
       "ascent_m": 0,
       "descent_m": 0,
@@ -398,10 +449,13 @@
       "shelters": []
     },
     {
+      "id": "stf_teusajaure_cabin__stf_kaitumjaure_cabin",
       "order": 12,
       "type": "hike",
       "from": "STF Teusajaure cabin",
+      "from_id": "stf_teusajaure_cabin",
       "to": "STF Kaitumjaure cabin",
+      "to_id": "stf_kaitumjaure_cabin",
       "distance_km": 9,
       "ascent_m": 273,
       "descent_m": 182,
@@ -411,10 +465,13 @@
       "shelters": []
     },
     {
+      "id": "stf_kaitumjaure_cabin__stf_singi_cabin",
       "order": 13,
       "type": "hike",
       "from": "STF Kaitumjaure cabin",
+      "from_id": "stf_kaitumjaure_cabin",
       "to": "STF Singi cabin",
+      "to_id": "stf_singi_cabin",
       "distance_km": 13,
       "ascent_m": 173,
       "descent_m": 60,
@@ -424,10 +481,13 @@
       "shelters": []
     },
     {
+      "id": "stf_singi_cabin__stf_salka_cabin",
       "order": 14,
       "type": "hike",
       "from": "STF Singi cabin",
+      "from_id": "stf_singi_cabin",
       "to": "STF Sälka cabin",
+      "to_id": "stf_salka_cabin",
       "distance_km": 12,
       "ascent_m": 70,
       "descent_m": 172,
@@ -445,10 +505,13 @@
       ]
     },
     {
+      "id": "stf_salka_cabin__stf_alesjaure_cabin",
       "order": 15,
       "type": "hike",
       "from": "STF Sälka cabin",
+      "from_id": "stf_salka_cabin",
       "to": "STF Alesjaure cabin",
+      "to_id": "stf_alesjaure_cabin",
       "distance_km": 25,
       "ascent_m": 338,
       "descent_m": 375,
@@ -466,10 +529,13 @@
       ]
     },
     {
+      "id": "stf_alesjaure_cabin__stf_abiskojaure",
       "order": 16,
       "type": "hike",
       "from": "STF Alesjaure cabin",
+      "from_id": "stf_alesjaure_cabin",
       "to": "STF Abiskojaure",
+      "to_id": "stf_abiskojaure",
       "distance_km": 21,
       "ascent_m": 20,
       "descent_m": 330,
@@ -487,10 +553,13 @@
       ]
     },
     {
+      "id": "stf_abiskojaure__stf_abisko_turiststation",
       "order": 17,
       "type": "hike",
       "from": "STF Abiskojaure",
+      "from_id": "stf_abiskojaure",
       "to": "STF Abisko Turiststation",
+      "to_id": "stf_abisko_turiststation",
       "distance_km": 16,
       "ascent_m": 8,
       "descent_m": 115,
@@ -504,5 +573,6 @@
   "schema_note_shop": "shop.size on a waypoint reflects the original shop/transport column: full (well-stocked shop, matches Full+electricity marking), large, small, or none. shop.electricity is true only where the source table marked the lightning-bolt symbol (mains power available). Small unstaffed emergency shelters (listed under a segment's shelters array) have no shop by definition and are not included here.",
   "schema_note_alt_names": "alt_names lists spelling variants that may appear on physical trail signage, maps, or other apps: an ASCII fold (no Swedish a-ring/a-umlaut/o-umlaut or Sami a-acute) plus any specific alternate names found during research. This list is best-effort from remote research, not confirmed on the ground. Treat it as a search aid for matching a signpost to the right waypoint, not as a verified official naming registry.",
   "schema_note_lake_names": "lake on a boat segment is the name most likely to appear on the actual boat service, timetable, or ticket (what you would ask for or search when booking). lake_alt_names lists other names for the same body of water, such as the Sami name used in the original source table, which may still appear on maps or signposts. Confirmed by cross-checking against the Swedish Tourist Association boat-service page during research.",
-  "schema_note_alerts": "critical_alert_id, where present on a waypoint or segment, references an entry in alerts.json by id. The app should look up that entry and display it prominently rather than treating it as ordinary reference text."
+  "schema_note_alerts": "critical_alert_id, where present on a waypoint or segment, references an entry in alerts.json by id. The app should look up that entry and display it prominently rather than treating it as ordinary reference text.",
+  "schema_note_ids": "Every waypoint has a stable `id` (slug derived from its name at authoring time, never changes even if `name` is edited later). Every segment has a stable `id` (`<from_id>__<to_id>`) plus `from_id`/`to_id` referencing the waypoints it connects. `from`/`to` remain plain display text -- edit them freely, they are what the app shows; they are not used for lookups, so editing them cannot break waypoint/crossing linkage. crossings.json and alerts.json reference waypoints/segments by id, not by name or order, so renaming a waypoint's `name` or renumbering segments never breaks those links."
 }
