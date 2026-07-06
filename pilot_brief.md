@@ -53,3 +53,37 @@ just selects and displays a slice of it
 Definition of done
 
 You see: a short list of legs + one clearly distinct warning banner. Nothing more.
+
+Badge set (compact pills on every card)
+
+Show all applicable badges, always -- no filtering, no hiding "boring" ones.
+Small pills, 11px font, border-radius: 999px, one row that wraps.
+
+Waypoint (hut) badges
+
+BadgeSource fieldhut / crossing pointwaypoint.typeno shop / small shop / large shop / full shopwaypoint.shop.sizepower / no powerwaypoint.shop.electricityalt name (click-through to alt_names list)waypoint.alt_names.length > 0
+
+Leg/segment badges
+
+BadgeSource fieldhike / boatsegment.typeX kmsegment.distance_km↑X msegment.ascent_m↓X msegment.descent_mlake: Name (boat legs only)segment.lakesheltersegment.shelters.length > 0⚠ alert (red/danger color)segment.critical_alert_id present
+
+Nested objects (like season.regular_timetable) never render as badges or
+inline key-value dumps -- those stay on the detail/sub-detail page as a
+proper small table (see navigation structure above).
+
+Navigation
+
+Bottom tab bar, 3 tabs: itinerary (default), alerts (red badge = count of
+unresolved alerts), crossings (list of all boat_.json / bus_.json as cards).
+Leg detail pages still drill through to a specific alert/contact contextually
+-- same destination pages, just reached a second way.
+
+Print / PDF export
+
+Use the browser's native print (Ctrl+P / Save as PDF), not a JS library --
+works fully offline since it's just CSS, no extra weight in the app.
+Add a @media print stylesheet covering itinerary + alerts + crossings:
+hide the tab bar and any buttons, keep text readable on paper.
+Intended use: the person prints/saves this to PDF once, while they still
+have signal, as a paper backup before heading into the mountains -- not
+something meant to run without connectivity for the first time out there.
