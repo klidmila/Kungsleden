@@ -1,0 +1,40 @@
+{
+  "connection_id": "bus_vakkotavare_kebnats",
+  "purpose": "Connects STF Vakkotavare cabin to the Kebnats pier, where the M/S Langas boat continues to STF Saltoluokta. This bus is the critical link -- Vakkotavare itself has no boat pier.",
+  "operator": "Road to Ritsem (private/commercial line, replaced the old Länstrafiken bus 93 / operated in practice by Falcks Omnibus)",
+  "website": "https://roadtoritsem.com/sommar/",
+  "phone": "+46 970 248 00",
+  "critical_warning_2026": "The operator's own site states that this summer (2026), bus departures are affected by irregular train arrivals in Gällivare due to planned railway maintenance. On many days both scheduled trips run, on other days only one. Do not rely on the printed timetable alone -- check actual availability for your specific date through the booking partners (SJ, VY, or Norrtåg via the Resplus system) before you rely on this connection.",
+  "season_2026": "Road to Ritsem operates 22 June - 20 September 2026, but exact operating dates differ by trip (see below) and are further affected by the 2026 train irregularity warning above.",
+  "direction_needed": "Vakkotavare -> Kebnats/Saltoloukta (this is part of the 'Ritsem - Stora Sjöfallet - Gällivare' table direction on the operator's site)",
+  "trips": [
+    {
+      "trip_name": "Tur 1",
+      "operates": "18 July - 5 September, and 14 September - 20 September 2026",
+      "gap_warning": "Tur 1 does NOT run 6-13 September 2026.",
+      "vakkotavare_departure": "14:40",
+      "kebnats_saltoluokta_arrival": "15:40"
+    },
+    {
+      "trip_name": "Tur 2",
+      "operates_this_direction": "Ritsem-start (relevant direction): 23 June - 31 August, and 7 September - 13 September 2026",
+      "gap_warning": "In this direction, Tur 2 does NOT run 1-6 September 2026.",
+      "vakkotavare_departure": "09:20",
+      "kebnats_saltoluokta_arrival": "10:20"
+    }
+  ],
+  "critical_date_gap_analysis": {
+    "note": "Combining both trips: there appears to be NO scheduled Vakkotavare -> Kebnats departure at all on 6 September 2026 specifically (Tur 1 stops 5 Sep, Tur 2 in this direction starts 7 Sep). From 7-13 September only Tur 2 (09:20 departure) runs; Tur 1 resumes 14 September.",
+    "recommendation": "Once you know your likely arrival date at Vakkotavare, check this gap carefully. If it falls on or near 6 September, you may need a rest day, an earlier/later push on the trail to shift your arrival date, or to contact the operator directly to ask about that day."
+  },
+  "good_news": "The M/S Langas boat itself runs on its own schedule even on days when the bus does not run (confirmed by STF), so the boat is not the constraint -- getting from Vakkotavare to Kebnats is the actual bottleneck.",
+  "fallback_contacts": {
+    "note": "For transport outside the scheduled bus departures, STF Saltoluokta previously gave these contacts for arranging the Kebnats-Saltoluokta boat leg specifically -- worth calling if the bus situation is uncertain, since they may know current workarounds:",
+    "christer_dynesius": "+46 70 241 66 35",
+    "tobbe_oberg": "+46 70 340 42 72"
+  },
+  "booking": "Tickets are sold through Resplus-connected operators: SJ (sj.se), VY (vy.se), or Norrtåg (norrtag.se). Set 'Ritsem Fjällstation' or 'Kebnats/Saltoloukta' as your destination when booking.",
+  "source_url": "https://roadtoritsem.com/sommar/",
+  "source_last_modified": "2026-07-01",
+  "data_retrieved": "2026-07-06"
+}
