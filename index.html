@@ -1287,16 +1287,16 @@
   }
 
   // Renders any JSON value as a "proper small table": object -> kv-table,
-  // array-of-objects -> mini-table with union of columns, array-of-scalars -> comma list.
+  // array-of-objects -> one stacked kv-table per entry, array-of-scalars -> comma list.
   function renderTable(value) {
     if (Array.isArray(value)) {
       if (value.length === 0) return '<span class="na">—</span>';
       if (typeof value[0] === "object") {
-        const cols = [];
-        value.forEach(row => Object.keys(row).forEach(k => { if (!cols.includes(k)) cols.push(k); }));
-        const head = cols.map(c => `<th>${escapeHtml(c.replace(/_/g, " "))}</th>`).join("");
-        const rows = value.map(row => `<tr>${cols.map(c => `<td>${renderScalar(row[c])}</td>`).join("")}</tr>`).join("");
-        return `<table class="mini-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
+        // Each entry as its own stacked key/value block, not side-by-side
+        // columns -- a wide multi-column table (e.g. url + note + dates for
+        // "sources") squeezes badly on narrow screens, especially long
+        // free-text fields like "note".
+        return value.map(row => renderTable(row)).join("");
       }
       return value.map(escapeHtml).join(", ");
     }
