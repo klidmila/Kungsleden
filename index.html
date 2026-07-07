@@ -205,11 +205,21 @@
   table.mini-table th { background: var(--chip-bg); text-transform: capitalize; }
   .na { color: var(--muted); }
 
+  .print-detail { display: none; }
+
   @media print {
     body { padding-bottom: 0; }
     .tabbar, .back-btn, .banner { display: none !important; }
     .view { display: block !important; margin-bottom: 1.8rem; page-break-inside: avoid; }
     .detail-overlay { display: none !important; }
+    .print-detail {
+      display: block !important;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 0.65rem 0.85rem;
+      margin: -0.55rem 0 0.55rem;
+    }
   }
 </style>
 </head>
@@ -1524,10 +1534,13 @@
   function renderCrossingsTab() {
     const slot = document.getElementById("crossings-slot");
     slot.innerHTML = crossings.map(c => `
-      <button class="card" onclick="openCrossingDetail('${c.id}')">
-        <div class="card-head"><span class="card-title">${escapeHtml(c.label)}</span></div>
-        <div class="badges">${badge(c.subtitle)}</div>
-      </button>
+      <div class="card-wrap">
+        <button class="card" onclick="openCrossingDetail('${c.id}')">
+          <div class="card-head"><span class="card-title">${escapeHtml(c.label)}</span></div>
+          <div class="badges">${badge(c.subtitle)}</div>
+        </button>
+        <div class="print-detail">${renderTable(c.data)}</div>
+      </div>
     `).join("");
   }
 
