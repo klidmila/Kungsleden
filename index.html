@@ -94,7 +94,8 @@
   }
   .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
   .card-title { font-weight: 600; font-size: 0.92rem; }
-  .card-index { color: var(--muted); font-weight: 400; font-size: 0.78rem; margin-right: 0.4rem; }
+  .card-sub-group { display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem; }
+  .card-index { color: var(--muted); font-weight: 400; font-size: 0.78rem; }
   .card-sub { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
 
   /* badges (compact pills, spec: 11px font, radius 999px, one row wraps) */
@@ -1536,8 +1537,11 @@
     return `
       <button class="card" onclick="openWaypointDetail(${JSON.stringify(wp).replace(/"/g, "&quot;")})">
         <div class="card-head">
-          <span class="card-title"><span class="card-index">${index}</span>${escapeHtml(wp.name)}</span>
-          <span class="card-sub">km ${wp.km_from_start}</span>
+          <span class="card-title">${escapeHtml(wp.name)}</span>
+          <span class="card-sub-group">
+            <span class="card-sub">km ${wp.km_from_start}</span>
+            <span class="card-index">${index}</span>
+          </span>
         </div>
         <div class="badges">
           ${badge(wp.kind, "kind")}
@@ -1558,8 +1562,11 @@
     return `
       <button class="card" data-leg="${leg.order}">
         <div class="card-head">
-          <span class="card-title"><span class="card-index">${index}</span>Leg #${leg.order}: ${escapeHtml(leg.from)} → ${escapeHtml(leg.to)}</span>
-          <span class="card-sub">km ${fromKm} → ${toKm}</span>
+          <span class="card-title">Leg #${leg.order}: ${escapeHtml(leg.from)} → ${escapeHtml(leg.to)}</span>
+          <span class="card-sub-group">
+            <span class="card-sub">km ${fromKm} → ${toKm}</span>
+            <span class="card-index">${index}</span>
+          </span>
         </div>
         <div class="badges">
           ${badge(leg.type, leg.type)}
