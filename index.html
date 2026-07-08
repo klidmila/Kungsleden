@@ -94,8 +94,6 @@
   }
   .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
   .card-title { font-weight: 600; font-size: 0.92rem; }
-  .card-sub-group { display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem; }
-  .card-index { color: var(--muted); font-weight: 400; font-size: 0.78rem; }
   .card-sub { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
 
   /* badges (compact pills, spec: 11px font, radius 999px, one row wraps) */
@@ -1566,7 +1564,7 @@
 
   // ---- itinerary tab rendering (compact cards, badges only) ----
 
-  function waypointCard(wp, index) {
+  function waypointCard(wp) {
     const alertBadge = wp.critical_alert_id
       ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${wp.critical_alert_id}')">⚠ alert</span>` : "";
     const altBadge = wp.alt_names.length ? badge("alt name") : "";
@@ -1574,10 +1572,7 @@
       <button class="card" onclick="openWaypointDetail(${JSON.stringify(wp).replace(/"/g, "&quot;")})">
         <div class="card-head">
           <span class="card-title">${escapeHtml(wp.name)}</span>
-          <span class="card-sub-group">
-            <span class="card-sub">km ${wp.km_from_start}</span>
-            <span class="card-index">${index}</span>
-          </span>
+          <span class="card-sub">km ${wp.km_from_start}</span>
         </div>
         <div class="badges">
           ${badge(wp.kind, "kind")}
@@ -1591,7 +1586,7 @@
     `;
   }
 
-  function legCard(leg, index) {
+  function legCard(leg) {
     const alertBadge = leg.critical_alert_id
       ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${leg.critical_alert_id}')">⚠ alert</span>` : "";
     const { fromKm, toKm } = kmRange(leg);
@@ -1599,10 +1594,7 @@
       <button class="card" data-leg="${leg.order}">
         <div class="card-head">
           <span class="card-title">Leg #${leg.order}: ${escapeHtml(leg.from)} → ${escapeHtml(leg.to)}</span>
-          <span class="card-sub-group">
-            <span class="card-sub">km ${fromKm} → ${toKm}</span>
-            <span class="card-index">${index}</span>
-          </span>
+          <span class="card-sub">km ${fromKm} → ${toKm}</span>
         </div>
         <div class="badges">
           ${badge(leg.type, leg.type)}
@@ -1621,11 +1613,10 @@
   // Full route, in order: no hand-picked stretches, no gap notes.
   function renderItinerary() {
     const slot = document.getElementById("itinerary-slot");
-    let cardIndex = 1;
-    let html = waypointCard(waypointById(legs[0].from_id), cardIndex++);
+    let html = waypointCard(waypointById(legs[0].from_id));
     legs.forEach(leg => {
-      html += legCard(leg, cardIndex++);
-      html += waypointCard(waypointById(leg.to_id), cardIndex++);
+      html += legCard(leg);
+      html += waypointCard(waypointById(leg.to_id));
     });
     slot.innerHTML = html;
     slot.querySelectorAll("button[data-leg]").forEach(btn => {
