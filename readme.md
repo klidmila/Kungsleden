@@ -91,14 +91,35 @@ require a paid GitHub plan, or an alternative like Netlify/Cloudflare Pages.
 Boat/bus schedules, prices, and contact details were gathered from official
 operator and STF sources but **can change between seasons**. Before relying
 on any crossing, especially the Kebnats -> Vakkotavare bus connection flagged
-in `alerts.json` (only the opposite direction's timetable has been confirmed
-so far -- see the alert and `bus_vakkotavare_kebnants.json` for details),
-re-check the linked source close to your travel date.
+in `alerts.json` (confirmed gap: no bus either direction on 13 September
+2026 -- see the alert and `data/bus_vakkotavare_kebnants.json` for the full
+timetable), re-check the linked source close to your travel date.
+
+## Tabs
+
+- **Route - basic** (default): compact per-hut table (km, shop, sauna,
+  heating) with boat/bus crossings inlined between huts.
+- **Route - detailed**: full itinerary as cards, one per waypoint/leg, with
+  badges and a detail view on tap.
+- **Alerts**: trip-critical warnings.
+- **Crossings**: boat/bus schedule, price, and contact detail per crossing.
+- **Food**: STF shop stock guarantees by shop size (Large/Small), with
+  prices.
 
 ## Changelog
 
 Brief, newest first. See git history for full detail.
 
+- Confirmed the full Kebnats <-> Vakkotavare bus timetable (both trips, both
+  directions) directly from the operator; fixed the alert to the real gap
+  date (13 September, not the previously assumed 6 September), and gave the
+  alert a compact schedule table instead of prose.
+- Added a **Food** tab: STF shop stock guarantees (Large/Small) with prices.
+- Added a **Route - basic** tab: compact per-hut reference table, now the
+  default tab (ahead of Route - detailed).
+- Renamed the **Itinerary** tab to **Route - detailed**.
+- Waypoint badges now show only what's present (dropped "no shop"/"no
+  power"), with icons for power/heating matching the sauna badge style.
 - Moved all `data/*.json` files into a `data/` folder; `build.js` now passes
   waypoints/segments/alerts through mostly untouched instead of a
   hand-maintained field whitelist, so new fields don't need a `build.js` edit.
