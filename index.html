@@ -14,7 +14,6 @@
     --muted: #6b6f6a;
     --boat: #2a6f97;
     --hike: #4c7a3f;
-    --waypoint: #3355cc;
     --kind: #c9700a;
     --chip-bg: #eceae4;
     --danger: #d64545;
@@ -31,7 +30,6 @@
       --muted: #9aa09b;
       --boat: #6fb3d8;
       --hike: #8fc47c;
-      --waypoint: #6a85e0;
       --kind: #e08a2b;
       --chip-bg: #2a2f33;
       --danger: #e05a5a;
@@ -111,7 +109,6 @@
   }
   .badge.boat { background: var(--boat); color: #fff; }
   .badge.hike { background: var(--hike); color: #fff; }
-  .badge.waypoint { background: var(--waypoint); color: #fff; }
   .badge.kind { background: var(--kind); color: #fff; }
   .badge.alert { background: var(--danger); color: #fff; }
 
@@ -1425,7 +1422,7 @@
       <h2>${escapeHtml(wp.name)}</h2>
       <div class="badges">
         ${badge(wp.kind, "kind")}
-        ${badge(wp.type === "hut" ? "hut" : "crossing point", "waypoint")}
+        ${badge(wp.type === "hut" ? "hut" : "crossing point")}
         ${badge(shopBadgeText(wp.shop.size))}
         ${badge(wp.shop.electricity ? "power" : "no power")}
       </div>
@@ -1492,7 +1489,7 @@
         </div>
         <div class="badges">
           ${badge(wp.kind, "kind")}
-          ${badge(wp.type === "hut" ? "hut" : "crossing point", "waypoint")}
+          ${badge(wp.type === "hut" ? "hut" : "crossing point")}
           ${badge(shopBadgeText(wp.shop.size))}
           ${badge(wp.shop.electricity ? "power" : "no power")}
           ${altBadge}
