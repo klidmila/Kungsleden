@@ -271,7 +271,9 @@
     "alt_names": [
       "STF Kvikkjokk"
     ],
-    "phone": "+46 971 210 22"
+    "phone": "+46 971 210 22",
+    "sauna": true,
+    "heating": "heat"
   },
   {
     "id": "stf_parte_cabin",
@@ -286,7 +288,9 @@
     "alt_names": [
       "STF Pårte cabin",
       "STF Parte cabin"
-    ]
+    ],
+    "sauna": false,
+    "heating": "stove"
   },
   {
     "id": "stopover_cabin_laitaure_shore",
@@ -327,7 +331,9 @@
     },
     "alt_names": [
       "STF Aktse cabin"
-    ]
+    ],
+    "sauna": true,
+    "heating": "stove"
   },
   {
     "id": "skirffe",
@@ -387,7 +393,9 @@
       "Saltoluokta Fjallstation",
       "Saltoluokta Fjällstation"
     ],
-    "phone": "+46 10 190 23 50"
+    "phone": "+46 10 190 23 50",
+    "sauna": true,
+    "heating": "heat"
   },
   {
     "id": "kebnats",
@@ -416,7 +424,9 @@
     },
     "alt_names": [
       "STF Vakkotavare cabin (shore)"
-    ]
+    ],
+    "sauna": false,
+    "heating": "stove"
   },
   {
     "id": "stopover_cabin_dievssajavri",
@@ -445,7 +455,9 @@
     },
     "alt_names": [
       "STF Teusajaure cabin"
-    ]
+    ],
+    "sauna": true,
+    "heating": "stove"
   },
   {
     "id": "stf_kaitumjaure_cabin",
@@ -459,7 +471,9 @@
     },
     "alt_names": [
       "STF Kaitumjaure cabin"
-    ]
+    ],
+    "sauna": true,
+    "heating": "stove"
   },
   {
     "id": "stf_singi_cabin",
@@ -473,7 +487,9 @@
     },
     "alt_names": [
       "STF Singi cabin"
-    ]
+    ],
+    "sauna": false,
+    "heating": "stove"
   },
   {
     "id": "stf_salka_cabin",
@@ -489,7 +505,9 @@
       "STF Sälka cabin",
       "STF Salka cabin",
       "Salka"
-    ]
+    ],
+    "sauna": true,
+    "heating": "stove"
   },
   {
     "id": "stf_alesjaure_cabin",
@@ -503,7 +521,9 @@
     },
     "alt_names": [
       "STF Alesjaure cabin"
-    ]
+    ],
+    "sauna": true,
+    "heating": "stove"
   },
   {
     "id": "stf_abiskojaure",
@@ -517,7 +537,9 @@
     },
     "alt_names": [
       "STF Abiskojaure"
-    ]
+    ],
+    "sauna": true,
+    "heating": "stove"
   },
   {
     "id": "stf_abisko_turiststation",
@@ -534,7 +556,9 @@
       "STF Abisko Fjallstation",
       "STF Abisko Fjällstation"
     ],
-    "phone": "+46 10 190 24 00"
+    "phone": "+46 10 190 24 00",
+    "sauna": true,
+    "heating": "heat"
   }
 ];
 
@@ -1480,6 +1504,8 @@
         ${badge(hutTypeBadgeText(wp))}
         ${badge(shopBadgeText(wp.shop.size))}
         ${badge(wp.shop.electricity ? "power" : "no power")}
+        ${wp.heating ? badge(wp.heating) : ""}
+        ${wp.sauna ? badge("♨ sauna") : ""}
       </div>
       <h3>Distance from start</h3><p>km ${wp.km_from_start}</p>
       ${altHtml}
@@ -1549,6 +1575,8 @@
           ${badge(hutTypeBadgeText(wp))}
           ${badge(shopBadgeText(wp.shop.size))}
           ${badge(wp.shop.electricity ? "power" : "no power")}
+          ${wp.heating ? badge(wp.heating) : ""}
+          ${wp.sauna ? badge("♨ sauna") : ""}
           ${altBadge}
           ${alertBadge}
         </div>

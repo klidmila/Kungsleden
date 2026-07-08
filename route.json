@@ -18,7 +18,9 @@
       "alt_names": [
         "STF Kvikkjokk"
       ],
-      "phone": "+46 971 210 22"
+      "phone": "+46 971 210 22",
+      "sauna": true,
+      "heating": "heat"
     },
     {
       "id": "stf_parte_cabin",
@@ -33,7 +35,9 @@
       "alt_names": [
         "STF Pårte cabin",
         "STF Parte cabin"
-      ]
+      ],
+      "sauna": false,
+      "heating": "stove"
     },
     {
       "id": "stopover_cabin_laitaure_shore",
@@ -74,7 +78,9 @@
       },
       "alt_names": [
         "STF Aktse cabin"
-      ]
+      ],
+      "sauna": true,
+      "heating": "stove"
     },
     {
       "id": "skirffe",
@@ -134,7 +140,9 @@
         "Saltoluokta Fjallstation",
         "Saltoluokta Fjällstation"
       ],
-      "phone": "+46 10 190 23 50"
+      "phone": "+46 10 190 23 50",
+      "sauna": true,
+      "heating": "heat"
     },
     {
       "id": "kebnats",
@@ -163,7 +171,9 @@
       },
       "alt_names": [
         "STF Vakkotavare cabin (shore)"
-      ]
+      ],
+      "sauna": false,
+      "heating": "stove"
     },
     {
       "id": "stopover_cabin_dievssajavri",
@@ -192,7 +202,9 @@
       },
       "alt_names": [
         "STF Teusajaure cabin"
-      ]
+      ],
+      "sauna": true,
+      "heating": "stove"
     },
     {
       "id": "stf_kaitumjaure_cabin",
@@ -206,7 +218,9 @@
       },
       "alt_names": [
         "STF Kaitumjaure cabin"
-      ]
+      ],
+      "sauna": true,
+      "heating": "stove"
     },
     {
       "id": "stf_singi_cabin",
@@ -220,7 +234,9 @@
       },
       "alt_names": [
         "STF Singi cabin"
-      ]
+      ],
+      "sauna": false,
+      "heating": "stove"
     },
     {
       "id": "stf_salka_cabin",
@@ -236,7 +252,9 @@
         "STF Sälka cabin",
         "STF Salka cabin",
         "Salka"
-      ]
+      ],
+      "sauna": true,
+      "heating": "stove"
     },
     {
       "id": "stf_alesjaure_cabin",
@@ -250,7 +268,9 @@
       },
       "alt_names": [
         "STF Alesjaure cabin"
-      ]
+      ],
+      "sauna": true,
+      "heating": "stove"
     },
     {
       "id": "stf_abiskojaure",
@@ -264,7 +284,9 @@
       },
       "alt_names": [
         "STF Abiskojaure"
-      ]
+      ],
+      "sauna": true,
+      "heating": "stove"
     },
     {
       "id": "stf_abisko_turiststation",
@@ -281,7 +303,9 @@
         "STF Abisko Fjallstation",
         "STF Abisko Fjällstation"
       ],
-      "phone": "+46 10 190 24 00"
+      "phone": "+46 10 190 24 00",
+      "sauna": true,
+      "heating": "heat"
     }
   ],
   "segments": [
@@ -631,6 +655,7 @@
     }
   ],
   "schema_note_phone": "phone (string, optional, absent when not known) is a direct contact number for a staffed waypoint, shown in its detail view only -- not surfaced as an itinerary badge. Currently only recorded for the three Fjällstation-class waypoints (Kvikkjokk, Saltoluokta, Abisko); not yet gathered for the fjällstuga-class huts.",
+  "schema_note_sauna_heating": "sauna (boolean) and heating (\"heat\" for mains/central heating, matching the Fjällstation-class waypoints' shop.electricity: true, or \"stove\" for wood-stove heating everywhere else) are both optional and only present on the 12 waypoints the route author supplied this data for. Absent means not recorded, not necessarily false -- do not infer 'no sauna' from a missing field the way shop/power absence is treated.",
   "schema_note_latrine": "latrine (boolean, optional, defaults to false when absent) marks a segment that has a standalone latrine along the hiking trail itself, separate from the huts at either end (every staffed hut/fjällstuga/fjällstation already has one, so those aren't flagged here). Currently true for only 3 segments: Kvikkjokk->Pårte (Njahkájåhkå, ~km 6), Alesjaure->Abiskojaure (Rádunjárga, off the main trail), and Abiskojaure->Abisko (Nisson tältplats, ~km 187).",
   "schema_note_shelters": "The shelters array on a segment lists unstaffed emergency shelters or small huts passed along that segment. Where the exact sub-distance is confirmed from independent sources (currently only Tjaktja), position gives real km figures. Otherwise position is descriptive only, and should not be treated as a precise km value. The segment own distance_km, ascent_m and descent_m fields are unaffected and still describe the whole segment end to end.",
   "schema_note_shop": "shop.size on a waypoint reflects the original shop/transport column: full (well-stocked shop, matches Full+electricity marking), large, small, or none. shop.electricity is true only where the source table marked the lightning-bolt symbol (mains power available). Small unstaffed emergency shelters (listed under a segment's shelters array) have no shop by definition and are not included here.",
