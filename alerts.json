@@ -31,34 +31,6 @@
       "last_checked": "2026-07-06",
       "recheck_before_trip": true,
       "recheck_recommended_by": "2026-08-25"
-    },
-    {
-      "id": "alesjaure_closes_sep13_2026",
-      "severity": "critical",
-      "status": "unresolved",
-      "title": "STF Alesjaure Fjällstuga closes for the season around 13 September 2026",
-      "short_summary": "Alesjaure's staffed season ends around 13 September 2026. Arriving after that means no host, no shop, and possibly no staffed service at all -- despite Alesjaure normally having STF's largest fjällstuga and a large shop on this route.",
-      "affects_waypoint_id": "stf_alesjaure_cabin",
-      "affects_km_from_start": 155.4,
-      "affects_segment_id": "stf_salka_cabin__stf_alesjaure_cabin",
-      "trip_context": "Alesjaure is at km 155.4 from Kvikkjokk, 74 km past Vakkotavare (km 81.4, see the vakkotavare_kebnats_bus_gap_sep2026 alert for the same trip's early-September pacing risk at that earlier point). Re-estimate the actual arrival date at Alesjaure as the hike progresses -- if the pace implied by that earlier alert (arriving Vakkotavare around 6-10 September) holds, 13 September at Alesjaure is plausible but not comfortably certain.",
-      "details": "The 13 September 2026 season-end date was provided directly by the route author, not yet independently confirmed against an official STF source for Alesjaure specifically. It is consistent with the same date already found elsewhere in this route's data for other staffed points: boat_aktse_laitaure.json notes cabins close and hosts leave around lunchtime on 13 September, and boat_sitojaure_svijnne.json notes only one lake crossing is available that day. This suggests 13 September 2026 is a general STF season-end date across multiple staffed points on this route, not an Alesjaure-only quirk -- but the Alesjaure-specific date should still be verified directly.",
-      "why_it_matters": "Alesjaure has a large shop and is STF's largest fjällstuga on this route (78 beds) -- a resupply point the itinerary may be relying on. After the season-closing date, the shop and staffed host are very likely unavailable (huts commonly switch to unstaffed self-service mode after the staffed season, if usable at all), so relying on food or help there past this date is risky.",
-      "action_required": [
-        "Confirm STF Alesjaure Fjällstuga's exact 2026 closing date and post-season status directly with STF (see phone numbers on the nearby staffed stations, or svenskaturistforeningen.se) before relying on its shop.",
-        "As the hike progresses, re-estimate the actual arrival date at Alesjaure and check it against the confirmed closing date.",
-        "If arrival is expected on or after the closing date, plan resupply around Sälka or Abiskojaure instead, and don't count on Alesjaure's shop or host."
-      ],
-      "related_files": [
-        "route.json",
-        "boat_aktse_laitaure.json",
-        "boat_sitojaure_svijnne.json"
-      ],
-      "source_checked": null,
-      "source_last_modified": null,
-      "last_checked": "2026-07-08",
-      "recheck_before_trip": true,
-      "recheck_recommended_by": "2026-08-25"
     }
   ]
 }

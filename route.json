@@ -250,8 +250,7 @@
       },
       "alt_names": [
         "STF Alesjaure cabin"
-      ],
-      "critical_alert_id": "alesjaure_closes_sep13_2026"
+      ]
     },
     {
       "id": "stf_abiskojaure",
@@ -586,8 +585,7 @@
           "elevation_m": 1000,
           "notes": "Smallest hut on Kungsleden, no shop, no sauna. Often skipped by hikers doing Sälka-Alesjaure in one long day. The actual Tjäktja Pass (highest point of the whole trail, ~1150m) is a few km further north of the hut, with a wind shelter at the summit."
         }
-      ],
-      "critical_alert_id": "alesjaure_closes_sep13_2026"
+      ]
     },
     {
       "id": "stf_alesjaure_cabin__stf_abiskojaure",
