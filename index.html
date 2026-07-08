@@ -1426,7 +1426,7 @@
   }
 
   function hutTypeBadgeText(wp) {
-    if (wp.type !== "hut") return "crossing point";
+    if (wp.type !== "hut") return "";
     return /Fjällstation|Turiststation/.test(wp.name) ? "station" : "cabin";
   }
 
@@ -1546,7 +1546,7 @@
       <h2>${escapeHtml(wp.name)}</h2>
       <div class="badges">
         ${badge(wp.kind, "kind")}
-        ${badge(hutTypeBadgeText(wp))}
+        ${hutTypeBadgeText(wp) ? badge(hutTypeBadgeText(wp)) : ""}
         ${wp.shop.size !== "none" ? badge(shopBadgeText(wp.shop.size)) : ""}
         ${wp.shop.electricity ? badge("⚡ power") : ""}
         ${wp.heating ? badge(heatingBadgeText(wp.heating)) : ""}
@@ -1608,7 +1608,6 @@
   function waypointCard(wp) {
     const alertBadge = wp.critical_alert_id
       ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${wp.critical_alert_id}')">⚠ alert</span>` : "";
-    const altBadge = wp.alt_names.length ? badge("alt name") : "";
     return `
       <button class="card" onclick="openWaypointDetail(${JSON.stringify(wp).replace(/"/g, "&quot;")})">
         <div class="card-head">
@@ -1617,12 +1616,11 @@
         </div>
         <div class="badges">
           ${badge(wp.kind, "kind")}
-          ${badge(hutTypeBadgeText(wp))}
+          ${hutTypeBadgeText(wp) ? badge(hutTypeBadgeText(wp)) : ""}
           ${wp.shop.size !== "none" ? badge(shopBadgeText(wp.shop.size)) : ""}
           ${wp.shop.electricity ? badge("⚡ power") : ""}
           ${wp.heating ? badge(heatingBadgeText(wp.heating)) : ""}
           ${wp.sauna ? badge("♨ sauna") : ""}
-          ${altBadge}
           ${alertBadge}
         </div>
       </button>
