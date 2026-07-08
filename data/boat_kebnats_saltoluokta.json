@@ -6,8 +6,8 @@
     "Akkajaure (surrounding larger lake system)"
   ],
   "connects": [
-    "STF Vakkotavare Fjällstuga (shore)",
-    "STF Saltoluokta Fjällstation (shore)"
+    "STF Vakkotavare Fjällstuga",
+    "STF Saltoluokta Fjällstation"
   ],
   "important_structural_note": "This is not a direct crossing from Vakkotavare. The full route is: STF Vakkotavare -> bus operated by Road to Ritsem -> Kebnats pier -> boat M/S Langas -> STF Saltoluokta. Vakkotavare itself has no boat pier. See bus_vakkotavare_kebnats.json for the critical bus connection details and a known scheduling gap around early September 2026.",
   "operator": "STF (Swedish Tourist Association) directly operates M/S Langas",

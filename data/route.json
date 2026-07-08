@@ -42,7 +42,7 @@
     {
       "id": "stopover_cabin_laitaure_shore",
       "kind": "waypoint",
-      "name": "Vindskydd Laitaure (shore)",
+      "name": "Vindskydd Laitaure",
       "km_from_start": 40,
       "type": "hut",
       "shop": {
@@ -52,19 +52,21 @@
       "alt_names": [
         "Stopover cabin Laitaure (shore)",
         "Raststuga Laitaure"
-      ]
+      ],
+      "shore": true
     },
     {
       "id": "aktse_shore",
       "kind": "waypoint",
-      "name": "Aktse (shore)",
+      "name": "Aktse",
       "km_from_start": 40,
       "type": "lake_crossing_point",
       "shop": {
         "size": "none",
         "electricity": false
       },
-      "alt_names": []
+      "alt_names": [],
+      "shore": true
     },
     {
       "id": "stf_aktse_cabin",
@@ -99,7 +101,7 @@
     {
       "id": "stopover_cabin_svijnne_shore",
       "kind": "waypoint",
-      "name": "Vindskydd Svijnne (shore)",
+      "name": "Vindskydd Svijnne",
       "km_from_start": 62.1,
       "type": "hut",
       "shop": {
@@ -108,12 +110,13 @@
       },
       "alt_names": [
         "Stopover cabin Svijnne (shore)"
-      ]
+      ],
+      "shore": true
     },
     {
       "id": "stf_sitojaure_cabin_vaggevarasj_shore",
       "kind": "waypoint",
-      "name": "STF Sitojaure Fjällstuga - Vaggevárasj (shore)",
+      "name": "STF Sitojaure Fjällstuga - Vaggevárasj",
       "km_from_start": 62.1,
       "type": "lake_crossing_point",
       "shop": {
@@ -123,12 +126,13 @@
       "alt_names": [
         "STF Sitojaure cabin - Vaggevárasj (shore)",
         "Sitojaure"
-      ]
+      ],
+      "shore": true
     },
     {
       "id": "stf_saltoluokta_station_shore",
       "kind": "waypoint",
-      "name": "STF Saltoluokta Fjällstation (shore)",
+      "name": "STF Saltoluokta Fjällstation",
       "km_from_start": 81.4,
       "type": "hut",
       "shop": {
@@ -142,7 +146,8 @@
       ],
       "phone": "+46 10 190 23 50",
       "sauna": true,
-      "heating": "heat"
+      "heating": "heat",
+      "shore": true
     },
     {
       "id": "kebnats",
@@ -162,7 +167,7 @@
     {
       "id": "stf_vakkotavare_cabin_shore",
       "kind": "waypoint",
-      "name": "STF Vakkotavare Fjällstuga (shore)",
+      "name": "STF Vakkotavare Fjällstuga",
       "km_from_start": 81.4,
       "type": "lake_crossing_point",
       "shop": {
@@ -173,7 +178,8 @@
         "STF Vakkotavare cabin (shore)"
       ],
       "sauna": false,
-      "heating": "stove"
+      "heating": "stove",
+      "shore": true
     },
     {
       "id": "stopover_cabin_dievssajavri",
@@ -332,7 +338,7 @@
       "type": "hike",
       "from": "STF Pårte Fjällstuga",
       "from_id": "stf_parte_cabin",
-      "to": "Vindskydd Laitaure (shore)",
+      "to": "Vindskydd Laitaure",
       "to_id": "stopover_cabin_laitaure_shore",
       "distance_km": 23,
       "ascent_m": 385,
@@ -354,9 +360,9 @@
       "id": "stopover_cabin_laitaure_shore__aktse_shore",
       "order": 3,
       "type": "boat",
-      "from": "Vindskydd Laitaure (shore)",
+      "from": "Vindskydd Laitaure",
       "from_id": "stopover_cabin_laitaure_shore",
-      "to": "Aktse (shore)",
+      "to": "Aktse",
       "to_id": "aktse_shore",
       "distance_km": 3,
       "ascent_m": 0,
@@ -371,7 +377,7 @@
       "id": "aktse_shore__stf_aktse_cabin",
       "order": 4,
       "type": "hike",
-      "from": "Aktse (shore)",
+      "from": "Aktse",
       "from_id": "aktse_shore",
       "to": "STF Aktse Fjällstuga",
       "to_id": "stf_aktse_cabin",
@@ -405,7 +411,7 @@
       "type": "hike",
       "from": "Skierfe",
       "from_id": "skirffe",
-      "to": "Vindskydd Svijnne (shore)",
+      "to": "Vindskydd Svijnne",
       "to_id": "stopover_cabin_svijnne_shore",
       "distance_km": 13.6,
       "ascent_m": 264,
@@ -419,9 +425,9 @@
       "id": "stopover_cabin_svijnne_shore__stf_sitojaure_cabin_vaggevarasj_shore",
       "order": 7,
       "type": "boat",
-      "from": "Vindskydd Svijnne (shore)",
+      "from": "Vindskydd Svijnne",
       "from_id": "stopover_cabin_svijnne_shore",
-      "to": "STF Sitojaure Fjällstuga - Vaggevárasj (shore)",
+      "to": "STF Sitojaure Fjällstuga - Vaggevárasj",
       "to_id": "stf_sitojaure_cabin_vaggevarasj_shore",
       "distance_km": null,
       "ascent_m": 0,
@@ -440,9 +446,9 @@
       "id": "stf_sitojaure_cabin_vaggevarasj_shore__stf_saltoluokta_station_shore",
       "order": 8,
       "type": "hike",
-      "from": "STF Sitojaure Fjällstuga - Vaggevárasj (shore)",
+      "from": "STF Sitojaure Fjällstuga - Vaggevárasj",
       "from_id": "stf_sitojaure_cabin_vaggevarasj_shore",
-      "to": "STF Saltoluokta Fjällstation (shore)",
+      "to": "STF Saltoluokta Fjällstation",
       "to_id": "stf_saltoluokta_station_shore",
       "distance_km": 19.3,
       "ascent_m": 142,
@@ -464,7 +470,7 @@
       "id": "stf_saltoluokta_station_shore__kebnats",
       "order": 9,
       "type": "boat",
-      "from": "STF Saltoluokta Fjällstation (shore)",
+      "from": "STF Saltoluokta Fjällstation",
       "from_id": "stf_saltoluokta_station_shore",
       "to": "Kebnats",
       "to_id": "kebnats",
@@ -487,7 +493,7 @@
       "type": "bus",
       "from": "Kebnats",
       "from_id": "kebnats",
-      "to": "STF Vakkotavare Fjällstuga (shore)",
+      "to": "STF Vakkotavare Fjällstuga",
       "to_id": "stf_vakkotavare_cabin_shore",
       "distance_km": 0,
       "ascent_m": 0,
@@ -502,7 +508,7 @@
       "id": "stf_vakkotavare_cabin_shore__stopover_cabin_dievssajavri",
       "order": 11,
       "type": "hike",
-      "from": "STF Vakkotavare Fjällstuga (shore)",
+      "from": "STF Vakkotavare Fjällstuga",
       "from_id": "stf_vakkotavare_cabin_shore",
       "to": "Raststuga Dievssajávri",
       "to_id": "stopover_cabin_dievssajavri",
