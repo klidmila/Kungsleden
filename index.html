@@ -270,7 +270,8 @@
     },
     "alt_names": [
       "STF Kvikkjokk"
-    ]
+    ],
+    "phone": "+46 971 210 22"
   },
   {
     "id": "stf_parte_cabin",
@@ -384,7 +385,8 @@
       "STF Saltoluokta Station (shore)",
       "Saltoluokta Fjallstation",
       "Saltoluokta Fjällstation"
-    ]
+    ],
+    "phone": "+46 10 190 23 50"
   },
   {
     "id": "kebnats",
@@ -530,7 +532,8 @@
       "Abisko Mountain Station",
       "STF Abisko Fjallstation",
       "STF Abisko Fjällstation"
-    ]
+    ],
+    "phone": "+46 10 190 24 00"
   }
 ];
 
@@ -1458,6 +1461,9 @@
     const altHtml = wp.alt_names.length
       ? `<h3>Alternative names</h3><table class="mini-table"><tbody>${wp.alt_names.map(n => `<tr><td>${escapeHtml(n)}</td></tr>`).join("")}</tbody></table>`
       : "";
+    const phoneHtml = wp.phone
+      ? `<h3>Contact</h3><p><a href="tel:${escapeHtml(wp.phone.replace(/\s+/g, ""))}">${escapeHtml(wp.phone)}</a></p>`
+      : "";
     const alertHtml = wp.critical_alert_id
       ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${wp.critical_alert_id}')">⚠ View related alert</button></div>`
       : "";
@@ -1471,6 +1477,7 @@
       </div>
       <h3>Distance from start</h3><p>km ${wp.km_from_start}</p>
       ${altHtml}
+      ${phoneHtml}
       ${alertHtml}
     `);
   }

@@ -17,7 +17,8 @@
       },
       "alt_names": [
         "STF Kvikkjokk"
-      ]
+      ],
+      "phone": "+46 971 210 22"
     },
     {
       "id": "stf_parte_cabin",
@@ -131,7 +132,8 @@
         "STF Saltoluokta Station (shore)",
         "Saltoluokta Fjallstation",
         "Saltoluokta Fjällstation"
-      ]
+      ],
+      "phone": "+46 10 190 23 50"
     },
     {
       "id": "kebnats",
@@ -277,7 +279,8 @@
         "Abisko Mountain Station",
         "STF Abisko Fjallstation",
         "STF Abisko Fjällstation"
-      ]
+      ],
+      "phone": "+46 10 190 24 00"
     }
   ],
   "segments": [
@@ -626,6 +629,7 @@
       "latrine": true
     }
   ],
+  "schema_note_phone": "phone (string, optional, absent when not known) is a direct contact number for a staffed waypoint, shown in its detail view only -- not surfaced as an itinerary badge. Currently only recorded for the three Fjällstation-class waypoints (Kvikkjokk, Saltoluokta, Abisko); not yet gathered for the fjällstuga-class huts.",
   "schema_note_latrine": "latrine (boolean, optional, defaults to false when absent) marks a segment that has a standalone latrine along the hiking trail itself, separate from the huts at either end (every staffed hut/fjällstuga/fjällstation already has one, so those aren't flagged here). Currently true for only 3 segments: Kvikkjokk->Pårte (Njahkájåhkå, ~km 6), Alesjaure->Abiskojaure (Rádunjárga, off the main trail), and Abiskojaure->Abisko (Nisson tältplats, ~km 187).",
   "schema_note_shelters": "The shelters array on a segment lists unstaffed emergency shelters or small huts passed along that segment. Where the exact sub-distance is confirmed from independent sources (currently only Tjaktja), position gives real km figures. Otherwise position is descriptive only, and should not be treated as a precise km value. The segment own distance_km, ascent_m and descent_m fields are unaffected and still describe the whole segment end to end.",
   "schema_note_shop": "shop.size on a waypoint reflects the original shop/transport column: full (well-stocked shop, matches Full+electricity marking), large, small, or none. shop.electricity is true only where the source table marked the lightning-bolt symbol (mains power available). Small unstaffed emergency shelters (listed under a segment's shelters array) have no shop by definition and are not included here.",
