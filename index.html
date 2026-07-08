@@ -1357,7 +1357,11 @@
   }
 
   function shopBadgeText(size) {
-    return size === "none" ? "no shop" : `${size} shop`;
+    return `${size} shop`;
+  }
+
+  function heatingBadgeText(heating) {
+    return heating === "heat" ? "🏠 heat" : "🔥 stove";
   }
 
   function hutTypeBadgeText(wp) {
@@ -1481,9 +1485,9 @@
       <div class="badges">
         ${badge(wp.kind, "kind")}
         ${badge(hutTypeBadgeText(wp))}
-        ${badge(shopBadgeText(wp.shop.size))}
-        ${badge(wp.shop.electricity ? "power" : "no power")}
-        ${wp.heating ? badge(wp.heating) : ""}
+        ${wp.shop.size !== "none" ? badge(shopBadgeText(wp.shop.size)) : ""}
+        ${wp.shop.electricity ? badge("⚡ power") : ""}
+        ${wp.heating ? badge(heatingBadgeText(wp.heating)) : ""}
         ${wp.sauna ? badge("♨ sauna") : ""}
       </div>
       <h3>Distance from start</h3><p>km ${wp.km_from_start}</p>
@@ -1552,9 +1556,9 @@
         <div class="badges">
           ${badge(wp.kind, "kind")}
           ${badge(hutTypeBadgeText(wp))}
-          ${badge(shopBadgeText(wp.shop.size))}
-          ${badge(wp.shop.electricity ? "power" : "no power")}
-          ${wp.heating ? badge(wp.heating) : ""}
+          ${wp.shop.size !== "none" ? badge(shopBadgeText(wp.shop.size)) : ""}
+          ${wp.shop.electricity ? badge("⚡ power") : ""}
+          ${wp.heating ? badge(heatingBadgeText(wp.heating)) : ""}
           ${wp.sauna ? badge("♨ sauna") : ""}
           ${altBadge}
           ${alertBadge}
