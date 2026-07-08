@@ -57,6 +57,11 @@
   h1 { font-size: 1.25rem; margin: 0 0 0.25rem; }
   .subtitle { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.1rem; }
   h2.section-title { font-size: 0.95rem; margin: 0 0 0.8rem; }
+  .food-block { border: 1px solid var(--border); background: var(--card-bg); border-radius: 10px; padding: 0.7rem 0.9rem; margin-bottom: 0.7rem; }
+  .food-block h3 { font-size: 0.88rem; margin: 0 0 0.4rem; }
+  .food-block h4 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin: 0.6rem 0 0.3rem; }
+  .food-block p { font-size: 0.85rem; margin: 0; line-height: 1.5; }
+  .food-block.highlight { border-color: var(--danger); }
 
   .view { display: none; }
   .view.active { display: block; }
@@ -245,6 +250,33 @@
       <h2 class="section-title">Crossings</h2>
       <div class="cards" id="crossings-slot"></div>
     </div>
+
+    <div id="view-food" class="view">
+      <h2 class="section-title">Food / Shop stock</h2>
+
+      <div class="food-block highlight">
+        <h3>Key difference: Large vs Small</h3>
+        <p>Both shop sizes guarantee the core resupply staples all season (chocolate, hard bread, cheese, canned veg, sausage/meat, freeze-dried meals, powder soup, hygiene basics). The differences: in <strong>Large</strong>, loose-weight pasta/rice/lentils are guaranteed, but packaged 500g pasta is not (stock-dependent). In <strong>Small</strong> it's the reverse: packaged 500g pasta is guaranteed, but loose pasta/rice/lentils are stock-dependent. Small also simply lacks whole categories that Large may carry: salami, dried game sausage, olives, nuts, tortillas, parmesan, olive oil, dark rye bread.</p>
+      </div>
+
+      <div class="food-block">
+        <h3>Shop Large</h3>
+        <h4>Guaranteed all season</h4>
+        <p>Chocolate 125g/145g (55:-), Coffee/hot chocolate sachet (10:-), Tea sachet (5:-), Hard bread (35:-), Soft cheese 250g (95:-), Fruit cocktail (60:-), Beans (35:-), Tomatoes (35:-), Corn (45:-), Sausage (65:-), Meat (90:-), Freeze dried ready-meals (140:-), Powder soup 3p/single (35:- / 15:-), Oats loose (5:-/dl), Pasta loose (5:-/dl), Rice loose (10:-/dl), Lentils loose (10:-/dl), Sanitary napkin single (5:-), Sanitary napkin pack (50:-), Plaster (30:-), Toilet paper (15:-), Matches (10:-), STF fabric touring badge (35:-), Duvet cover/bottom sheet (35:-), Pillow case/Towel (10:-).</p>
+        <h4>While stock lasts (mainly peak season)</h4>
+        <p>Dark chocolate 5g (5:-), Chocolate bar 27g (15:- / 3 för 35:-), Snickers/Chocolate wafer (20:-), Bars (40:-), Candy bag (40:-), Pastille box (15:-), Dextrosol (25:-), Crisps small (25:-), Crisps large (45:-), Cashew nuts (35:-), Nuts chili/salted (45:-), Olives (40:-), Dried sausage reindeer/moose (50:-), Cookies/Digestive biscuit (55:-), Soft drink 33cl (40:-), Beer 33cl (60:-), Milkpowder coffeemilk-sticks (5:-/5st), Milkpowder loose (10:-/dl), Milkpowder bag 1l (25:-), Hard bread gluten free (50:-), Dark rye bread (50:-), Tortilla wraps (40:-), Vegetarian paté (95:-), Salami (45:-), Dried ham (65:-), Peanut butter (65:-), Fish (40:-), Tofu (65:-), Pineapple (30:-), Freeze dried ready-breakfast (85:-), Pasta sauce bag 3dl (25:-), Noodles (15:-), Pasta 500g (50:-), Tortellini pasta (85:-), Mashed potatoes powdered (35:-), Taco vegetarian w/soy protein (40:-), Lingonberry jam single (10:-), Olive oil (40:-), Parmesan cheese (25:-), Sugar single (5:-), Blueberry/fruit powder soup (20:-/dl), Compeed single (20:-), Bandage (120:-), Leukoplast (80:-), Cerate (40:-), Sun lip balm (75:-), Lips & Face protection stick (130:-), Tampon single (5:-), Tampon pack (50:-), Toothbrush (25:-), Toothbrush & toothpaste travelkit (35:-), Hair+body/dish+wash soap (85:-), Mosquito repellant (150:-), Rehydration (45:-), Camping gas 230g (100:-), Camping gas 100g (65:-), Camping gas 450g (150:-), Methylated spirit (80:-), STF Kungsleden badge (50:-), STF Buff (100:-), Batteries AA/AAA single (10:-), Map (190:-), Compass (300:-).</p>
+      </div>
+
+      <div class="food-block">
+        <h3>Shop Small</h3>
+        <h4>Guaranteed all season</h4>
+        <p>Chocolate 145g (55:-), Coffee/hot chocolate sachet (10:-), Tea sachet (5:-), Hard bread (35:-), Soft cheese 250g (95:-), Fruit cocktail (60:-), Beans (35:-), Tomatoes (35:-), Corn (45:-), Sausage (65:-), Meat (90:-), Freeze dried ready-meals (140:-), Powder soup 3p/single (35:- / 15:-), Pasta 500g (45:-), Oats loose (5:-/dl), Sanitary napkin single (5:-), Sanitary napkin pack (50:-), Plaster (30:-), Toilet paper (15:-), Matches (10:-), STF fabric touring badge (35:-), Duvet cover/bottom sheet (35:-), Pillow case/Towel (10:-).</p>
+        <h4>While stock lasts (mainly peak season)</h4>
+        <p>Snickers/Chocolate wafer (20:-), Candy bag (40:-), Crisps small (25:-), Cookies/Biscuit (55:-), Soft drink 33cl (40:-), Beer 33cl (60:-), Freeze dried ready-breakfast (85:-), Noodles (15:-), Mashed potatoes powdered (35:-), Pasta loose (5:-/dl), Rice loose (10:-/dl), Lentils loose (10:-/dl), Compeed single (20:-), Compeed pack (90:-), Mosquito repellant (150:-), Rehydration (45:-), Camping gas 230g (100:-), Camping gas 100g (65:-), Camping gas 450g (150:-), Methylated spirit (80:-), STF Kungsleden badge (50:-), STF Buff (100:-), Batteries (10:-), Map (190:-), Compass (300:-).</p>
+      </div>
+
+      <p class="na" style="display:block; margin-top: 0.5rem;">Source: STF shop price lists (Butik Large / Butik Small), 2025 English editions. "Full" shop waypoints (Kvikkjokk, Saltoluokta, Abisko) are STF-run cafés/restaurants with a broader range than either list here, not covered by these two price lists.</p>
+    </div>
   </div>
 
   <nav class="tabbar">
@@ -252,6 +284,7 @@
     <button data-tab="itinerary" class="active">Route - detailed</button>
     <button data-tab="alerts">Alerts<span class="tab-count" id="alert-count" hidden></span></button>
     <button data-tab="crossings">Crossings</button>
+    <button data-tab="food">Food</button>
   </nav>
 
   <div class="detail-overlay hidden" id="detail-overlay">
