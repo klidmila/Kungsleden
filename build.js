@@ -24,23 +24,8 @@ const crossingDefs = readJson("crossings.json");
 const legs = [...route.segments]
   .sort((a, b) => a.order - b.order)
   .map((seg) => ({
-    id: seg.id,
-    order: seg.order,
-    type: seg.type,
-    from: seg.from,
-    from_id: seg.from_id,
-    to: seg.to,
-    to_id: seg.to_id,
-    distance_km: seg.distance_km,
-    ascent_m: seg.ascent_m,
-    descent_m: seg.descent_m,
-    notes: seg.notes,
-    camping_good: seg.camping_good,
-    camping_risky: seg.camping_risky,
-    lake: seg.lake || null,
+    ...seg,
     shelters: seg.shelters || [],
-    latrine: seg.latrine || false,
-    critical_alert_id: seg.critical_alert_id,
     crossing_ids: crossingDefs
       .filter((def) => def.segment_ids.includes(seg.id))
       .map((def) => def.id),
