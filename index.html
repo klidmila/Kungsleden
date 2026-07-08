@@ -231,6 +231,11 @@
       <div class="cards" id="itinerary-slot"></div>
     </div>
 
+    <div id="view-basic" class="view">
+      <h2 class="section-title">Route - basic</h2>
+      <div id="basic-slot"></div>
+    </div>
+
     <div id="view-alerts" class="view">
       <h2 class="section-title">Alerts</h2>
       <div class="cards" id="alerts-slot"></div>
@@ -244,6 +249,7 @@
 
   <nav class="tabbar">
     <button data-tab="itinerary" class="active">Route - detailed</button>
+    <button data-tab="basic">Route - basic</button>
     <button data-tab="alerts">Alerts<span class="tab-count" id="alert-count" hidden></span></button>
     <button data-tab="crossings">Crossings</button>
   </nav>
@@ -1632,6 +1638,37 @@
     if (unresolved > 0) { countEl.textContent = unresolved; countEl.hidden = false; }
   }
 
+  function renderRouteBasic() {
+    const hutRow = (wp) => `
+      <tr>
+        <td>${escapeHtml(wp.name)}</td>
+        <td>${wp.km_from_start}</td>
+        <td>${wp.shop.size !== "none" ? escapeHtml(wp.shop.size) : "–"}</td>
+        <td>${wp.sauna ? "✓" : "✗"}</td>
+        <td>${heatingBadgeText(wp.heating)}</td>
+      </tr>`;
+    const crossingRow = (leg) => {
+      const c = leg.crossing_ids.length ? crossingById(leg.crossing_ids[0]) : null;
+      const text = leg.type === "boat"
+        ? `⚓ lake · ${escapeHtml(leg.lake || "")}${c ? " (" + escapeHtml(c.subtitle) + ")" : " (boat)"}`
+        : `🚌 bus · ${escapeHtml(leg.from)} – ${escapeHtml(leg.to)}`;
+      return `<tr><td colspan="5" class="na">${text}</td></tr>`;
+    };
+    let rows = "";
+    const first = waypointById(legs[0].from_id);
+    if (first.heating) rows += hutRow(first);
+    legs.forEach((leg) => {
+      if (leg.type === "boat" || leg.type === "bus") rows += crossingRow(leg);
+      const wp = waypointById(leg.to_id);
+      if (wp.heating) rows += hutRow(wp);
+    });
+    document.getElementById("basic-slot").innerHTML = `
+      <table class="mini-table">
+        <thead><tr><th>waypoint</th><th>km</th><th>shop</th><th>sauna</th><th>heating</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
   function renderCrossingsTab() {
     const slot = document.getElementById("crossings-slot");
     slot.innerHTML = crossings.map(c => `
@@ -1647,6 +1684,7 @@
 
   renderBanner();
   renderItinerary();
+  renderRouteBasic();
   renderAlertsTab();
   renderCrossingsTab();
 </script>
