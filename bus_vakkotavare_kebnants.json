@@ -6,7 +6,8 @@
   "phone": "+46 970 248 00",
   "critical_warning_2026": "The operator's own site states that this summer (2026), bus departures are affected by irregular train arrivals in Gällivare due to planned railway maintenance. On many days both scheduled trips run, on other days only one. Do not rely on the printed timetable alone -- check actual availability for your specific date through the booking partners (SJ, VY, or Norrtåg via the Resplus system) before you rely on this connection.",
   "season_2026": "Road to Ritsem operates 22 June - 20 September 2026, but exact operating dates differ by trip (see below) and are further affected by the 2026 train irregularity warning above.",
-  "direction_needed": "Vakkotavare -> Kebnats/Saltoloukta (this is part of the 'Ritsem - Stora Sjöfallet - Gällivare' table direction on the operator's site)",
+  "direction_warning": "IMPORTANT / UNVERIFIED: this file's trip times below are all for the Vakkotavare -> Kebnats direction (heading OUT toward Gällivare), taken from the 'Ritsem - Stora Sjöfallet - Gällivare' table on the operator's site. A south-to-north Kungsleden hiker arriving at Kebnats by boat from Saltoluokta actually needs the OPPOSITE direction -- Kebnats -> Vakkotavare, heading further INTO the mountains -- to continue the hike. Road to Ritsem runs a round trip (Gällivare <-> Ritsem, via Kebnats and Vakkotavare), so a Kebnats -> Vakkotavare departure almost certainly exists earlier the same day as each 'Vakkotavare departure' time below, but its exact time has not been confirmed against a source -- call Road to Ritsem (+46 970 248 00) or check roadtoritsem.com's 'Gällivare - Stora Sjöfallet - Ritsem' direction table before relying on this leg.",
+  "direction_needed_captured": "Vakkotavare -> Kebnats/Saltoloukta (this is part of the 'Ritsem - Stora Sjöfallet - Gällivare' table direction on the operator's site) -- see direction_warning above, this is NOT the direction a south-to-north hiker needs.",
   "trips": [
     {
       "trip_name": "Tur 1",
@@ -24,10 +25,10 @@
     }
   ],
   "critical_date_gap_analysis": {
-    "note": "Combining both trips: there appears to be NO scheduled Vakkotavare -> Kebnats departure at all on 6 September 2026 specifically (Tur 1 stops 5 Sep, Tur 2 in this direction starts 7 Sep). From 7-13 September only Tur 2 (09:20 departure) runs; Tur 1 resumes 14 September.",
-    "recommendation": "Once you know your likely arrival date at Vakkotavare, check this gap carefully. If it falls on or near 6 September, you may need a rest day, an earlier/later push on the trail to shift your arrival date, or to contact the operator directly to ask about that day."
+    "note": "Combining both trips: there appears to be NO scheduled Vakkotavare -> Kebnats departure at all on 6 September 2026 specifically (Tur 1 stops 5 Sep, Tur 2 in this direction starts 7 Sep). From 7-13 September only Tur 2 (09:20 departure) runs; Tur 1 resumes 14 September. This gap analysis is for the captured (Vakkotavare -> Kebnats) direction only -- per direction_warning above, whether the same 6 September gap also applies to the Kebnats -> Vakkotavare run (the direction actually needed here) is unconfirmed, since that run's own timetable was not found.",
+    "recommendation": "Once you know your likely arrival date at Kebnats, check this gap carefully for the Kebnats -> Vakkotavare direction specifically (not just the Vakkotavare -> Kebnats table above). If it falls on or near 6 September, you may need a rest day, an earlier/later push on the trail to shift your arrival date, or to contact the operator directly to ask about that day."
   },
-  "good_news": "The M/S Langas boat itself runs on its own schedule even on days when the bus does not run (confirmed by STF), so the boat is not the constraint -- getting from Vakkotavare to Kebnats is the actual bottleneck.",
+  "good_news": "The M/S Langas boat itself runs on its own schedule even on days when the bus does not run (confirmed by STF), so the boat is not the constraint -- getting from Kebnats to Vakkotavare is the actual bottleneck.",
   "fallback_contacts": {
     "note": "For transport outside the scheduled bus departures, STF Saltoluokta previously gave these contacts for arranging the Kebnats-Saltoluokta boat leg specifically -- worth calling if the bus situation is uncertain, since they may know current workarounds:",
     "christer_dynesius": "+46 70 241 66 35",
