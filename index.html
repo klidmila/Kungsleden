@@ -379,7 +379,7 @@
     "kind": "waypoint",
     "name": "Skierfe",
     "km_from_start": 48.5,
-    "type": "hut",
+    "type": "viewpoint",
     "shop": {
       "size": "none",
       "electricity": false
@@ -1426,6 +1426,7 @@
   }
 
   function hutTypeBadgeText(wp) {
+    if (wp.type === "viewpoint") return "view";
     if (wp.type !== "hut") return "";
     return /Fjällstation|Turiststation/.test(wp.name) ? "station" : "cabin";
   }

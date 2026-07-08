@@ -87,7 +87,7 @@
       "kind": "waypoint",
       "name": "Skierfe",
       "km_from_start": 48.5,
-      "type": "hut",
+      "type": "viewpoint",
       "shop": {
         "size": "none",
         "electricity": false
