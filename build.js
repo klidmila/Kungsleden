@@ -1,7 +1,7 @@
 // Regenerates the GENERATED DATA block inside index.html from the source
-// JSON files (route.json, alerts.json, crossings.json, boat_*.json,
-// bus_*.json), so editing the JSON is enough -- no manual re-copying into
-// the HTML.
+// JSON files in data/ (route.json, alerts.json, crossings.json,
+// boat_*.json, bus_*.json), so editing the JSON is enough -- no manual
+// re-copying into the HTML.
 //
 // Run it from the repo folder:
 //   node build.js
@@ -15,7 +15,8 @@ const fs = require("fs");
 const path = require("path");
 
 const repoRoot = __dirname;
-const readJson = (name) => JSON.parse(fs.readFileSync(path.join(repoRoot, name), "utf8"));
+const dataDir = path.join(repoRoot, "data");
+const readJson = (name) => JSON.parse(fs.readFileSync(path.join(dataDir, name), "utf8"));
 
 const route = readJson("route.json");
 const alertsFile = readJson("alerts.json");
