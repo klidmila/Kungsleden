@@ -301,7 +301,8 @@
       "electricity": false
     },
     "alt_names": [
-      "Stopover cabin Laitaure (shore)"
+      "Stopover cabin Laitaure (shore)",
+      "Raststuga Laitaure"
     ]
   },
   {
@@ -1358,6 +1359,11 @@
     return size === "none" ? "no shop" : `${size} shop`;
   }
 
+  function hutTypeBadgeText(wp) {
+    if (wp.type !== "hut") return "crossing point";
+    return /Fjällstation|Turiststation/.test(wp.name) ? "station" : "cabin";
+  }
+
   function isUrl(v) { return typeof v === "string" && /^https?:\/\//.test(v); }
 
   function kmOf(id) {
@@ -1473,7 +1479,7 @@
       <h2>${escapeHtml(wp.name)}</h2>
       <div class="badges">
         ${badge(wp.kind, "kind")}
-        ${badge(wp.type === "hut" ? "hut" : "crossing point")}
+        ${badge(hutTypeBadgeText(wp))}
         ${badge(shopBadgeText(wp.shop.size))}
         ${badge(wp.shop.electricity ? "power" : "no power")}
       </div>
@@ -1545,7 +1551,7 @@
         </div>
         <div class="badges">
           ${badge(wp.kind, "kind")}
-          ${badge(wp.type === "hut" ? "hut" : "crossing point")}
+          ${badge(hutTypeBadgeText(wp))}
           ${badge(shopBadgeText(wp.shop.size))}
           ${badge(wp.shop.electricity ? "power" : "no power")}
           ${altBadge}
