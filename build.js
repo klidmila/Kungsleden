@@ -1,7 +1,7 @@
 // Regenerates the GENERATED DATA block inside index.html from the source
-// JSON files (route.json, alerts.json, crossings.json, boat_*.json,
-// bus_*.json), so editing the JSON is enough -- no manual re-copying into
-// the HTML.
+// JSON files in data/ (route.json, alerts.json, crossings.json,
+// boat_*.json, bus_*.json), so editing the JSON is enough -- no manual
+// re-copying into the HTML.
 //
 // Run it from the repo folder:
 //   node build.js
@@ -15,7 +15,8 @@ const fs = require("fs");
 const path = require("path");
 
 const repoRoot = __dirname;
-const readJson = (name) => JSON.parse(fs.readFileSync(path.join(repoRoot, name), "utf8"));
+const dataDir = path.join(repoRoot, "data");
+const readJson = (name) => JSON.parse(fs.readFileSync(path.join(dataDir, name), "utf8"));
 
 const route = readJson("route.json");
 const alertsFile = readJson("alerts.json");
@@ -24,23 +25,8 @@ const crossingDefs = readJson("crossings.json");
 const legs = [...route.segments]
   .sort((a, b) => a.order - b.order)
   .map((seg) => ({
-    id: seg.id,
-    order: seg.order,
-    type: seg.type,
-    from: seg.from,
-    from_id: seg.from_id,
-    to: seg.to,
-    to_id: seg.to_id,
-    distance_km: seg.distance_km,
-    ascent_m: seg.ascent_m,
-    descent_m: seg.descent_m,
-    notes: seg.notes,
-    camping_good: seg.camping_good,
-    camping_risky: seg.camping_risky,
-    lake: seg.lake || null,
+    ...seg,
     shelters: seg.shelters || [],
-    latrine: seg.latrine || false,
-    critical_alert_id: seg.critical_alert_id,
     crossing_ids: crossingDefs
       .filter((def) => def.segment_ids.includes(seg.id))
       .map((def) => def.id),

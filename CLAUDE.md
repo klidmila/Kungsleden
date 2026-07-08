@@ -59,11 +59,15 @@ not just planned).
 
 ## Data files & id scheme
 
-`route.json` holds every waypoint and segment for the full route.
-`alerts.json` holds trip-critical warnings. `crossings.json` is a manifest
-mapping each `boat_*.json`/`bus_*.json` crossing file to the segment(s) it
-belongs to -- the one piece `build.js` can't derive on its own, since
-nothing else records that relationship.
+All source data lives under `data/`. `route.json` holds every waypoint and
+segment for the full route. `alerts.json` holds trip-critical warnings.
+`crossings.json` is a manifest mapping each `boat_*.json`/`bus_*.json`
+crossing file to the segment(s) it belongs to -- the one piece `build.js`
+can't derive on its own, since nothing else records that relationship.
+
+`build.js` otherwise passes waypoints/segments/alerts through close to
+as-is (spread, not a hand-picked field whitelist), so most new fields on a
+waypoint or segment just work without a `build.js` change.
 
 Waypoints and segments each carry a stable `id` (documented in route.json's
 own `schema_note_ids`):
@@ -113,8 +117,8 @@ and wire `crossings.json`/`alerts.json` to it by `id`. Then run
 
 ## Workflow
 
-1. Edit `route.json` / `alerts.json` / `crossings.json` / any
-   `boat_*.json` / `bus_*.json`.
+1. Edit `data/route.json` / `data/alerts.json` / `data/crossings.json` / any
+   `data/boat_*.json` / `data/bus_*.json`.
 2. Run `node build.js` (requires Node.js).
 3. Open the regenerated `index.html` directly in a browser to check.
 

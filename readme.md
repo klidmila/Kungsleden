@@ -24,15 +24,15 @@ hand-edited directly (see "Editing the data" below).
 | File | Contents |
 |---|---|
 | `index.html` | The app itself: HTML shell, CSS, and JS all in one file, with the route/alert/crossing data baked in by `build.js`. Open it directly in a browser -- no server required. |
-| `build.js` | Node script that regenerates `index.html`'s data block from the JSON files below. Run with `node build.js` after editing any of them. |
-| `crossings.json` | Manifest mapping each boat/bus crossing file to the segment id(s) it belongs to -- the one hand-maintained piece `build.js` can't derive on its own |
-| `route.json` | Full south-to-north waypoint and segment list: distances, ascent/descent, shop availability, alt names, emergency shelters |
-| `alerts.json` | Trip-critical warnings the app must surface prominently (e.g. transport gaps), separate from ordinary reference notes |
-| `boat_aktse_laitaure.json` | Aktse <-> Laitaure boat crossing: schedule, price, contact |
-| `boat_sitojaure_svijnne.json` | Sitojaure <-> Svijnne boat crossing: schedule, price, contact |
-| `boat_teusajaure_vakkotavare.json` | Teusajaure <-> Vakkotavare (Dievssajavri) boat crossing |
-| `boat_kebnats_saltoluokta.json` | Kebnats <-> Saltoluokta boat crossing (M/S Langas), official STF timetable |
-| `bus_vakkotavare_kebnats.json` | The critical Vakkotavare -> Kebnats bus connection, including a known 2026 scheduling gap |
+| `build.js` | Node script that regenerates `index.html`'s data block from the JSON files in `data/`. Run with `node build.js` after editing any of them. |
+| `data/crossings.json` | Manifest mapping each boat/bus crossing file to the segment id(s) it belongs to -- the one hand-maintained piece `build.js` can't derive on its own |
+| `data/route.json` | Full south-to-north waypoint and segment list: distances, ascent/descent, shop/sauna/heating, alt names, emergency shelters, trail-side latrines |
+| `data/alerts.json` | Trip-critical warnings the app must surface prominently (e.g. transport gaps), separate from ordinary reference notes |
+| `data/boat_aktse_laitaure.json` | Aktse <-> Laitaure boat crossing: schedule, price, contact |
+| `data/boat_sitojaure_svijnne.json` | Sitojaure <-> Svijnne boat crossing: schedule, price, contact |
+| `data/boat_teusajaure_vakkotavare.json` | Teusajaure <-> Vakkotavare (Dievssajavri) boat crossing |
+| `data/boat_kebnats_saltoluokta.json` | Kebnats <-> Saltoluokta boat crossing (M/S Langas), official STF timetable |
+| `data/bus_vakkotavare_kebnants.json` | The Kebnats <-> Vakkotavare bus connection (Road to Ritsem), including a known 2026 scheduling gap |
 | `CLAUDE.md` | Architecture/design spec: why the app is built this way, the id scheme, the offline constraint |
 
 All data is in English, including place names left as-is (Swedish/Sami
@@ -57,8 +57,8 @@ the mountains.
 
 ## Editing the data
 
-Edit `route.json`, `alerts.json`, `crossings.json`, or any `boat_*.json` /
-`bus_*.json` file, then regenerate `index.html`:
+Edit any file under `data/` (`route.json`, `alerts.json`, `crossings.json`,
+or a `boat_*.json` / `bus_*.json` file), then regenerate `index.html`:
 
 ```sh
 node build.js
@@ -66,6 +66,9 @@ node build.js
 
 Requires [Node.js](https://nodejs.org/). Don't hand-edit the data block
 inside `index.html` -- it gets overwritten the next time `build.js` runs.
+`build.js` passes each segment/waypoint/alert through mostly as-is, so a new
+field in the JSON generally just works without touching `build.js` -- the one
+hand-maintained piece is the boat/bus-to-segment mapping in `crossings.json`.
 
 Every waypoint and segment in `route.json` has a stable `id` (see
 `schema_note_ids` in that file), used by `crossings.json` and `alerts.json` to
@@ -87,9 +90,37 @@ require a paid GitHub plan, or an alternative like Netlify/Cloudflare Pages.
 
 Boat/bus schedules, prices, and contact details were gathered from official
 operator and STF sources but **can change between seasons**. Before relying
-on any crossing, especially the Vakkotavare -> Kebnats bus connection
-flagged in `alerts.json`, re-check the linked source close to your travel
-date.
+on any crossing, especially the Kebnats -> Vakkotavare bus connection flagged
+in `alerts.json` (only the opposite direction's timetable has been confirmed
+so far -- see the alert and `bus_vakkotavare_kebnants.json` for details),
+re-check the linked source close to your travel date.
+
+## Changelog
+
+Brief, newest first. See git history for full detail.
+
+- Moved all `data/*.json` files into a `data/` folder; `build.js` now passes
+  waypoints/segments/alerts through mostly untouched instead of a
+  hand-maintained field whitelist, so new fields don't need a `build.js` edit.
+- Added `sauna` and `heating` (`heat`/`stove`) badges on huts that have that
+  data.
+- Added phone contacts for the three Fjällstation-class waypoints.
+- Split the "hut" badge into `station` (Fjällstation/Turiststation) and
+  `cabin` (Fjällstuga) for clarity.
+- Renamed waypoints from generic "cabin" to their real STF designation
+  (Fjällstation, Fjällstuga, Raststuga, Vindskydd), old names kept as
+  `alt_names`.
+- Added trail-side latrine badges (separate from hut latrines) for the 3
+  segments that have one.
+- Split the merged Saltoluokta -> Vakkotavare leg into its real boat
+  (-> Kebnats) and bus (Kebnats -> Vakkotavare) legs, adding the missing
+  Kebnats waypoint.
+- Corrected the Kebnats/Vakkotavare bus alert: the originally captured
+  timetable was for the opposite direction, unconfirmed for the direction a
+  south-to-north hiker actually needs.
+- Fixed the print/PDF stylesheet hiding all itinerary cards (an overly broad
+  `button` selector), and made it include full crossing detail, not just a
+  summary line.
 
 ## Roadmap
 
