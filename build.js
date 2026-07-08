@@ -39,6 +39,7 @@ const legs = [...route.segments]
     camping_risky: seg.camping_risky,
     lake: seg.lake || null,
     shelters: seg.shelters || [],
+    latrine: seg.latrine || false,
     critical_alert_id: seg.critical_alert_id,
     crossing_ids: crossingDefs
       .filter((def) => def.segment_ids.includes(seg.id))

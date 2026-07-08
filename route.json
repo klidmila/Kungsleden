@@ -292,10 +292,11 @@
       "distance_km": 17,
       "ascent_m": 270,
       "descent_m": 80,
-      "notes": "Latrine at Njahkájåhkå",
+      "notes": "Latrine at Njahkájåhkå, around km 6 from Kvikkjokk.",
       "camping_good": "Forest for most of the stretch, camping is fine almost anywhere",
       "camping_risky": "Practically no risk spots",
-      "shelters": []
+      "shelters": [],
+      "latrine": true
     },
     {
       "id": "stf_parte_cabin__stopover_cabin_laitaure_shore",
@@ -593,18 +594,19 @@
       "distance_km": 21,
       "ascent_m": 20,
       "descent_m": 330,
-      "notes": "Latrine; Rádunjárga stopover cabin",
+      "notes": "Latrine at Rádunjárga, off the main trail (km 155.4-176.4 range).",
       "camping_good": "Terrain dips, near streams",
       "camping_risky": "Around the big lake, no shelter",
       "shelters": [
         {
           "name": "Rádunjárga stopover cabin",
           "type": "emergency_shelter",
-          "position": "somewhere along this 21 km stretch, exact km not confirmed",
+          "position": "off the main trail, somewhere along this 21 km stretch (km 155.4-176.4 range), exact km not confirmed",
           "elevation_m": null,
-          "notes": "Unstaffed basic shelter, no shop."
+          "notes": "Unstaffed basic shelter, no shop. Has a latrine."
         }
-      ]
+      ],
+      "latrine": true
     },
     {
       "id": "stf_abiskojaure__stf_abisko_turiststation",
@@ -617,12 +619,14 @@
       "distance_km": 16,
       "ascent_m": 8,
       "descent_m": 115,
-      "notes": "Windshelter, latrine",
+      "notes": "Windshelter and latrine at Nisson tältplats, around km 187.",
       "camping_good": "Forest section below the tree line",
       "camping_risky": "Upper alpine plateau",
-      "shelters": []
+      "shelters": [],
+      "latrine": true
     }
   ],
+  "schema_note_latrine": "latrine (boolean, optional, defaults to false when absent) marks a segment that has a standalone latrine along the hiking trail itself, separate from the huts at either end (every staffed hut/fjällstuga/fjällstation already has one, so those aren't flagged here). Currently true for only 3 segments: Kvikkjokk->Pårte (Njahkájåhkå, ~km 6), Alesjaure->Abiskojaure (Rádunjárga, off the main trail), and Abiskojaure->Abisko (Nisson tältplats, ~km 187).",
   "schema_note_shelters": "The shelters array on a segment lists unstaffed emergency shelters or small huts passed along that segment. Where the exact sub-distance is confirmed from independent sources (currently only Tjaktja), position gives real km figures. Otherwise position is descriptive only, and should not be treated as a precise km value. The segment own distance_km, ascent_m and descent_m fields are unaffected and still describe the whole segment end to end.",
   "schema_note_shop": "shop.size on a waypoint reflects the original shop/transport column: full (well-stocked shop, matches Full+electricity marking), large, small, or none. shop.electricity is true only where the source table marked the lightning-bolt symbol (mains power available). Small unstaffed emergency shelters (listed under a segment's shelters array) have no shop by definition and are not included here.",
   "schema_note_alt_names": "alt_names lists spelling variants that may appear on physical trail signage, maps, or other apps: an ASCII fold (no Swedish a-ring/a-umlaut/o-umlaut or Sami a-acute) plus any specific alternate names found during research. This list is best-effort from remote research, not confirmed on the ground. Treat it as a search aid for matching a signpost to the right waypoint, not as a verified official naming registry.",
