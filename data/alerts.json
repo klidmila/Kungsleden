@@ -5,30 +5,29 @@
       "id": "vakkotavare_kebnats_bus_gap_sep2026",
       "severity": "critical",
       "status": "unresolved",
-      "title": "Possible transport gap: Kebnats -> Vakkotavare, around 6 September 2026 (see direction note in details)",
-      "short_summary": "The only bus connecting the Kebnats boat pier onward to Vakkotavare may not run on 6 September 2026. Missing it strands you at Kebnats, unable to continue north to Vakkotavare that day. The confirmed gap dates below are for the Vakkotavare -> Kebnats direction; whether the same gap applies to the Kebnats -> Vakkotavare direction actually needed here is unconfirmed -- see details.",
+      "title": "Confirmed transport gap: Kebnats -> Vakkotavare, 13 September 2026",
+      "short_summary": "No bus runs from the Kebnats boat pier onward to Vakkotavare on 13 September 2026 -- confirmed from the operator's full timetable. Arriving at Kebnats that day strands you there, unable to continue north to Vakkotavare.",
       "affects_waypoint_id": "kebnats",
       "affects_km_from_start": 81.4,
       "affects_segment_id": "kebnats__stf_vakkotavare_cabin_shore",
-      "trip_context": "Based on a south-to-north start from Kvikkjokk on 1 September 2026, arrival at Kebnats (km 81.4, via the boat from Saltoluokta) is estimated around 6-10 September 2026, depending on pace and rest days -- this estimate itself is not precise, which is part of the risk.",
-      "details": "Bus operator Road to Ritsem runs two daily trips (Tur 1 and Tur 2) in season. The only timetable found so far is for the Vakkotavare -> Kebnats direction (heading out toward Gällivare); their date ranges do not overlap around early September: Tur 1 (Vakkotavare departure 14:40) stops running after 5 September and resumes 14 September. Tur 2 (Vakkotavare departure 09:20) only starts running (in this direction) 7 September. This leaves 6 September with no scheduled Vakkotavare -> Kebnats departure under either trip as currently published. IMPORTANT: this is a south-to-north hike, so the leg actually needed is the opposite direction, Kebnats -> Vakkotavare (heading further into the mountains) -- its timetable has not been found yet, so it's unconfirmed whether the same 6 September gap applies to it, though it seems likely since both directions share the same round-trip vehicle. The operator's own site also warns that 2026 train-maintenance disruption in Gällivare is causing irregular bus operation this summer, so even the printed schedule may not be reliable on other nearby dates either.",
+      "trip_context": "Based on a south-to-north start from Kvikkjokk on 1 September 2026, arrival at Kebnats (km 81.4, via the boat from Saltoluokta) is estimated around 6-10 September 2026, depending on pace and rest days. If that slips later than expected, 13 September specifically must be avoided for this leg -- see details.",
+      "details": "Road to Ritsem's Kebnats -> Vakkotavare direction (the outbound Gällivare -> Ritsem leg of each round-trip vehicle) is covered by two trips: Tur 1 (Kebnats departure ~10:55, Vakkotavare arrival 12:00), running 18 July-5 September and 14-20 September 2026; and Tur 2 (Kebnats departure ~16:50, Vakkotavare arrival 17:55), running 22 June-30 August and 6-12 September 2026 in this direction. Combining both: 31 August-5 September only Tur 1 runs; 6-12 September only Tur 2 runs; 13 September 2026 has NO scheduled departure under either trip -- Tur 1 doesn't resume until 14 September, and Tur 2 already stopped (in this direction) after 12 September. This is now confirmed directly from the operator's full timetable (both trips, both directions), not inferred. The operator's site also warns that 2026 train-maintenance disruption in Gällivare is causing irregular bus operation this summer more generally, so re-check close to your date even outside the confirmed 13 September gap.",
       "why_it_matters": "Vakkotavare has no shop (per route.json shop data) and is not on a through-road with easy alternative transport. Missing the only bus of the day means an unplanned extra night with no resupply at Kebnats, and no guaranteed way to reach Vakkotavare or continue the hike that day.",
       "action_required": [
-        "As the hike progresses, re-estimate the actual arrival date at Kebnats and check whether it lands on or near 6 September 2026.",
-        "Before relying on this leg, get the actual Kebnats -> Vakkotavare (inbound) timetable -- not just the Vakkotavare -> Kebnats one currently in bus_vakkotavare_kebnats.json -- from roadtoritsem.com or by calling the operator.",
-        "Re-check bus_vakkotavare_kebnats.json close to departure (schedules and disruption notices can change).",
-        "If the estimated arrival date is 6 September or uncertain, consider building in a deliberate rest day earlier in the trip to shift arrival to 7 September or later, or to before 5 September.",
-        "Call Road to Ritsem directly (+46 970 248 00) once a firm date is known, to confirm that day's actual operation in the Kebnats -> Vakkotavare direction.",
+        "As the hike progresses, re-estimate the actual arrival date at Kebnats and check whether it lands on 13 September 2026.",
+        "If the estimated arrival date is 13 September or uncertain, build in a deliberate rest day earlier in the trip to shift arrival to 12 September or earlier (Tur 2, 16:50 departure), or push to 14 September (Tur 1, 10:55 departure).",
+        "Re-check data/bus_vakkotavare_kebnants.json close to departure -- schedules and the 2026 train-disruption situation can still change.",
+        "Call Road to Ritsem directly (+46 970 248 00) once a firm date is known, especially if it's close to 13 September, to confirm no exception applies that day.",
         "As a backup, the STF contacts for arranging transport outside the timetable (Christer Dynesius +46 70 241 66 35, Tobbe Öberg +46 70 340 42 72) may be able to advise on alternatives on the day."
       ],
       "related_files": [
-        "bus_vakkotavare_kebnats.json",
-        "boat_kebnats_saltoluokta.json",
-        "route.json"
+        "data/bus_vakkotavare_kebnants.json",
+        "data/boat_kebnats_saltoluokta.json",
+        "data/route.json"
       ],
       "source_checked": "https://roadtoritsem.com/sommar/",
       "source_last_modified": "2026-07-01",
-      "last_checked": "2026-07-06",
+      "last_checked": "2026-07-08",
       "recheck_before_trip": true,
       "recheck_recommended_by": "2026-08-25"
     }
