@@ -125,7 +125,7 @@
       "km_from_start": 81.4,
       "type": "hut",
       "shop": {
-        "size": "large",
+        "size": "full",
         "electricity": true
       },
       "alt_names": [
