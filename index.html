@@ -606,20 +606,25 @@
     "id": "vakkotavare_kebnats_bus_gap_sep2026",
     "severity": "critical",
     "status": "unresolved",
-    "title": "Confirmed transport gap: Kebnats -> Vakkotavare, 13 September 2026",
-    "short_summary": "No bus runs from the Kebnats boat pier onward to Vakkotavare on 13 September 2026 -- confirmed from the operator's full timetable. Arriving at Kebnats that day strands you there, unable to continue north to Vakkotavare.",
+    "title": "Confirmed gap: Kebnats -> Vakkotavare bus, 13 Sep 2026",
+    "short_summary": "No bus Kebnats -> Vakkotavare on 13 Sep 2026. Confirmed from operator's full timetable.",
     "affects_waypoint_id": "kebnats",
     "affects_km_from_start": 81.4,
     "affects_segment_id": "kebnats__stf_vakkotavare_cabin_shore",
-    "trip_context": "Based on a south-to-north start from Kvikkjokk on 1 September 2026, arrival at Kebnats (km 81.4, via the boat from Saltoluokta) is estimated around 6-10 September 2026, depending on pace and rest days. If that slips later than expected, 13 September specifically must be avoided for this leg -- see details.",
-    "details": "Road to Ritsem's Kebnats -> Vakkotavare direction (the outbound Gällivare -> Ritsem leg of each round-trip vehicle) is covered by two trips: Tur 1 (Kebnats departure ~10:55, Vakkotavare arrival 12:00), running 18 July-5 September and 14-20 September 2026; and Tur 2 (Kebnats departure ~16:50, Vakkotavare arrival 17:55), running 22 June-30 August and 6-12 September 2026 in this direction. Combining both: 31 August-5 September only Tur 1 runs; 6-12 September only Tur 2 runs; 13 September 2026 has NO scheduled departure under either trip -- Tur 1 doesn't resume until 14 September, and Tur 2 already stopped (in this direction) after 12 September. This is now confirmed directly from the operator's full timetable (both trips, both directions), not inferred. The operator's site also warns that 2026 train-maintenance disruption in Gällivare is causing irregular bus operation this summer more generally, so re-check close to your date even outside the confirmed 13 September gap.",
-    "why_it_matters": "Vakkotavare has no shop (per route.json shop data) and is not on a through-road with easy alternative transport. Missing the only bus of the day means an unplanned extra night with no resupply at Kebnats, and no guaranteed way to reach Vakkotavare or continue the hike that day.",
+    "trip_context": "South-to-north start 1 Sep -> Kebnats arrival est. 6-10 Sep. Avoid 13 Sep for this leg.",
+    "schedule": {
+      "Tur 1: Kebnats 10:55 -> Vakkotavare 12:00": "18 Jul-5 Sep, 14-20 Sep",
+      "Tur 2: Kebnats 16:50 -> Vakkotavare 17:55": "22 Jun-30 Aug, 6-12 Sep",
+      "13 Sep": "no departure -- gap day"
+    },
+    "details": "Confirmed directly from the operator's full timetable (both trips, both directions), not inferred. Tur 1 resumes 14 Sep; Tur 2 already stopped (this direction) after 12 Sep -- no overlap on the 13th. General note: 2026 Gällivare train-maintenance disruption may still affect other dates.",
+    "why_it_matters": "No shop at Vakkotavare, no easy alt transport. Missed bus = stranded overnight at Kebnats.",
     "action_required": [
-      "As the hike progresses, re-estimate the actual arrival date at Kebnats and check whether it lands on 13 September 2026.",
-      "If the estimated arrival date is 13 September or uncertain, build in a deliberate rest day earlier in the trip to shift arrival to 12 September or earlier (Tur 2, 16:50 departure), or push to 14 September (Tur 1, 10:55 departure).",
-      "Re-check data/bus_vakkotavare_kebnants.json close to departure -- schedules and the 2026 train-disruption situation can still change.",
-      "Call Road to Ritsem directly (+46 970 248 00) once a firm date is known, especially if it's close to 13 September, to confirm no exception applies that day.",
-      "As a backup, the STF contacts for arranging transport outside the timetable (Christer Dynesius +46 70 241 66 35, Tobbe Öberg +46 70 340 42 72) may be able to advise on alternatives on the day."
+      "Re-estimate Kebnats arrival date as the hike progresses; flag if it lands on 13 Sep.",
+      "If 13 Sep or uncertain: rest day to shift arrival to <= 12 Sep (Tur 2, 16:50), or push to 14 Sep (Tur 1, 10:55).",
+      "Re-check data/bus_vakkotavare_kebnants.json close to departure.",
+      "Call Road to Ritsem (+46 970 248 00) once date is firm, especially near 13 Sep.",
+      "Backup: STF contacts Christer Dynesius +46 70 241 66 35, Tobbe Öberg +46 70 340 42 72."
     ],
     "related_files": [
       "data/bus_vakkotavare_kebnants.json",
@@ -1503,6 +1508,7 @@
       <div class="badges">${badge(a.severity, "alert")}${badge(a.status)}</div>
       <h3>Summary</h3><p>${escapeHtml(a.short_summary)}</p>
       <h3>Trip context</h3><p>${escapeHtml(a.trip_context)}</p>
+      ${a.schedule ? `<h3>Schedule</h3>${renderTable(a.schedule)}` : ""}
       <h3>Details</h3><p>${escapeHtml(a.details)}</p>
       <h3>Why it matters</h3><p>${escapeHtml(a.why_it_matters)}</p>
       <h3>Action required</h3>
