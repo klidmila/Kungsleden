@@ -17,9 +17,9 @@
     --hike: #4c7a3f;
     --kind: #c9700a;
     --chip-bg: #eceae4;
-    --danger: #d64545;
-    --critical-bg: #fdecea;
-    --critical-fg: #7a1f1f;
+    --danger: #a97a1f;
+    --critical-bg: #faf1e0;
+    --critical-fg: #6b4a12;
     --tabbar-bg: #ffffff;
   }
   @media (prefers-color-scheme: dark) {
@@ -34,9 +34,9 @@
       --hike: #8fc47c;
       --kind: #e08a2b;
       --chip-bg: #2a2f33;
-      --danger: #e05a5a;
-      --critical-bg: #3a1b1b;
-      --critical-fg: #f3b6b6;
+      --danger: #d4a052;
+      --critical-bg: #2e2617;
+      --critical-fg: #f0cf94;
       --tabbar-bg: #1d2124;
     }
   }
@@ -257,7 +257,7 @@
     </div>
 
     <div id="view-alerts" class="view">
-      <h2 class="section-title">Alerts</h2>
+      <h2 class="section-title">Notes</h2>
       <div class="cards" id="alerts-slot"></div>
     </div>
 
@@ -297,7 +297,7 @@
   <nav class="tabbar">
     <button data-tab="basic" class="active"><span class="tab-icon">🧭</span>Basic</button>
     <button data-tab="itinerary"><span class="tab-icon">🥾</span>Detailed</button>
-    <button data-tab="alerts"><span class="tab-icon">⚠️</span>Alerts<span class="tab-count" id="alert-count" hidden></span></button>
+    <button data-tab="alerts"><span class="tab-icon">📝</span>Notes<span class="tab-count" id="alert-count" hidden></span></button>
     <button data-tab="crossings"><span class="tab-icon">⛵</span>Crossings</button>
     <button data-tab="food"><span class="tab-icon">🍴</span>Food</button>
   </nav>
@@ -1445,6 +1445,10 @@
     return `<span class="badge${cls ? " " + cls : ""}">${escapeHtml(text)}</span>`;
   }
 
+  function severityBadgeText(sev) {
+    return sev === "critical" ? "heads-up" : sev;
+  }
+
   function shopBadgeText(size) {
     return `${size} shop`;
   }
@@ -1534,7 +1538,7 @@
     if (!a) return;
     openDetail(`
       <h2>${escapeHtml(a.title)}</h2>
-      <div class="badges">${badge(a.severity, "alert")}${badge(a.status)}</div>
+      <div class="badges">${badge(severityBadgeText(a.severity), "alert")}${badge(a.status)}</div>
       <h3>Summary</h3><p>${escapeHtml(a.short_summary)}</p>
       <h3>Trip context</h3><p>${escapeHtml(a.trip_context)}</p>
       ${a.schedule ? `<h3>Schedule</h3>${renderTable(a.schedule)}` : ""}
@@ -1555,7 +1559,7 @@
     const c = crossingById(id);
     if (!c) return;
     const alertHtml = c.related_alert_id
-      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${c.related_alert_id}')">⚠ View related alert</button></div>`
+      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${c.related_alert_id}')">📝 View note</button></div>`
       : "";
     openDetail(`
       <h2>${escapeHtml(c.label)}</h2>
@@ -1573,7 +1577,7 @@
       ? `<h3>Contact</h3><p><a href="tel:${escapeHtml(wp.phone.replace(/\s+/g, ""))}">${escapeHtml(wp.phone)}</a></p>`
       : "";
     const alertHtml = wp.critical_alert_id
-      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${wp.critical_alert_id}')">⚠ View related alert</button></div>`
+      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${wp.critical_alert_id}')">📝 View note</button></div>`
       : "";
     openDetail(`
       <h2>${escapeHtml(wp.name)}</h2>
@@ -1610,7 +1614,7 @@
       return `<button class="link-btn" onclick="openCrossingDetail('${id}')">${escapeHtml(c.label)} (${escapeHtml(c.subtitle)}) →</button>`;
     }).join("");
     const alertHtml = leg.critical_alert_id
-      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${leg.critical_alert_id}')">⚠ View related alert</button></div>`
+      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${leg.critical_alert_id}')">📝 View note</button></div>`
       : "";
     const { fromKm, toKm, delta } = kmRange(leg);
     const kmNote = (leg.type === "boat" && delta === 0)
@@ -1626,7 +1630,7 @@
         ${leg.lake ? badge("lake: " + leg.lake) : ""}
         ${leg.shelters.length ? badge("shelter") : ""}
         ${leg.latrine ? badge("latrine") : ""}
-        ${leg.critical_alert_id ? badge("⚠ alert", "alert") : ""}
+        ${leg.critical_alert_id ? badge("📝 note", "alert") : ""}
       </div>
       <h3>Trail kilometrage</h3><p>km ${fromKm} → ${toKm} (Δ ${delta} km)${kmNote}</p>
       <h3>Notes</h3><p>${escapeHtml(leg.notes)}</p>
@@ -1641,7 +1645,7 @@
 
   function waypointCard(wp) {
     const alertBadge = wp.critical_alert_id
-      ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${wp.critical_alert_id}')">⚠ alert</span>` : "";
+      ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${wp.critical_alert_id}')">📝 note</span>` : "";
     return `
       <button class="card" onclick="openWaypointDetail(${JSON.stringify(wp).replace(/"/g, "&quot;")})">
         <div class="card-head">
@@ -1664,7 +1668,7 @@
 
   function legCard(leg) {
     const alertBadge = leg.critical_alert_id
-      ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${leg.critical_alert_id}')">⚠ alert</span>` : "";
+      ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${leg.critical_alert_id}')">📝 note</span>` : "";
     const { fromKm, toKm } = kmRange(leg);
     return `
       <button class="card" data-leg="${leg.order}">
@@ -1705,7 +1709,7 @@
     if (!a) { document.getElementById("banner-slot").innerHTML = ""; return; }
     document.getElementById("banner-slot").innerHTML = `
       <button class="banner" onclick="openAlertDetail('${a.id}')">
-        <span class="icon">⚠️</span>
+        <span class="icon">📝</span>
         <div>
           <p class="title">${escapeHtml(a.title)}</p>
           <p class="summary">${escapeHtml(a.short_summary)}</p>
@@ -1719,7 +1723,7 @@
     slot.innerHTML = alertsData.map(a => `
       <button class="card" onclick="openAlertDetail('${a.id}')">
         <div class="card-head"><span class="card-title">${escapeHtml(a.title)}</span></div>
-        <div class="badges">${badge(a.severity, "alert")}${badge(a.status)}</div>
+        <div class="badges">${badge(severityBadgeText(a.severity), "alert")}${badge(a.status)}</div>
       </button>
     `).join("");
     const unresolved = alertsData.filter(a => a.status === "unresolved").length;
