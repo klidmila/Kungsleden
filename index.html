@@ -13,6 +13,7 @@
     --border: #dedad2;
     --muted: #6b6f6a;
     --boat: #2a6f97;
+    --lake: #2f9bd6;
     --hike: #4c7a3f;
     --kind: #c9700a;
     --chip-bg: #eceae4;
@@ -29,6 +30,7 @@
       --border: #33383d;
       --muted: #9aa09b;
       --boat: #6fb3d8;
+      --lake: #7ecbf0;
       --hike: #8fc47c;
       --kind: #e08a2b;
       --chip-bg: #2a2f33;
@@ -214,7 +216,10 @@
   table.kv-table th { width: 9rem; color: var(--muted); font-weight: 500; text-transform: capitalize; background: var(--chip-bg); }
   table.mini-table th { background: var(--chip-bg); text-transform: capitalize; }
   .na { color: var(--muted); }
+  #basic-slot table.mini-table { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  #basic-slot table.mini-table th, #basic-slot table.mini-table td { border-color: var(--border); }
   .rb-blue { color: var(--boat); font-weight: 600; }
+  .rb-lake { color: var(--lake); font-weight: 500; }
   .rb-green { color: var(--hike); font-weight: 600; }
 
   .print-detail { display: none; }
@@ -1735,7 +1740,7 @@
     const crossingRow = (leg) => {
       const c = leg.crossing_ids.length ? crossingById(leg.crossing_ids[0]) : null;
       const text = leg.type === "boat"
-        ? `⚓️ lake · ${escapeHtml(leg.lake || "")}${c ? " (" + escapeHtml(c.subtitle) + ")" : " (boat)"}`
+        ? `⚓️ lake · <span class="rb-lake">${escapeHtml(leg.lake || "")}</span>${c ? " (" + escapeHtml(c.subtitle) + ")" : " (boat)"}`
         : `🚌 bus · ${escapeHtml(leg.from)} – ${escapeHtml(leg.to)}`;
       return `<tr><td colspan="5" class="na">${text}</td></tr>`;
     };
