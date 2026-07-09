@@ -198,7 +198,20 @@
   }
   .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
   .card-title { font-weight: 600; font-size: 0.92rem; }
+  .card-head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; }
   .card-sub { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
+  .map-link {
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 0 0.55rem;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--boat);
+    font-weight: 600;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+  }
 
   /* badges (compact pills, spec: 11px font, radius 999px, one row wraps) */
   .badges { margin-top: 0.4rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
@@ -1807,7 +1820,10 @@
       <button class="card" data-leg="${leg.order}" data-leg-type="${leg.type}">
         <div class="card-head">
           <span class="card-title">Leg #${leg.order}: ${escapeHtml(leg.from)} → ${escapeHtml(leg.to)}</span>
-          <span class="card-sub">km ${fromKm} → ${toKm}</span>
+          <div class="card-head-right">
+            <span class="card-sub">km ${fromKm} → ${toKm}</span>
+            ${leg.map_url ? `<span class="map-link" data-map-url="${escapeHtml(leg.map_url)}">🗺️ map</span>` : ""}
+          </div>
         </div>
         <div class="badges">
           ${badge(leg.type, leg.type)}
@@ -1817,7 +1833,6 @@
           ${leg.lake ? badge("lake: " + leg.lake) : ""}
           ${leg.shelters.length ? badge("shelter") : ""}
           ${leg.latrine ? badge("latrine") : ""}
-          ${leg.map_url ? badge("🗺️ map") : ""}
         </div>
       </button>
     `;
@@ -1834,6 +1849,12 @@
     slot.innerHTML = html;
     slot.querySelectorAll("button[data-leg]").forEach(btn => {
       btn.addEventListener("click", () => openLegDetail(legs.find(l => l.order === Number(btn.dataset.leg))));
+    });
+    slot.querySelectorAll(".map-link").forEach(el => {
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        window.open(el.dataset.mapUrl, "_blank", "noopener");
+      });
     });
   }
 
