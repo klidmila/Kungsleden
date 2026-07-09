@@ -1,5 +1,5 @@
 // Regenerates the GENERATED DATA block inside index.html from the source
-// JSON files in data/ (route.json, alerts.json, crossings.json,
+// JSON files in data/ (route.json, alerts.json, crossings.json, food.json,
 // boat_*.json, bus_*.json), so editing the JSON is enough -- no manual
 // re-copying into the HTML.
 //
@@ -21,6 +21,7 @@ const readJson = (name) => JSON.parse(fs.readFileSync(path.join(dataDir, name), 
 const route = readJson("route.json");
 const alertsFile = readJson("alerts.json");
 const crossingDefs = readJson("crossings.json");
+const foodFile = readJson("food.json");
 
 const legs = [...route.segments]
   .sort((a, b) => a.order - b.order)
@@ -48,6 +49,8 @@ const dataBlock = `
   const crossings = ${JSON.stringify(crossings, null, 2)};
 
   const legs = ${JSON.stringify(legs, null, 2)};
+
+  const foodShops = ${JSON.stringify(foodFile.shops, null, 2)};
 `;
 
 const htmlPath = path.join(repoRoot, "index.html");
@@ -70,5 +73,5 @@ fs.writeFileSync(htmlPath, newHtml, "utf8");
 
 console.log(
   `index.html regenerated: ${route.waypoints.length} waypoints, ${legs.length} legs, ` +
-  `${alertsFile.alerts.length} alert(s), ${crossings.length} crossing(s).`
+  `${alertsFile.alerts.length} alert(s), ${crossings.length} crossing(s), ${foodFile.shops.length} food shop(s).`
 );
