@@ -256,11 +256,6 @@
       <div class="cards" id="itinerary-slot"></div>
     </div>
 
-    <div id="view-alerts" class="view">
-      <h2 class="section-title">Notes</h2>
-      <div class="cards" id="alerts-slot"></div>
-    </div>
-
     <div id="view-crossings" class="view">
       <h2 class="section-title">Crossings</h2>
       <div class="cards" id="crossings-slot"></div>
@@ -297,8 +292,7 @@
   <nav class="tabbar">
     <button data-tab="basic" class="active"><span class="tab-icon">🧭</span>Basic</button>
     <button data-tab="itinerary"><span class="tab-icon">🥾</span>Detailed</button>
-    <button data-tab="alerts"><span class="tab-icon">📝</span>Notes<span class="tab-count" id="alert-count" hidden></span></button>
-    <button data-tab="crossings"><span class="tab-icon">⛵</span>Crossings</button>
+    <button data-tab="crossings"><span class="tab-icon">⛵🚌</span>Crossings</button>
     <button data-tab="food"><span class="tab-icon">🍴</span>Food</button>
   </nav>
 
@@ -1718,19 +1712,6 @@
     `;
   }
 
-  function renderAlertsTab() {
-    const slot = document.getElementById("alerts-slot");
-    slot.innerHTML = alertsData.map(a => `
-      <button class="card" onclick="openAlertDetail('${a.id}')">
-        <div class="card-head"><span class="card-title">${escapeHtml(a.title)}</span></div>
-        <div class="badges">${badge(severityBadgeText(a.severity), "alert")}${badge(a.status)}</div>
-      </button>
-    `).join("");
-    const unresolved = alertsData.filter(a => a.status === "unresolved").length;
-    const countEl = document.getElementById("alert-count");
-    if (unresolved > 0) { countEl.textContent = unresolved; countEl.hidden = false; }
-  }
-
   function renderRouteBasic() {
     const shopClass = (size) => (size === "small" ? "rb-blue" : size === "large" || size === "full" ? "rb-green" : "na");
     const hutRow = (wp) => `
@@ -1779,7 +1760,6 @@
   renderBanner();
   renderItinerary();
   renderRouteBasic();
-  renderAlertsTab();
   renderCrossingsTab();
 </script>
 </body>
