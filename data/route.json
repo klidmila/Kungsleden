@@ -11,6 +11,7 @@
       "name": "STF Kvikkjokk Fjällstation",
       "km_from_start": 0,
       "type": "hut",
+      "hut_class": "station",
       "shop": {
         "size": "full",
         "electricity": true
@@ -28,6 +29,7 @@
       "name": "STF Pårte Fjällstuga",
       "km_from_start": 17,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "none",
         "electricity": false
@@ -45,6 +47,7 @@
       "name": "Vindskydd Laitaure",
       "km_from_start": 40,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "none",
         "electricity": false
@@ -74,6 +77,7 @@
       "name": "STF Aktse Fjällstuga",
       "km_from_start": 41,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "large",
         "electricity": false
@@ -104,6 +108,7 @@
       "name": "Vindskydd Svijnne",
       "km_from_start": 62.1,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "none",
         "electricity": false
@@ -135,6 +140,7 @@
       "name": "STF Saltoluokta Fjällstation",
       "km_from_start": 81.4,
       "type": "hut",
+      "hut_class": "station",
       "shop": {
         "size": "full",
         "electricity": true
@@ -188,6 +194,7 @@
       "name": "Raststuga Dievssajávri",
       "km_from_start": 96.4,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "none",
         "electricity": false
@@ -220,6 +227,7 @@
       "name": "STF Kaitumjaure Fjällstuga",
       "km_from_start": 105.4,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "small",
         "electricity": false
@@ -236,6 +244,7 @@
       "name": "STF Singi Fjällstuga",
       "km_from_start": 118.4,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "none",
         "electricity": false
@@ -252,6 +261,7 @@
       "name": "STF Sälka Fjällstuga",
       "km_from_start": 130.4,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "large",
         "electricity": false
@@ -270,6 +280,7 @@
       "name": "STF Alesjaure Fjällstuga",
       "km_from_start": 155.4,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "large",
         "electricity": false
@@ -286,6 +297,7 @@
       "name": "STF Abiskojaure Fjällstuga",
       "km_from_start": 176.4,
       "type": "hut",
+      "hut_class": "cabin",
       "shop": {
         "size": "large",
         "electricity": false
@@ -302,6 +314,7 @@
       "name": "STF Abisko Turiststation",
       "km_from_start": 192.4,
       "type": "hut",
+      "hut_class": "station",
       "shop": {
         "size": "full",
         "electricity": true
@@ -685,5 +698,6 @@
   "schema_note_lake_names": "lake on a boat segment is the name most likely to appear on the actual boat service, timetable, or ticket (what you would ask for or search when booking). lake_alt_names lists other names for the same body of water, such as the Sami name used in the original source table, which may still appear on maps or signposts. Confirmed by cross-checking against the Swedish Tourist Association boat-service page during research.",
   "schema_note_alerts": "critical_alert_id, where present on a waypoint or segment, references an entry in alerts.json by id. The app should look up that entry and display it prominently rather than treating it as ordinary reference text.",
   "schema_note_map_url": "map_url (string, optional) is a shareable mapy.com link for that segment's trail, viewable offline once opened once with a network connection. Currently recorded for legs 1, 2, 4, 5, 6, 8, 10, 11, 13, 14, 15, 16, 17, and 18 -- missing only for the 4 boat crossings (3, 7, 9, 12), not yet gathered rather than confirmed missing.",
+  "schema_note_hut_class": "hut_class (\"station\" or \"cabin\") is required on every waypoint with type \"hut\", and drives the station/cabin badge. It's a deliberate data field rather than a guess from `name` (e.g. matching \"Fjällstation\"/\"Turiststation\" in the name) specifically so that renaming a waypoint's `name` -- which schema_note_ids guarantees is always safe -- can never silently flip its badge.",
   "schema_note_ids": "Every waypoint has a stable `id` (slug derived from its name at authoring time, never changes even if `name` is edited later). Every segment has a stable `id` (`<from_id>__<to_id>`) plus `from_id`/`to_id` referencing the waypoints it connects. `from`/`to` remain plain display text -- edit them freely, they are what the app shows; they are not used for lookups, so editing them cannot break waypoint/crossing linkage. crossings.json and alerts.json reference waypoints/segments by id, not by name or order, so renaming a waypoint's `name` or renumbering segments never breaks those links."
 }
