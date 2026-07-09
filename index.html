@@ -70,8 +70,7 @@
   [data-theme="garmin"] .food-block,
   [data-theme="garmin"] table.mini-table,
   [data-theme="garmin"] table.kv-table,
-  [data-theme="garmin"] .badge,
-  [data-theme="garmin"] .banner {
+  [data-theme="garmin"] .badge {
     border-radius: 0 !important;
   }
   [data-theme="garmin"] .card { border-left: 3px solid var(--kind); }
@@ -165,25 +164,6 @@
   .view { display: none; }
   .view.active { display: block; }
 
-  /* alert banner (itinerary tab) */
-  .banner {
-    border: 1px solid var(--danger);
-    background: var(--critical-bg);
-    color: var(--critical-fg);
-    border-radius: 10px;
-    padding: 0.8rem 0.9rem;
-    margin-bottom: 1.2rem;
-    display: flex;
-    gap: 0.55rem;
-    align-items: flex-start;
-    cursor: pointer;
-    text-align: left;
-    width: 100%;
-  }
-  .banner .icon { font-size: 1.2rem; line-height: 1; }
-  .banner .title { font-weight: 700; margin: 0 0 0.2rem; font-size: 0.92rem; }
-  .banner .summary { margin: 0; font-size: 0.85rem; }
-
   /* cards */
   .cards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
   .card {
@@ -256,18 +236,6 @@
   }
   .tab-icon { font-size: 1.05rem; line-height: 1; }
   .tabbar button.active { color: var(--fg); font-weight: 600; background: var(--chip-bg); }
-  .tab-count {
-    position: absolute;
-    top: 0.1rem;
-    right: 0.6rem;
-    background: var(--danger);
-    color: #fff;
-    font-size: 0.62rem;
-    line-height: 1.5;
-    min-width: 1.1rem;
-    border-radius: 999px;
-    padding: 0 0.25rem;
-  }
 
   /* detail overlay */
   .detail-overlay {
@@ -335,8 +303,9 @@
 
   @media print {
     body { padding-bottom: 0; }
-    .tabbar, .back-btn, .banner { display: none !important; }
+    .tabbar, .back-btn { display: none !important; }
     .view { display: block !important; margin-bottom: 1.8rem; page-break-inside: avoid; }
+    .card-wrap { page-break-inside: avoid; }
     .detail-overlay { display: none !important; }
     .print-detail {
       display: block !important;
@@ -427,6 +396,7 @@
     "name": "STF Kvikkjokk Fjällstation",
     "km_from_start": 0,
     "type": "hut",
+    "hut_class": "station",
     "shop": {
       "size": "full",
       "electricity": true
@@ -444,6 +414,7 @@
     "name": "STF Pårte Fjällstuga",
     "km_from_start": 17,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "none",
       "electricity": false
@@ -461,6 +432,7 @@
     "name": "Vindskydd Laitaure",
     "km_from_start": 40,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "none",
       "electricity": false
@@ -490,6 +462,7 @@
     "name": "STF Aktse Fjällstuga",
     "km_from_start": 41,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "large",
       "electricity": false
@@ -520,6 +493,7 @@
     "name": "Vindskydd Svijnne",
     "km_from_start": 62.1,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "none",
       "electricity": false
@@ -551,6 +525,7 @@
     "name": "STF Saltoluokta Fjällstation",
     "km_from_start": 81.4,
     "type": "hut",
+    "hut_class": "station",
     "shop": {
       "size": "full",
       "electricity": true
@@ -604,6 +579,7 @@
     "name": "Raststuga Dievssajávri",
     "km_from_start": 96.4,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "none",
       "electricity": false
@@ -636,6 +612,7 @@
     "name": "STF Kaitumjaure Fjällstuga",
     "km_from_start": 105.4,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "small",
       "electricity": false
@@ -652,6 +629,7 @@
     "name": "STF Singi Fjällstuga",
     "km_from_start": 118.4,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "none",
       "electricity": false
@@ -668,6 +646,7 @@
     "name": "STF Sälka Fjällstuga",
     "km_from_start": 130.4,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "large",
       "electricity": false
@@ -686,6 +665,7 @@
     "name": "STF Alesjaure Fjällstuga",
     "km_from_start": 155.4,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "large",
       "electricity": false
@@ -702,6 +682,7 @@
     "name": "STF Abiskojaure Fjällstuga",
     "km_from_start": 176.4,
     "type": "hut",
+    "hut_class": "cabin",
     "shop": {
       "size": "large",
       "electricity": false
@@ -718,6 +699,7 @@
     "name": "STF Abisko Turiststation",
     "km_from_start": 192.4,
     "type": "hut",
+    "hut_class": "station",
     "shop": {
       "size": "full",
       "electricity": true
@@ -1583,7 +1565,7 @@
   function hutTypeBadgeText(wp) {
     if (wp.type === "viewpoint") return "view";
     if (wp.type !== "hut") return "";
-    return /Fjällstation|Turiststation/.test(wp.name) ? "station" : "cabin";
+    return wp.hut_class;
   }
 
   function isUrl(v) { return typeof v === "string" && /^https?:\/\//.test(v); }
@@ -1652,6 +1634,8 @@
 
   // ---- theme (settings) ----
 
+  // Each value (except "auto") must exactly match a `[data-theme="..."]`
+  // CSS selector -- there's no build-time check tying the two together.
   const THEME_OPTIONS = [
     ["auto", "Auto", "Follows your phone/browser's system setting."],
     ["light", "Light", "Always light, regardless of system setting."],
