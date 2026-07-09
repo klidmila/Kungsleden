@@ -84,6 +84,49 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
+
+  :root[data-theme="sapmi"] {
+    --bg: #1B2436; --fg: #EDEEF2; --card-bg: #252F45; --border: #3B4A63;
+    --muted: #A9B4C6; --boat: #4A6FA5; --lake: #86AEDB; --hike: #C1432E;
+    --kind: #D9A335; --chip-bg: #2E3A54; --danger: #E3935F;
+    --critical-bg: #3A2A22; --critical-fg: #F0C29A; --tabbar-bg: #1F2A40;
+    --moss: #5C8A6B;
+  }
+  [data-theme="sapmi"] body {
+    font-family: Optima, Candara, "Noto Sans", "Segoe UI", sans-serif;
+  }
+  [data-theme="sapmi"] h1,
+  [data-theme="sapmi"] h2.section-title,
+  [data-theme="sapmi"] .card-title {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  }
+  [data-theme="sapmi"] h1,
+  [data-theme="sapmi"] h2.section-title {
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  /* woven-ribbon accent -- the one decorative flourish, used twice */
+  [data-theme="sapmi"] .app-head {
+    position: relative;
+    padding-bottom: 0.9rem;
+  }
+  [data-theme="sapmi"] .app-head::after,
+  [data-theme="sapmi"] .tabbar button.active::before {
+    content: "";
+    position: absolute;
+    background: repeating-linear-gradient(135deg,
+      var(--kind) 0 6px, var(--hike) 6px 12px, var(--moss) 12px 18px, var(--muted) 18px 24px);
+  }
+  [data-theme="sapmi"] .app-head::after {
+    left: 0; right: 0; bottom: 0; height: 5px; border-radius: 3px;
+  }
+  [data-theme="sapmi"] .tabbar button.active::before {
+    top: 0; left: 20%; right: 20%; height: 3px;
+  }
+  [data-theme="sapmi"] .card { border-left: 4px solid var(--kind); }
+  [data-theme="sapmi"] .card[data-leg-type="hike"] { border-left-color: var(--hike); }
+  [data-theme="sapmi"] .card[data-leg-type="boat"],
+  [data-theme="sapmi"] .card[data-leg-type="bus"] { border-left-color: var(--boat); }
   * { box-sizing: border-box; }
   html {
     -webkit-text-size-adjust: 100%;
@@ -1585,6 +1628,7 @@
     ["light", "Light", "Always light, regardless of system setting."],
     ["dark", "Dark", "Always dark, regardless of system setting."],
     ["garmin", "Garmin", "Near-black, tabular monospace, safety orange -- GPS-device look."],
+    ["sapmi", "Sápmi", "Indigo wool, tin-thread pewter, and a woven-ribbon accent -- inspired by Sámi textile tradition."],
   ];
 
   function applyTheme(theme) {
