@@ -40,6 +40,48 @@
       --tabbar-bg: #1d2124;
     }
   }
+
+  /* Manual theme override (data-theme on <html>) -- wins over the OS
+     prefers-color-scheme media query in both directions. "auto" (no
+     attribute) falls back to the media query above. */
+  :root[data-theme="light"] {
+    --bg: #f7f6f3; --fg: #1f2420; --card-bg: #ffffff; --border: #dedad2;
+    --muted: #6b6f6a; --boat: #2a6f97; --lake: #2f9bd6; --hike: #4c7a3f;
+    --kind: #c9700a; --chip-bg: #eceae4; --danger: #a97a1f;
+    --critical-bg: #faf1e0; --critical-fg: #6b4a12; --tabbar-bg: #ffffff;
+  }
+  :root[data-theme="dark"] {
+    --bg: #14171a; --fg: #e8e6e1; --card-bg: #1d2124; --border: #33383d;
+    --muted: #9aa09b; --boat: #6fb3d8; --lake: #7ecbf0; --hike: #8fc47c;
+    --kind: #e08a2b; --chip-bg: #2a2f33; --danger: #d4a052;
+    --critical-bg: #2e2617; --critical-fg: #f0cf94; --tabbar-bg: #1d2124;
+  }
+  :root[data-theme="garmin"] {
+    --bg: #111111; --fg: #ececec; --card-bg: #171717; --border: #2a2a2a;
+    --muted: #7a7a7a; --boat: #3fa9f5; --lake: #3fa9f5; --hike: #ff7a1a;
+    --kind: #7a7a7a; --chip-bg: #000000; --danger: #ffb454;
+    --critical-bg: #241a0d; --critical-fg: #ffb454; --tabbar-bg: #171717;
+  }
+  [data-theme="garmin"] body {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  [data-theme="garmin"] .card,
+  [data-theme="garmin"] .food-block,
+  [data-theme="garmin"] table.mini-table,
+  [data-theme="garmin"] table.kv-table,
+  [data-theme="garmin"] .badge,
+  [data-theme="garmin"] .banner {
+    border-radius: 0 !important;
+  }
+  [data-theme="garmin"] .card { border-left: 3px solid var(--boat); }
+  [data-theme="garmin"] .card[data-leg] { border-left-color: var(--hike); }
+  [data-theme="garmin"] h1,
+  [data-theme="garmin"] h2.section-title,
+  [data-theme="garmin"] .tabbar button {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
   * { box-sizing: border-box; }
   html {
     -webkit-text-size-adjust: 100%;
@@ -56,8 +98,14 @@
   }
   button { font-family: inherit; }
   .page { max-width: 640px; margin: 0 auto; }
+  .app-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.6rem; }
   h1 { font-size: 1.25rem; margin: 0 0 0.25rem; }
   .subtitle { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.1rem; }
+  .settings-btn {
+    flex: 0 0 auto; font-size: 1.15rem; line-height: 1; color: var(--muted);
+    background: var(--chip-bg); border: 1px solid var(--border); border-radius: 999px;
+    width: 2.2rem; height: 2.2rem; cursor: pointer;
+  }
   h2.section-title { font-size: 0.95rem; margin: 0 0 0.8rem; }
   .food-block { border: 1px solid var(--border); background: var(--card-bg); border-radius: 10px; padding: 0.7rem 0.9rem; margin-bottom: 0.7rem; }
   .food-block h3 { font-size: 0.88rem; margin: 0 0 0.4rem; }
@@ -243,8 +291,13 @@
 </head>
 <body>
   <div class="page">
-    <h1>Kungsleden Companion</h1>
-    <p class="subtitle">Kvikkjokk → Abisko, full south-to-north route</p>
+    <div class="app-head">
+      <div>
+        <h1>Kungsleden Companion</h1>
+        <p class="subtitle">Kvikkjokk → Abisko, full south-to-north route</p>
+      </div>
+      <button id="settings-btn" class="settings-btn" type="button" aria-label="Settings">⚙️</button>
+    </div>
 
     <div id="view-basic" class="view active">
       <h2 class="section-title">Route - basic</h2>
@@ -1522,6 +1575,48 @@
     b.addEventListener("click", () => showTab(b.dataset.tab));
   });
   document.getElementById("back-btn").addEventListener("click", closeDetail);
+
+  // ---- theme (settings) ----
+
+  const THEME_OPTIONS = [
+    ["auto", "Auto", "Follows your phone/browser's system setting."],
+    ["light", "Light", "Always light, regardless of system setting."],
+    ["dark", "Dark", "Always dark, regardless of system setting."],
+    ["garmin", "Garmin", "Near-black, tabular monospace, safety orange -- GPS-device look."],
+  ];
+
+  function applyTheme(theme) {
+    if (theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("kl-theme", theme);
+  }
+
+  function setTheme(theme) {
+    applyTheme(theme);
+    openSettingsDetail();
+  }
+
+  function openSettingsDetail() {
+    const current = localStorage.getItem("kl-theme") || "auto";
+    openDetail(`
+      <h2>Settings</h2>
+      <h3>Theme</h3>
+      <div class="cards">
+        ${THEME_OPTIONS.map(([val, label, desc]) => `
+          <button class="card" onclick="setTheme('${val}')">
+            <div class="card-head">
+              <span class="card-title">${label}</span>
+              ${val === current ? '<span class="card-sub">✓ active</span>' : ""}
+            </div>
+            <div class="badges"><span class="na" style="font-size:0.78rem">${desc}</span></div>
+          </button>
+        `).join("")}
+      </div>
+    `);
+  }
+
+  applyTheme(localStorage.getItem("kl-theme") || "auto");
+  document.getElementById("settings-btn").addEventListener("click", openSettingsDetail);
 
   // ---- detail page builders ----
 
