@@ -62,7 +62,8 @@
   .food-block { border: 1px solid var(--border); background: var(--card-bg); border-radius: 10px; padding: 0.7rem 0.9rem; margin-bottom: 0.7rem; }
   .food-block h3 { font-size: 0.88rem; margin: 0 0 0.4rem; }
   .food-block h4 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin: 0.6rem 0 0.3rem; }
-  .food-block p { font-size: 0.85rem; margin: 0; line-height: 1.5; }
+  .food-block p { font-size: 0.85rem; margin: 0 0 0.4rem; line-height: 1.5; }
+  .food-block p:last-child { margin-bottom: 0; }
   .food-block .badges { margin-bottom: 0.5rem; }
   .food-guaranteed .badge { background: transparent; border: 1px solid var(--hike); color: var(--hike); }
   .food-stock .badge { background: var(--chip-bg); color: var(--muted); }
@@ -252,7 +253,6 @@
 
     <div id="view-itinerary" class="view">
       <h2 class="section-title">Route - detailed</h2>
-      <div id="banner-slot"></div>
       <div class="cards" id="itinerary-slot"></div>
     </div>
 
@@ -266,7 +266,9 @@
 
       <div class="food-block highlight">
         <h3>Key difference: Large vs Small</h3>
-        <p>Both shop sizes guarantee the core resupply staples all season (chocolate, hard bread, cheese, canned veg, sausage/meat, freeze-dried meals, powder soup, hygiene basics). The differences: in <strong>Large</strong>, loose-weight pasta/rice/lentils are guaranteed, but packaged 500g pasta is not (stock-dependent). In <strong>Small</strong> it's the reverse: packaged 500g pasta is guaranteed, but loose pasta/rice/lentils are stock-dependent. Small also simply lacks whole categories that Large may carry: salami, dried game sausage, olives, nuts, tortillas, parmesan, olive oil, dark rye bread.</p>
+        <p>Core staples guaranteed in both.</p>
+        <p>Pasta/rice/lentils: <strong>Large</strong> guarantees loose, not packaged; <strong>Small</strong> guarantees packaged, not loose.</p>
+        <p><strong>Small</strong> lacks: salami, dried game sausage, olives, nuts, tortillas, parmesan, olive oil, dark rye bread.</p>
       </div>
 
       <div class="food-block">
@@ -1570,9 +1572,6 @@
     const phoneHtml = wp.phone
       ? `<h3>Contact</h3><p><a href="tel:${escapeHtml(wp.phone.replace(/\s+/g, ""))}">${escapeHtml(wp.phone)}</a></p>`
       : "";
-    const alertHtml = wp.critical_alert_id
-      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${wp.critical_alert_id}')">📝 View note</button></div>`
-      : "";
     openDetail(`
       <h2>${escapeHtml(wp.name)}</h2>
       <div class="badges">
@@ -1587,7 +1586,6 @@
       <h3>Distance from start</h3><p>km ${wp.km_from_start}</p>
       ${altHtml}
       ${phoneHtml}
-      ${alertHtml}
     `);
   }
 
@@ -1607,9 +1605,6 @@
       const c = crossingById(id);
       return `<button class="link-btn" onclick="openCrossingDetail('${id}')">${escapeHtml(c.label)} (${escapeHtml(c.subtitle)}) →</button>`;
     }).join("");
-    const alertHtml = leg.critical_alert_id
-      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${leg.critical_alert_id}')">📝 View note</button></div>`
-      : "";
     const { fromKm, toKm, delta } = kmRange(leg);
     const kmNote = (leg.type === "boat" && delta === 0)
       ? ` <span class="na">(trail-km markers don't advance across a lake crossing, per route.json${leg.distance_km === null ? " — physical crossing distance is not recorded for this leg" : ""})</span>`
@@ -1624,13 +1619,11 @@
         ${leg.lake ? badge("lake: " + leg.lake) : ""}
         ${leg.shelters.length ? badge("shelter") : ""}
         ${leg.latrine ? badge("latrine") : ""}
-        ${leg.critical_alert_id ? badge("📝 note", "alert") : ""}
       </div>
       <h3>Trail kilometrage</h3><p>km ${fromKm} → ${toKm} (Δ ${delta} km)${kmNote}</p>
       <h3>Notes</h3><p>${escapeHtml(leg.notes)}</p>
       ${campingHtml}
       ${sheltersHtml}
-      ${alertHtml}
       ${crossingLinks ? `<h3>Crossings on this leg</h3><div class="link-row">${crossingLinks}</div>` : ""}
     `);
   }
@@ -1638,8 +1631,6 @@
   // ---- itinerary tab rendering (compact cards, badges only) ----
 
   function waypointCard(wp) {
-    const alertBadge = wp.critical_alert_id
-      ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${wp.critical_alert_id}')">📝 note</span>` : "";
     return `
       <button class="card" onclick="openWaypointDetail(${JSON.stringify(wp).replace(/"/g, "&quot;")})">
         <div class="card-head">
@@ -1654,15 +1645,12 @@
           ${wp.heating ? badge(heatingBadgeText(wp.heating)) : ""}
           ${wp.sauna ? badge("♨ sauna") : ""}
           ${wp.shore ? badge("⛵ shore") : ""}
-          ${alertBadge}
         </div>
       </button>
     `;
   }
 
   function legCard(leg) {
-    const alertBadge = leg.critical_alert_id
-      ? `<span class="badge alert" onclick="event.stopPropagation(); openAlertDetail('${leg.critical_alert_id}')">📝 note</span>` : "";
     const { fromKm, toKm } = kmRange(leg);
     return `
       <button class="card" data-leg="${leg.order}">
@@ -1678,7 +1666,6 @@
           ${leg.lake ? badge("lake: " + leg.lake) : ""}
           ${leg.shelters.length ? badge("shelter") : ""}
           ${leg.latrine ? badge("latrine") : ""}
-          ${alertBadge}
         </div>
       </button>
     `;
@@ -1696,20 +1683,6 @@
     slot.querySelectorAll("button[data-leg]").forEach(btn => {
       btn.addEventListener("click", () => openLegDetail(legs.find(l => l.order === Number(btn.dataset.leg))));
     });
-  }
-
-  function renderBanner() {
-    const a = alertsData[0];
-    if (!a) { document.getElementById("banner-slot").innerHTML = ""; return; }
-    document.getElementById("banner-slot").innerHTML = `
-      <button class="banner" onclick="openAlertDetail('${a.id}')">
-        <span class="icon">📝</span>
-        <div>
-          <p class="title">${escapeHtml(a.title)}</p>
-          <p class="summary">${escapeHtml(a.short_summary)}</p>
-        </div>
-      </button>
-    `;
   }
 
   function renderRouteBasic() {
@@ -1757,7 +1730,6 @@
     `).join("");
   }
 
-  renderBanner();
   renderItinerary();
   renderRouteBasic();
   renderCrossingsTab();
