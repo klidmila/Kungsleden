@@ -196,9 +196,9 @@
     cursor: pointer;
     color: inherit;
   }
-  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
-  .card-title { font-weight: 600; font-size: 0.92rem; }
-  .card-head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+  .card-title { font-weight: 600; font-size: 0.92rem; flex: 1 1 auto; min-width: 0; }
+  .card-head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; flex: 0 0 auto; }
   .card-sub { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
   .map-link {
     font-size: 11px;
@@ -1397,6 +1397,7 @@
     "camping_good": "",
     "camping_risky": "",
     "shelters": [],
+    "map_url": "https://mapy.com/s/duzulevubo",
     "crossing_ids": []
   },
   {
@@ -1434,6 +1435,7 @@
     "camping_good": "Descending woodland patches, stream beds",
     "camping_risky": "Open approach ridge",
     "shelters": [],
+    "map_url": "https://mapy.com/s/pumutocafo",
     "crossing_ids": []
   },
   {
@@ -1451,6 +1453,7 @@
     "camping_good": "By the river, micro-terrain, dips",
     "camping_risky": "Wide open valley",
     "shelters": [],
+    "map_url": "https://mapy.com/s/nuposobabo",
     "crossing_ids": []
   },
   {
@@ -1476,6 +1479,7 @@
         "notes": "Unstaffed basic shelter, no shop."
       }
     ],
+    "map_url": "https://mapy.com/s/cobemopuje",
     "crossing_ids": []
   },
   {
@@ -1501,6 +1505,7 @@
         "notes": "Smallest hut on Kungsleden, no shop, no sauna. Often skipped by hikers doing Sälka-Alesjaure in one long day. The actual Tjäktja Pass (highest point of the whole trail, ~1150m) is a few km further north of the hut, with a wind shelter at the summit."
       }
     ],
+    "map_url": "https://mapy.com/s/bodubogoku",
     "crossing_ids": []
   },
   {
@@ -1527,6 +1532,7 @@
       }
     ],
     "latrine": true,
+    "map_url": "https://mapy.com/s/hacesazuza",
     "crossing_ids": []
   },
   {
@@ -1545,6 +1551,7 @@
     "camping_risky": "Upper alpine plateau",
     "shelters": [],
     "latrine": true,
+    "map_url": "https://mapy.com/s/gurohoneca",
     "crossing_ids": []
   }
 ];
@@ -1776,7 +1783,7 @@
       <h2>Leg #${leg.order}: ${escapeHtml(leg.from)} → ${escapeHtml(leg.to)}</h2>
       <div class="badges">
         ${badge(leg.type, leg.type)}
-        ${leg.distance_km !== null ? badge(leg.distance_km + " km") : ""}
+        ${leg.distance_km !== null ? badge("↔" + leg.distance_km + " km") : ""}
         ${badge("↑" + leg.ascent_m + " m")}
         ${badge("↓" + leg.descent_m + " m")}
         ${leg.lake ? badge("lake: " + leg.lake) : ""}
@@ -1827,7 +1834,7 @@
         </div>
         <div class="badges">
           ${badge(leg.type, leg.type)}
-          ${leg.distance_km !== null ? badge(leg.distance_km + " km") : ""}
+          ${leg.distance_km !== null ? badge("↔" + leg.distance_km + " km") : ""}
           ${badge("↑" + leg.ascent_m + " m")}
           ${badge("↓" + leg.descent_m + " m")}
           ${leg.lake ? badge("lake: " + leg.lake) : ""}
