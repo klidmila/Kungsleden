@@ -36,6 +36,7 @@ const crossings = crossingDefs.map((def) => ({
   id: def.id,
   label: def.label,
   subtitle: def.subtitle,
+  related_alert_id: def.related_alert_id || null,
   data: readJson(def.file),
 }));
 

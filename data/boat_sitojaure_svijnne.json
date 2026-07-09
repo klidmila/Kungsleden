@@ -10,10 +10,10 @@
     "Vindskydd Svijnne"
   ],
   "operator": "Anna Blind (Sitojaure båttransport, private)",
-  "how_it_works": "Boat departs from a jetty about 300 metres west of the STF Sitojaurestugorna facility. Be on site 30 minutes before departure -- the boat trip is paid 30 minutes before departure time and boarding happens before 08:00 / 17:00 respectively for the regular timetable. Other times are possible on request, call ahead to arrange. Hikers coming from the south are asked to call when leaving Aktse to book the crossing. Signposts mark spots with Telia mobile coverage along the trail where you can call, but there is no coverage at the Svijnne boat landing itself -- call before you get there to confirm your place. For special requests such as sightseeing trips on the lake toward Sarek, contact them directly.",
+  "how_it_works": "Jetty ~300m west of STF Sitojaurestugorna. Arrive 30 min early (paid then). Boarding before 08:00/17:00. Other times by call-ahead. From south: call when leaving Aktse to book. No mobile coverage at Svijnne landing -- call before arriving.",
   "season": {
-    "dates_2026": "June 19 - September 13, 2026",
-    "special_note_sep13": "Only one crossing on 13 September. Call ahead to book if you want to cross that day. After 12:00 it is no longer possible to cross the lake. Advance booking applies from both directions on this day.",
+    "dates_2026": "19 Jun - 13 Sep 2026",
+    "special_note_sep13": "Only 1 crossing, must book ahead. No crossings after 12:00. Booking required both directions.",
     "regular_departures": {
       "from_vaggevarasj_sitojaurestugorna": [
         "08:00",
@@ -39,7 +39,7 @@
     "currency": "SEK",
     "note": "Not listed on the operator page as of the last check; ask when booking by phone or email."
   },
-  "booking": "Call or email in advance. Being 30 minutes early for the regular timetable is required. Off-schedule times can be arranged by calling ahead.",
+  "booking": "Call or email ahead. Arrive 30 min early for regular timetable. Off-schedule times by arrangement.",
   "contact": {
     "website": "https://www.sitojaure.com/",
     "email": "info@sitojaure.com",
@@ -56,12 +56,12 @@
   "sources": [
     {
       "url": "http://www.sitojaure.com/#om-oss",
-      "note": "Primary operator source, shows 'Season 2026' timetable directly -- most current and specific.",
+      "note": "Primary operator source, shows Season 2026 timetable directly.",
       "data_retrieved": "2026-07-06"
     },
     {
       "url": "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
-      "note": "Secondary STF summary, consistent with the operator's own page.",
+      "note": "Secondary STF summary, consistent with operator's page.",
       "source_last_updated": "2026-05-21",
       "data_retrieved": "2026-07-06"
     }

@@ -9,11 +9,11 @@
     "STF Aktse Fjällstuga / Aktse",
     "Vindskydd Laitaure"
   ],
-  "operator": "STF host in Aktse, or the Länta family (Anne-Sophie), alternating",
-  "how_it_works": "The Kungsleden crossing runs twice a day all summer, operated either by the STF host in Aktse or by the Länta family. No advance booking is required for this specific crossing, but if travelling from the north (Aktse side), it is good practice to notify the cabin host at Aktse the evening before or that morning. If travelling from the south (Laitaure side), there is a flag at the jetty on the south shore -- raise it to request pickup no later than 09:00 or 17:00 (times approximate/preliminary per the operator). Cash payment only, paid before boarding. Bad weather can delay or cancel crossings.",
+  "operator": "STF host (Aktse) or Länta family (Anne-Sophie), alternating",
+  "how_it_works": "Twice daily, all summer. No booking needed. From Aktse: notify host evening before or that morning. From Laitaure: raise jetty flag by 09:00 or 17:00. Cash only, pay before boarding. Weather can delay/cancel.",
   "season": {
-    "note_from_stf": "STF-reported regular departures: Aktse to Laitaure 09:00 / 17:00; Laitaure to Aktse 09:15 / 17:15. Cancelled afternoon departure on 13 September (cabins close and hosts leave around lunchtime that day).",
-    "note_from_operator_site": "The Länta family's own site (aktsebo.se) confirms the Kungsleden crossing runs twice daily all season (roughly 09:00 and 17:00), consistent with the STF figures above."
+    "stf_departures": "Aktse -> Laitaure 09:00/17:00, Laitaure -> Aktse 09:15/17:15. 13 Sep: afternoon cancelled (cabins close midday).",
+    "operator_site": "Confirms same twice-daily schedule (~09:00, ~17:00)."
   },
   "price": {
     "currency": "SEK",
@@ -26,10 +26,10 @@
       "adult": 250,
       "children_6_15": 100
     },
-    "conflict_note": "The two sources disagree (300 vs 250 SEK adult). The operator's own page (aktsebo.se) explicitly flags its listed prices as still showing an old season's rates and not yet updated -- that page has clearly not been actively maintained in recent seasons. Treat the STF figure (300 SEK) as more likely current, but confirm by phone before relying on either number.",
-    "payment_note": "Cash only, no card payment mentioned."
+    "conflict_note": "Sources disagree (300 vs 250 SEK adult) -- operator page self-flags as outdated. Trust STF's 300, confirm by phone.",
+    "payment_note": "Cash only."
   },
-  "booking": "No pre-booking required for the twice-daily Kungsleden crossing itself; notify the Aktse cabin host ahead of time if convenient, or use the flag system from the Laitaure side.",
+  "booking": "Not required. Notify Aktse host ahead, or use Laitaure flag system.",
   "contact": {
     "website": "https://aktsebo.se/",
     "phone": [
@@ -37,19 +37,19 @@
       "+46 70 222 82 50"
     ],
     "contact_person": "Anne-Sophie Länta",
-    "best_call_time": "Evenings between 19:00-21:00 for phone bookings; call around 07:00 for same-day cancellations.",
-    "note": "This family also runs separate paid boat services from Aktse to Nammasj/Sarek and Cykelstigen -- those are different routes/prices from the Kungsleden crossing and not relevant to this route unless detouring into Sarek."
+    "best_call_time": "Evenings 19:00-21:00 for bookings; ~07:00 for same-day cancellations.",
+    "note": "Family also runs separate paid trips (Aktse -> Nammasj/Sarek, Cykelstigen) -- different route/price, not relevant here."
   },
   "sources": [
     {
       "url": "https://aktsebo.se/",
-      "note": "Operator's own page. Content appears to date from around 2023 and states its own prices are outdated ('2022 prices, not yet updated'). Treat operational details (contact, general times, procedure) as likely still valid, but do not trust the listed price without confirming by phone.",
+      "note": "Operator's own page, ~2023, self-flagged outdated prices. Trust operational details, not the price.",
       "data_retrieved": "2026-07-06"
     },
     {
       "url": "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
       "source_last_updated": "2026-05-21",
-      "note": "More recently updated secondary source; used here as the more trustworthy price figure.",
+      "note": "More recently updated secondary source; used for the price figure.",
       "data_retrieved": "2026-07-06"
     }
   ]

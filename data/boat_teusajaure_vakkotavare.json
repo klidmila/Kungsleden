@@ -10,7 +10,7 @@
   ],
   "hiking_distance_km": 0.9,
   "operator": "Teusajaure cabin host (STF) or County Administrative Board rowboats",
-  "how_it_works": "About 1 km of the trail is covered by boat. Rowboats from the County Administrative Board are available, or you can get a ride from the STF cabin host at Teusajaure. To cross from the far shore, raise the flag or container so the cabin host sees you are waiting; the times below then apply with a 15 minute delay.",
+  "how_it_works": "~1km by boat/rowboat. From far shore: raise the flag/container to signal the host; add 15 min to times below.",
   "season": {
     "periods": [
       {
@@ -38,8 +38,8 @@
         ]
       }
     ],
-    "note": "On September 13 the mountain cabins close and hosts usually leave around lunchtime, so afternoon departures are cancelled that day and the morning departure is the last crossing.",
-    "weather_note": "Crossings are cancelled in severe weather conditions or unsuitable water levels."
+    "note": "13 Sep: cabins close midday -- afternoon departures cancelled, morning is last crossing.",
+    "weather_note": "Cancelled in severe weather or unsuitable water levels."
   },
   "price": {
     "currency": "SEK",
@@ -60,12 +60,12 @@
       "non_member": 0
     }
   },
-  "booking": "No advance booking mentioned as required; arranged directly with the cabin host or via the flag/container signal system from the far shore.",
+  "booking": "Not required. Arranged with the cabin host or via the flag/container signal.",
   "contact": null,
   "sources": [
     {
       "url": "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
-      "note": "This crossing has no separate branded operator site (unlike M/S Langas, Sitojaure, or Aktse) -- it is run directly by the STF cabin host at Teusajaure, or via County Administrative Board rowboats. This STF mountain-guide page is therefore already the official primary source for this crossing.",
+      "note": "No separate operator site (unlike Langas/Sitojaure/Aktse) -- run by the Teusajaure host/County rowboats. This STF page is the primary source.",
       "source_last_updated": "2026-05-21",
       "data_retrieved": "2026-07-06"
     }

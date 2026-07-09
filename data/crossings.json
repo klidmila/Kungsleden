@@ -33,7 +33,8 @@
     "subtitle": "bus · Road to Ritsem",
     "segment_ids": [
       "kebnats__stf_vakkotavare_cabin_shore"
-    ]
+    ],
+    "related_alert_id": "vakkotavare_kebnats_bus_gap_sep2026"
   },
   {
     "id": "teusajaure_vakkotavare",

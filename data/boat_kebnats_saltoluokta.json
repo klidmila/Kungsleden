@@ -9,9 +9,9 @@
     "STF Vakkotavare Fjällstuga",
     "STF Saltoluokta Fjällstation"
   ],
-  "important_structural_note": "This is not a direct crossing from Vakkotavare. The full route is: STF Vakkotavare -> bus operated by Road to Ritsem -> Kebnats pier -> boat M/S Langas -> STF Saltoluokta. Vakkotavare itself has no boat pier. See bus_vakkotavare_kebnats.json for the critical bus connection details and a known scheduling gap around early September 2026.",
-  "operator": "STF (Swedish Tourist Association) directly operates M/S Langas",
-  "how_it_works": "In summer you travel to Kebnats (by train+bus, car, or bus from Vakkotavare), then cross Lake Langas by boat M/S Langas. The boat crossing is not included in accommodation or bus prices and must be paid separately. Tickets can be bought online in advance or paid on board; a seat is guaranteed even without pre-booking, but pre-booking is recommended. The boat waits 15-30 minutes for a delayed bus depending on the scheduled departure -- let STF know if the delay is longer. The boat runs on schedule even on days when the bus does not run. Free parking is available about 100 metres from the Kebnats jetty.",
+  "important_structural_note": "Not direct from Vakkotavare -- route is Vakkotavare -> bus (Road to Ritsem) -> Kebnats -> boat M/S Langas -> Saltoluokta. Vakkotavare has no pier. See the vakkotavare_kebnats_bus crossing / linked alert for the bus gap.",
+  "operator": "STF directly operates M/S Langas",
+  "how_it_works": "Paid separately from accommodation/bus. Book online or pay onboard; seat guaranteed without booking. Boat waits 15-30 min for a delayed bus. Runs even when the bus doesn't. Free parking ~100m from Kebnats jetty.",
   "journey_time_minutes": 15,
   "season": {
     "dates_2026": "18 June - 20 September 2026, daily",

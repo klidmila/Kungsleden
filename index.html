@@ -206,6 +206,8 @@
   table.kv-table th { width: 9rem; color: var(--muted); font-weight: 500; text-transform: capitalize; background: var(--chip-bg); }
   table.mini-table th { background: var(--chip-bg); text-transform: capitalize; }
   .na { color: var(--muted); }
+  .rb-blue { color: var(--boat); font-weight: 600; }
+  .rb-green { color: var(--hike); font-weight: 600; }
 
   .print-detail { display: none; }
 
@@ -652,6 +654,7 @@
     "id": "aktse_laitaure",
     "label": "Laitaure ↔ Aktse",
     "subtitle": "boat",
+    "related_alert_id": null,
     "data": {
       "crossing_id": "aktse_laitaure",
       "lake": "Lajtavrre",
@@ -663,11 +666,11 @@
         "STF Aktse Fjällstuga / Aktse",
         "Vindskydd Laitaure"
       ],
-      "operator": "STF host in Aktse, or the Länta family (Anne-Sophie), alternating",
-      "how_it_works": "The Kungsleden crossing runs twice a day all summer, operated either by the STF host in Aktse or by the Länta family. No advance booking is required for this specific crossing, but if travelling from the north (Aktse side), it is good practice to notify the cabin host at Aktse the evening before or that morning. If travelling from the south (Laitaure side), there is a flag at the jetty on the south shore -- raise it to request pickup no later than 09:00 or 17:00 (times approximate/preliminary per the operator). Cash payment only, paid before boarding. Bad weather can delay or cancel crossings.",
+      "operator": "STF host (Aktse) or Länta family (Anne-Sophie), alternating",
+      "how_it_works": "Twice daily, all summer. No booking needed. From Aktse: notify host evening before or that morning. From Laitaure: raise jetty flag by 09:00 or 17:00. Cash only, pay before boarding. Weather can delay/cancel.",
       "season": {
-        "note_from_stf": "STF-reported regular departures: Aktse to Laitaure 09:00 / 17:00; Laitaure to Aktse 09:15 / 17:15. Cancelled afternoon departure on 13 September (cabins close and hosts leave around lunchtime that day).",
-        "note_from_operator_site": "The Länta family's own site (aktsebo.se) confirms the Kungsleden crossing runs twice daily all season (roughly 09:00 and 17:00), consistent with the STF figures above."
+        "stf_departures": "Aktse -> Laitaure 09:00/17:00, Laitaure -> Aktse 09:15/17:15. 13 Sep: afternoon cancelled (cabins close midday).",
+        "operator_site": "Confirms same twice-daily schedule (~09:00, ~17:00)."
       },
       "price": {
         "currency": "SEK",
@@ -680,10 +683,10 @@
           "adult": 250,
           "children_6_15": 100
         },
-        "conflict_note": "The two sources disagree (300 vs 250 SEK adult). The operator's own page (aktsebo.se) explicitly flags its listed prices as still showing an old season's rates and not yet updated -- that page has clearly not been actively maintained in recent seasons. Treat the STF figure (300 SEK) as more likely current, but confirm by phone before relying on either number.",
-        "payment_note": "Cash only, no card payment mentioned."
+        "conflict_note": "Sources disagree (300 vs 250 SEK adult) -- operator page self-flags as outdated. Trust STF's 300, confirm by phone.",
+        "payment_note": "Cash only."
       },
-      "booking": "No pre-booking required for the twice-daily Kungsleden crossing itself; notify the Aktse cabin host ahead of time if convenient, or use the flag system from the Laitaure side.",
+      "booking": "Not required. Notify Aktse host ahead, or use Laitaure flag system.",
       "contact": {
         "website": "https://aktsebo.se/",
         "phone": [
@@ -691,19 +694,19 @@
           "+46 70 222 82 50"
         ],
         "contact_person": "Anne-Sophie Länta",
-        "best_call_time": "Evenings between 19:00-21:00 for phone bookings; call around 07:00 for same-day cancellations.",
-        "note": "This family also runs separate paid boat services from Aktse to Nammasj/Sarek and Cykelstigen -- those are different routes/prices from the Kungsleden crossing and not relevant to this route unless detouring into Sarek."
+        "best_call_time": "Evenings 19:00-21:00 for bookings; ~07:00 for same-day cancellations.",
+        "note": "Family also runs separate paid trips (Aktse -> Nammasj/Sarek, Cykelstigen) -- different route/price, not relevant here."
       },
       "sources": [
         {
           "url": "https://aktsebo.se/",
-          "note": "Operator's own page. Content appears to date from around 2023 and states its own prices are outdated ('2022 prices, not yet updated'). Treat operational details (contact, general times, procedure) as likely still valid, but do not trust the listed price without confirming by phone.",
+          "note": "Operator's own page, ~2023, self-flagged outdated prices. Trust operational details, not the price.",
           "data_retrieved": "2026-07-06"
         },
         {
           "url": "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
           "source_last_updated": "2026-05-21",
-          "note": "More recently updated secondary source; used here as the more trustworthy price figure.",
+          "note": "More recently updated secondary source; used for the price figure.",
           "data_retrieved": "2026-07-06"
         }
       ]
@@ -713,6 +716,7 @@
     "id": "sitojaure_svijnne",
     "label": "Svijnne ↔ Sitojaure",
     "subtitle": "boat",
+    "related_alert_id": null,
     "data": {
       "crossing_id": "sitojaure_svijnne",
       "lake": "Gasskajaure and Gabddajavrre",
@@ -725,10 +729,10 @@
         "Vindskydd Svijnne"
       ],
       "operator": "Anna Blind (Sitojaure båttransport, private)",
-      "how_it_works": "Boat departs from a jetty about 300 metres west of the STF Sitojaurestugorna facility. Be on site 30 minutes before departure -- the boat trip is paid 30 minutes before departure time and boarding happens before 08:00 / 17:00 respectively for the regular timetable. Other times are possible on request, call ahead to arrange. Hikers coming from the south are asked to call when leaving Aktse to book the crossing. Signposts mark spots with Telia mobile coverage along the trail where you can call, but there is no coverage at the Svijnne boat landing itself -- call before you get there to confirm your place. For special requests such as sightseeing trips on the lake toward Sarek, contact them directly.",
+      "how_it_works": "Jetty ~300m west of STF Sitojaurestugorna. Arrive 30 min early (paid then). Boarding before 08:00/17:00. Other times by call-ahead. From south: call when leaving Aktse to book. No mobile coverage at Svijnne landing -- call before arriving.",
       "season": {
-        "dates_2026": "June 19 - September 13, 2026",
-        "special_note_sep13": "Only one crossing on 13 September. Call ahead to book if you want to cross that day. After 12:00 it is no longer possible to cross the lake. Advance booking applies from both directions on this day.",
+        "dates_2026": "19 Jun - 13 Sep 2026",
+        "special_note_sep13": "Only 1 crossing, must book ahead. No crossings after 12:00. Booking required both directions.",
         "regular_departures": {
           "from_vaggevarasj_sitojaurestugorna": [
             "08:00",
@@ -754,7 +758,7 @@
         "currency": "SEK",
         "note": "Not listed on the operator page as of the last check; ask when booking by phone or email."
       },
-      "booking": "Call or email in advance. Being 30 minutes early for the regular timetable is required. Off-schedule times can be arranged by calling ahead.",
+      "booking": "Call or email ahead. Arrive 30 min early for regular timetable. Off-schedule times by arrangement.",
       "contact": {
         "website": "https://www.sitojaure.com/",
         "email": "info@sitojaure.com",
@@ -771,12 +775,12 @@
       "sources": [
         {
           "url": "http://www.sitojaure.com/#om-oss",
-          "note": "Primary operator source, shows 'Season 2026' timetable directly -- most current and specific.",
+          "note": "Primary operator source, shows Season 2026 timetable directly.",
           "data_retrieved": "2026-07-06"
         },
         {
           "url": "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
-          "note": "Secondary STF summary, consistent with the operator's own page.",
+          "note": "Secondary STF summary, consistent with operator's page.",
           "source_last_updated": "2026-05-21",
           "data_retrieved": "2026-07-06"
         }
@@ -787,6 +791,7 @@
     "id": "kebnats_saltoluokta",
     "label": "Kebnats ↔ Saltoluokta",
     "subtitle": "boat · M/S Langas",
+    "related_alert_id": null,
     "data": {
       "crossing_id": "kebnats_saltoluokta",
       "lake": "Langas",
@@ -798,9 +803,9 @@
         "STF Vakkotavare Fjällstuga",
         "STF Saltoluokta Fjällstation"
       ],
-      "important_structural_note": "This is not a direct crossing from Vakkotavare. The full route is: STF Vakkotavare -> bus operated by Road to Ritsem -> Kebnats pier -> boat M/S Langas -> STF Saltoluokta. Vakkotavare itself has no boat pier. See bus_vakkotavare_kebnats.json for the critical bus connection details and a known scheduling gap around early September 2026.",
-      "operator": "STF (Swedish Tourist Association) directly operates M/S Langas",
-      "how_it_works": "In summer you travel to Kebnats (by train+bus, car, or bus from Vakkotavare), then cross Lake Langas by boat M/S Langas. The boat crossing is not included in accommodation or bus prices and must be paid separately. Tickets can be bought online in advance or paid on board; a seat is guaranteed even without pre-booking, but pre-booking is recommended. The boat waits 15-30 minutes for a delayed bus depending on the scheduled departure -- let STF know if the delay is longer. The boat runs on schedule even on days when the bus does not run. Free parking is available about 100 metres from the Kebnats jetty.",
+      "important_structural_note": "Not direct from Vakkotavare -- route is Vakkotavare -> bus (Road to Ritsem) -> Kebnats -> boat M/S Langas -> Saltoluokta. Vakkotavare has no pier. See the vakkotavare_kebnats_bus crossing / linked alert for the bus gap.",
+      "operator": "STF directly operates M/S Langas",
+      "how_it_works": "Paid separately from accommodation/bus. Book online or pay onboard; seat guaranteed without booking. Boat waits 15-30 min for a delayed bus. Runs even when the bus doesn't. Free parking ~100m from Kebnats jetty.",
       "journey_time_minutes": 15,
       "season": {
         "dates_2026": "18 June - 20 September 2026, daily",
@@ -898,15 +903,16 @@
     "id": "vakkotavare_kebnats_bus",
     "label": "Vakkotavare ↔ Kebnats",
     "subtitle": "bus · Road to Ritsem",
+    "related_alert_id": "vakkotavare_kebnats_bus_gap_sep2026",
     "data": {
       "connection_id": "bus_vakkotavare_kebnats",
-      "purpose": "Connects STF Vakkotavare Fjällstuga to the Kebnats pier, where the M/S Langas boat continues to STF Saltoluokta. This bus is the critical link -- Vakkotavare itself has no boat pier.",
-      "operator": "Road to Ritsem (private/commercial line, replaced the old Länstrafiken bus 93 / operated in practice by Falcks Omnibus)",
+      "purpose": "Connects STF Vakkotavare Fjällstuga to Kebnats pier (M/S Langas boat continues to Saltoluokta). Critical link -- Vakkotavare has no boat pier.",
+      "operator": "Road to Ritsem (replaced old Länstrafiken bus 93; run by Falcks Omnibus)",
       "website": "https://roadtoritsem.com/sommar/",
       "phone": "+46 970 248 00",
-      "critical_warning_2026": "The operator's own site states that this summer (2026), bus departures are affected by irregular train arrivals in Gällivare due to planned railway maintenance. On many days both scheduled trips run, on other days only one. Do not rely on the printed timetable alone -- check actual availability for your specific date through the booking partners (SJ, VY, or Norrtåg via the Resplus system) before you rely on this connection.",
-      "season_2026": "Road to Ritsem operates 22 June - 20 September 2026 (confirmed directly from the operator's timetable page). Exact operating dates differ by trip/direction -- see below.",
-      "route_note": "Each \"Tur\" is a single round-trip vehicle: it runs Gällivare -> Stora Sjöfallet -> Ritsem (passing Kebnats/Saltoloukta then Vakkotavare, in that order -- the direction a south-to-north Kungsleden hiker needs), then the same vehicle returns Ritsem -> Stora Sjöfallet -> Gällivare (passing Vakkotavare then Kebnats/Saltoloukta -- the opposite direction) later the same day.",
+      "critical_warning_2026": "2026 Gällivare train-maintenance disruption may affect departures -- some days both trips run, some days only one. Check availability via SJ/VY/Norrtåg (Resplus) before relying on this.",
+      "season_2026": "22 June - 20 September 2026. Exact dates differ by trip/direction -- see below.",
+      "route_note": "Each \"Tur\" is one round-trip vehicle: Gällivare -> Ritsem (Kebnats then Vakkotavare -- direction needed south-to-north), then back the same day (Vakkotavare then Kebnats).",
       "trips": [
         {
           "trip_name": "Tur 1",
@@ -939,29 +945,30 @@
         }
       ],
       "critical_date_gap_analysis_kebnats_to_vakkotavare": {
-        "note": "This is the direction needed by a south-to-north Kungsleden hiker. Covered by Tur 1's outbound leg (Kebnats 10:55 -> Vakkotavare 12:00) 18 July-5 Sept & 14-20 Sept, and Tur 2's outbound leg (Kebnats 16:50 -> Vakkotavare 17:55) 22 June-30 Aug & 6-12 Sept. Combining both: 31 Aug-5 Sept only Tur 1 runs (12:00 arrival); 6-12 Sept only Tur 2 runs (17:55 arrival); 13 September 2026 has NO scheduled Kebnats -> Vakkotavare departure at all -- Tur 1 doesn't resume until 14 Sept, and Tur 2 already stopped running (in this direction) after 12 Sept. This is the critical gap date for this direction.",
-        "recommendation": "If your estimated arrival at Kebnats lands on or near 13 September 2026, plan a rest day earlier in the trip to shift arrival before the 13th (or push to the 14th), or contact the operator directly to confirm no exception applies that day."
+        "note": "Direction needed south-to-north. 31 Aug-5 Sept: only Tur 1 (12:00 arrival). 6-12 Sept: only Tur 2 (17:55 arrival). 13 Sept: no departure -- see the linked alert.",
+        "recommendation": "If Kebnats arrival lands on/near 13 Sept: rest day to shift earlier, push to 14 Sept, or call the operator."
       },
       "critical_date_gap_analysis_vakkotavare_to_kebnats": {
-        "note": "The opposite direction (Vakkotavare -> Kebnats, relevant e.g. if backtracking or hiking north to south). Covered by Tur 1's return leg (Vakkotavare 14:40 -> Kebnats 15:40) 18 July-5 Sept & 14-20 Sept, and Tur 2's return leg (Vakkotavare 09:20 -> Kebnats 10:20) 23 June-31 Aug & 7-13 Sept. 6 September 2026 has no scheduled departure in this direction (Tur 1 stops 5 Sept, Tur 2 in this direction starts 7 Sept)."
+        "note": "Opposite direction (e.g. backtracking). 1-5 Sept: only Tur 1. 7-13 Sept: only Tur 2. 6 Sept: no departure."
       },
-      "good_news": "The M/S Langas boat itself runs on its own schedule even on days when the bus does not run (confirmed by STF), so the boat is not the constraint -- getting from Kebnats to Vakkotavare is the actual bottleneck.",
+      "good_news": "M/S Langas boat runs on its own schedule regardless of the bus -- Kebnats to Vakkotavare is the actual bottleneck.",
       "fallback_contacts": {
-        "note": "For transport outside the scheduled bus departures, STF Saltoluokta previously gave these contacts for arranging the Kebnats-Saltoluokta boat leg specifically -- worth calling if the bus situation is uncertain, since they may know current workarounds:",
+        "note": "For transport outside the timetable, these STF Saltoluokta contacts may know workarounds:",
         "christer_dynesius": "+46 70 241 66 35",
         "tobbe_oberg": "+46 70 340 42 72"
       },
-      "booking": "Tickets are sold through Resplus-connected operators: SJ (sj.se), VY (vy.se), or Norrtåg (norrtag.se). Set 'Ritsem Fjällstation' or 'Kebnats/Saltoloukta' as your destination when booking.",
+      "booking": "Via Resplus operators: SJ (sj.se), VY (vy.se), Norrtåg (norrtag.se). Destination: 'Ritsem Fjällstation' or 'Kebnats/Saltoloukta'.",
       "source_url": "https://roadtoritsem.com/sommar/",
       "source_last_modified": "2026-07-01",
       "data_retrieved": "2026-07-08",
-      "data_retrieval_note": "Full timetable (both directions, both trips) supplied directly by the route author from the operator's page, since this domain is blocked at the network level for automated fetching in this session."
+      "data_retrieval_note": "Full timetable supplied directly by the route author (operator's domain is network-blocked for automated fetching in this session)."
     }
   },
   {
     "id": "teusajaure_vakkotavare",
     "label": "Dievssajávri ↔ Teusajaure",
     "subtitle": "boat",
+    "related_alert_id": null,
     "data": {
       "crossing_id": "teusajaure_vakkotavare",
       "lake": "Dievssajavri",
@@ -974,7 +981,7 @@
       ],
       "hiking_distance_km": 0.9,
       "operator": "Teusajaure cabin host (STF) or County Administrative Board rowboats",
-      "how_it_works": "About 1 km of the trail is covered by boat. Rowboats from the County Administrative Board are available, or you can get a ride from the STF cabin host at Teusajaure. To cross from the far shore, raise the flag or container so the cabin host sees you are waiting; the times below then apply with a 15 minute delay.",
+      "how_it_works": "~1km by boat/rowboat. From far shore: raise the flag/container to signal the host; add 15 min to times below.",
       "season": {
         "periods": [
           {
@@ -1002,8 +1009,8 @@
             ]
           }
         ],
-        "note": "On September 13 the mountain cabins close and hosts usually leave around lunchtime, so afternoon departures are cancelled that day and the morning departure is the last crossing.",
-        "weather_note": "Crossings are cancelled in severe weather conditions or unsuitable water levels."
+        "note": "13 Sep: cabins close midday -- afternoon departures cancelled, morning is last crossing.",
+        "weather_note": "Cancelled in severe weather or unsuitable water levels."
       },
       "price": {
         "currency": "SEK",
@@ -1024,12 +1031,12 @@
           "non_member": 0
         }
       },
-      "booking": "No advance booking mentioned as required; arranged directly with the cabin host or via the flag/container signal system from the far shore.",
+      "booking": "Not required. Arranged with the cabin host or via the flag/container signal.",
       "contact": null,
       "sources": [
         {
           "url": "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
-          "note": "This crossing has no separate branded operator site (unlike M/S Langas, Sitojaure, or Aktse) -- it is run directly by the STF cabin host at Teusajaure, or via County Administrative Board rowboats. This STF mountain-guide page is therefore already the official primary source for this crossing.",
+          "note": "No separate operator site (unlike Langas/Sitojaure/Aktse) -- run by the Teusajaure host/County rowboats. This STF page is the primary source.",
           "source_last_updated": "2026-05-21",
           "data_retrieved": "2026-07-06"
         }
@@ -1534,9 +1541,13 @@
   function openCrossingDetail(id) {
     const c = crossingById(id);
     if (!c) return;
+    const alertHtml = c.related_alert_id
+      ? `<div class="link-row"><button class="link-btn danger" onclick="openAlertDetail('${c.related_alert_id}')">⚠ View related alert</button></div>`
+      : "";
     openDetail(`
       <h2>${escapeHtml(c.label)}</h2>
       <div class="badges">${badge(c.subtitle)}</div>
+      ${alertHtml}
       ${renderTable(c.data)}
     `);
   }
@@ -1704,18 +1715,19 @@
   }
 
   function renderRouteBasic() {
+    const shopClass = (size) => (size === "small" ? "rb-blue" : size === "large" || size === "full" ? "rb-green" : "na");
     const hutRow = (wp) => `
       <tr>
         <td>${escapeHtml(wp.name)}</td>
         <td>${wp.km_from_start}</td>
-        <td>${wp.shop.size !== "none" ? escapeHtml(wp.shop.size) : "–"}</td>
-        <td>${wp.sauna ? "✓" : "✗"}</td>
+        <td class="${shopClass(wp.shop.size)}">${wp.shop.size !== "none" ? escapeHtml(wp.shop.size) : "–"}</td>
+        <td class="${wp.sauna ? "rb-green" : "na"}">${wp.sauna ? "✓" : "✗"}</td>
         <td>${heatingBadgeText(wp.heating)}</td>
       </tr>`;
     const crossingRow = (leg) => {
       const c = leg.crossing_ids.length ? crossingById(leg.crossing_ids[0]) : null;
       const text = leg.type === "boat"
-        ? `⚓ lake · ${escapeHtml(leg.lake || "")}${c ? " (" + escapeHtml(c.subtitle) + ")" : " (boat)"}`
+        ? `⚓️ lake · ${escapeHtml(leg.lake || "")}${c ? " (" + escapeHtml(c.subtitle) + ")" : " (boat)"}`
         : `🚌 bus · ${escapeHtml(leg.from)} – ${escapeHtml(leg.to)}`;
       return `<tr><td colspan="5" class="na">${text}</td></tr>`;
     };
