@@ -97,19 +97,60 @@ timetable), re-check the linked source close to your travel date.
 
 ## Tabs
 
-- **Route - basic** (default): compact per-hut table (km, shop, sauna,
+- **Route - basic** 🧭 (default): compact per-hut table (km, shop, sauna,
   heating) with boat/bus crossings inlined between huts.
-- **Route - detailed**: full itinerary as cards, one per waypoint/leg, with
+- **Route - detailed** 🥾: full itinerary as cards, one per waypoint/leg, with
   badges and a detail view on tap.
-- **Alerts**: trip-critical warnings.
-- **Crossings**: boat/bus schedule, price, and contact detail per crossing.
-- **Food**: STF shop stock guarantees by shop size (Large/Small), with
+- **Crossings** ⛵🚌: boat/bus schedule, price, and contact detail per
+  crossing, linked to any related trip-critical note.
+- **Food** 🍴: STF shop stock guarantees by shop size (Large/Small), with
   prices.
+
+There's no standalone alerts/notes tab -- trip-critical info (e.g. transport
+gaps) is reached via links on the specific waypoints/legs/crossings it
+affects.
+
+## Settings and themes
+
+Tap the gear icon (⚙️) in the header to open **Settings** and pick a theme:
+
+- **Auto** (default): follows the phone/browser's OS light/dark setting.
+- **Light** / **Dark**: force one regardless of the OS setting.
+- **Garmin**: near-black background, tabular monospace font, sharp corners,
+  safety-orange accents -- a GPS-device look.
+
+The choice is saved in local storage and applied on load, so a theme can be
+tested without touching the phone's OS setting.
 
 ## Changelog
 
 Brief, newest first. See git history for full detail.
 
+- Gave the bus badge the boat badge's blue color, and increased the Garmin
+  theme's background/card contrast so cards and tables stand out instead of
+  blending in.
+- Added an in-app **Settings** page (gear icon) with a manual theme switcher
+  -- Light, Dark, Auto (follows the OS setting), and a new **Garmin** theme
+  (near-black, tabular monospace, safety orange) -- persisted in local
+  storage, so a theme can be tested without touching the phone's OS setting.
+- Shortened the Food tab's Large vs Small blurb to three short lines;
+  dropped the note badges/links and the top banner from Route - detailed
+  (the leg's own notes and crossing links already cover it).
+- Removed the Notes tab entirely -- note detail is still reachable via
+  links on affected waypoints/legs/crossings; the Crossings tab now uses a
+  boat+bus icon.
+- Made the alert system read calmer: renamed the Alerts tab to Notes, amber
+  instead of red, 📝 instead of ⚠️, and "critical" now displays as
+  "heads-up".
+- Added icons to the tab bar and turned the Food tab's item lists into
+  chips; gave Route - basic's table a white card-style background and
+  colored lake names light blue.
+- Trimmed crossing JSON prose to terse phrases (all facts kept); linked the
+  Vakkotavare <-> Kebnats bus crossing to its alert.
+- Added a "shore" badge for the boat/bus-pier waypoints, dropping
+  "(shore)" from their names.
+- Fixed Skierfe's badge: it's a viewpoint, not a cabin.
+- Dropped the low-signal "crossing point" and "alt name" waypoint badges.
 - Confirmed the full Kebnats <-> Vakkotavare bus timetable (both trips, both
   directions) directly from the operator; fixed the alert to the real gap
   date (13 September, not the previously assumed 6 September), and gave the
