@@ -527,7 +527,8 @@
       "notes": "",
       "camping_good": "",
       "camping_risky": "",
-      "shelters": []
+      "shelters": [],
+      "map_url": "https://mapy.com/s/duzulevubo"
     },
     {
       "id": "stopover_cabin_dievssajavri__stf_teusajaure_cabin",
@@ -560,7 +561,8 @@
       "notes": "",
       "camping_good": "Descending woodland patches, stream beds",
       "camping_risky": "Open approach ridge",
-      "shelters": []
+      "shelters": [],
+      "map_url": "https://mapy.com/s/pumutocafo"
     },
     {
       "id": "stf_kaitumjaure_cabin__stf_singi_cabin",
@@ -576,7 +578,8 @@
       "notes": "Side trip east: 5 km to a viewpoint; 14.3 km to Kebnekaise fjällstation (climbing); 18.5 km from Kebnekaise to Nikkaluokta (exit point)",
       "camping_good": "By the river, micro-terrain, dips",
       "camping_risky": "Wide open valley",
-      "shelters": []
+      "shelters": [],
+      "map_url": "https://mapy.com/s/nuposobabo"
     },
     {
       "id": "stf_singi_cabin__stf_salka_cabin",
@@ -600,7 +603,8 @@
           "elevation_m": null,
           "notes": "Unstaffed basic shelter, no shop."
         }
-      ]
+      ],
+      "map_url": "https://mapy.com/s/cobemopuje"
     },
     {
       "id": "stf_salka_cabin__stf_alesjaure_cabin",
@@ -624,7 +628,8 @@
           "elevation_m": 1000,
           "notes": "Smallest hut on Kungsleden, no shop, no sauna. Often skipped by hikers doing Sälka-Alesjaure in one long day. The actual Tjäktja Pass (highest point of the whole trail, ~1150m) is a few km further north of the hut, with a wind shelter at the summit."
         }
-      ]
+      ],
+      "map_url": "https://mapy.com/s/bodubogoku"
     },
     {
       "id": "stf_alesjaure_cabin__stf_abiskojaure",
@@ -649,7 +654,8 @@
           "notes": "Unstaffed basic shelter, no shop. Has a latrine."
         }
       ],
-      "latrine": true
+      "latrine": true,
+      "map_url": "https://mapy.com/s/hacesazuza"
     },
     {
       "id": "stf_abiskojaure__stf_abisko_turiststation",
@@ -666,7 +672,8 @@
       "camping_good": "Forest section below the tree line",
       "camping_risky": "Upper alpine plateau",
       "shelters": [],
-      "latrine": true
+      "latrine": true,
+      "map_url": "https://mapy.com/s/gurohoneca"
     }
   ],
   "schema_note_phone": "phone (string, optional, absent when not known) is a direct contact number for a staffed waypoint, shown in its detail view only -- not surfaced as an itinerary badge. Currently only recorded for the three Fjällstation-class waypoints (Kvikkjokk, Saltoluokta, Abisko); not yet gathered for the fjällstuga-class huts.",
@@ -677,6 +684,6 @@
   "schema_note_alt_names": "alt_names lists spelling variants that may appear on physical trail signage, maps, or other apps: an ASCII fold (no Swedish a-ring/a-umlaut/o-umlaut or Sami a-acute) plus any specific alternate names found during research. This list is best-effort from remote research, not confirmed on the ground. Treat it as a search aid for matching a signpost to the right waypoint, not as a verified official naming registry.",
   "schema_note_lake_names": "lake on a boat segment is the name most likely to appear on the actual boat service, timetable, or ticket (what you would ask for or search when booking). lake_alt_names lists other names for the same body of water, such as the Sami name used in the original source table, which may still appear on maps or signposts. Confirmed by cross-checking against the Swedish Tourist Association boat-service page during research.",
   "schema_note_alerts": "critical_alert_id, where present on a waypoint or segment, references an entry in alerts.json by id. The app should look up that entry and display it prominently rather than treating it as ordinary reference text.",
-  "schema_note_map_url": "map_url (string, optional) is a shareable mapy.com link for that segment's trail, viewable offline once opened once with a network connection. Currently only recorded for legs 1, 2, 4, 5, 6, 8, and 10 -- absent elsewhere, not yet gathered rather than confirmed missing.",
+  "schema_note_map_url": "map_url (string, optional) is a shareable mapy.com link for that segment's trail, viewable offline once opened once with a network connection. Currently recorded for legs 1, 2, 4, 5, 6, 8, 10, 11, 13, 14, 15, 16, 17, and 18 -- missing only for the 4 boat crossings (3, 7, 9, 12), not yet gathered rather than confirmed missing.",
   "schema_note_ids": "Every waypoint has a stable `id` (slug derived from its name at authoring time, never changes even if `name` is edited later). Every segment has a stable `id` (`<from_id>__<to_id>`) plus `from_id`/`to_id` referencing the waypoints it connects. `from`/`to` remain plain display text -- edit them freely, they are what the app shows; they are not used for lookups, so editing them cannot break waypoint/crossing linkage. crossings.json and alerts.json reference waypoints/segments by id, not by name or order, so renaming a waypoint's `name` or renumbering segments never breaks those links."
 }
