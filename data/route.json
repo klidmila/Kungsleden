@@ -519,7 +519,7 @@
       "distance_km": 0,
       "ascent_m": 0,
       "descent_m": 0,
-      "notes": "Primary: bus (operated by Road to Ritsem, not the old Bus 93 mentioned in the original source table -- that line no longer serves this route) or hitchhiking/taxi from Kebnats pier to STF Vakkotavare Fjällstuga. Confirmed Kebnats -> Vakkotavare departures: Tur 1 ~10:55 (arrives 12:00), 18 July-5 Sept & 14-20 Sept; Tur 2 ~16:50 (arrives 17:55), 22 June-30 Aug & 6-12 Sept. See the vakkotavare_kebnats_bus crossing for full detail -- 13 September 2026 has no scheduled departure in this direction at all (see the linked alert). Fallback if no bus and no hitch: walk approx. 30 km along the road, +182 m / -109 m ascent/descent (figure supplied by the route author, not yet cross-checked against a source -- re-verify before relying on it).",
+      "notes": "Bus (Road to Ritsem) or hitchhiking/taxi. Tur 1: ~10:55→12:00 (18 Jul–5 Sep, 14–20 Sep). Tur 2: ~16:50→17:55 (22 Jun–30 Aug, 6–12 Sep). ⚠️ Schedule change 5/6 Sep: Tur 1 ends, Tur 2 resumes next day. 13 Sep: no departure (see alert). Fallback: 30 km walk (~3h), ±182 m/−109 m (unverified). See crossing data for full timetable & contacts.",
       "camping_good": "All the way down before Vakkotavare",
       "camping_risky": "",
       "shelters": [],
