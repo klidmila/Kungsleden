@@ -176,6 +176,23 @@
   #view-basic h2.section-title {
     font-size: 0.95rem;
   }
+  /* plan title should visually match section headings */
+  .plan-title {
+    font-size: 0.95rem;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+  /* subtle parenthetical / subtitle for plan titles */
+  .plan-subtle {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 400;
+    opacity: 1;
+    margin-top: 0.15rem;
+    margin-bottom: 0.45rem;
+    line-height: 1.2;
+  }
 
   /* cards */
   .cards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
@@ -388,8 +405,23 @@
     padding: 0.3rem 0.7rem;
     font-size: 0.82rem;
     cursor: pointer;
+    /* allow long URLs / text inside link buttons to wrap on small screens */
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
   .link-btn.danger { border-color: var(--danger); color: var(--danger); }
+
+  /* Ensure plain text and anchors inside the crossings list can break long URLs */
+  .crossing-list a,
+  .crossing-list span {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
+    display: inline-block;
+  }
 
   /* proper small tables for nested data */
   .detail-content table.kv-table,
@@ -428,8 +460,11 @@
   table.kv-table th { width: auto; min-width: 10rem; max-width: 40%; color: var(--muted); font-weight: 500; text-transform: capitalize; background: var(--chip-bg); word-break: normal; }
   table.mini-table th { background: var(--chip-bg); text-transform: capitalize; }
   .na { color: var(--muted); }
-  #basic-slot table.mini-table,
-  #basic-plan-slot table.mini-table { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  /* Route - basic: standalone table gets the card background and outer border */
+  #basic-slot table.mini-table { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0.25rem 0; }
+
+  /* Travel plan: the outer `.plan-block` provides the visual card; avoid double borders on the inner table */
+  #basic-plan-slot table.mini-table { background: transparent; border: none; border-radius: 0; overflow: visible; margin-top: 0.25rem; }
   #basic-slot, #basic-slot table, #basic-slot th, #basic-slot td, #basic-slot a {
     font-family: inherit;
   }
@@ -1857,7 +1892,7 @@
 ];
 
   const plan = {
-  "title": "Skaloš and Karel plan (který se posere za prvním rohem)",
+  "title": "Skaloš-Karlův plán (který je pevný jako Murphyho zákon)*",
   "subtitle": "High-level plán cesty na start a první jezera",
   "entries": [
     {
@@ -2298,9 +2333,18 @@
       <tr>
         <td colspan="2"><ul>${entry.details.map(detail => `<li>${escapeHtml(detail)}</li>`).join("")}</ul></td>
       </tr>`).join("");
+
+    // split out any parenthetical suffix from the title (allow trailing asterisk)
+    const titleMatch = /^(.+?)\s*\((.+?)\)\s*(\*?)\s*$/.exec(plan.title);
+    const mainTitle = titleMatch ? titleMatch[1] : plan.title;
+    const parenFull = titleMatch ? (titleMatch[2] + (titleMatch[3] || "")) : null;
+
     document.getElementById("basic-plan-slot").innerHTML = `
+      <div class="plan-heading">
+        <h3 class="plan-title">${escapeHtml(mainTitle)}</h3>
+        ${parenFull ? `<div class="plan-subtle">(${escapeHtml(parenFull)})</div>` : ""}
+      </div>
       <div class="plan-block">
-        <h3>${escapeHtml(plan.title)}</h3>
         ${plan.subtitle ? `<p>${escapeHtml(plan.subtitle)}</p>` : ""}
         <div class="table-scroll"><table class="mini-table plan-table"><tbody>${rows}</tbody></table></div>
       </div>`;
