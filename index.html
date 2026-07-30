@@ -151,16 +151,17 @@
     width: 2.2rem; height: 2.2rem; cursor: pointer;
   }
   h2.section-title { font-size: 0.95rem; margin: 0 0 0.8rem; }
-  .food-block, .plan-block { border: 1px solid var(--border); background: var(--card-bg); border-radius: 10px; padding: 0.7rem 0.9rem; margin-bottom: 0.7rem; }
-  .food-block h3, .plan-block h3 { font-size: 0.88rem; margin: 0 0 0.4rem; }
-  .food-block h4 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin: 0.6rem 0 0.3rem; }
-  .food-block p, .plan-block p { font-size: 0.85rem; margin: 0 0 0.4rem; line-height: 1.5; }
+  .food-block, .plan-block { border: 1px solid var(--border); background: var(--card-bg); border-radius: 10px; padding: 0.55rem 0.75rem; margin-bottom: 0.65rem; }
+  .food-block h3, .plan-block h3 { font-size: 0.88rem; margin: 0 0 0.35rem; }
+  .food-block h4 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin: 0.45rem 0 0.25rem; }
+  .food-block p, .plan-block p { font-size: 0.85rem; margin: 0 0 0.35rem; line-height: 1.45; }
   .food-block p:last-child { margin-bottom: 0; }
   .food-block .badges { margin-bottom: 0.5rem; }
   #basic-plan-slot { margin-top: 1rem; }
   #basic-plan-slot table.mini-table { margin-top: 0.35rem; }
-  #basic-plan-slot .plan-table th { width: 12rem; white-space: nowrap; }
+  #basic-plan-slot .plan-table th { width: auto; max-width: 100%; white-space: normal; }
   #basic-plan-slot .plan-table td ul { margin: 0.25rem 0 0; padding-left: 1.15rem; }
+  #basic-plan-slot .plan-table th { padding: 0.55rem 0.6rem; }
   #basic-plan-slot .plan-table td li { margin: 0.35rem 0; line-height: 1.4; }
   #basic-plan-slot .plan-table td li::marker { color: var(--muted); }
   .food-guaranteed .badge { background: transparent; border: 1px solid var(--hike); color: var(--hike); }
@@ -271,6 +272,76 @@
   .detail-content .badges { margin-top: 0.35rem; }
   .detail-content .badges .badge { font-size: 0.75rem; padding: 0.25rem 0.55rem; }
   .link-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.3rem; }
+  .detail-content .table-scroll {
+    overflow-x: hidden;
+  }
+  .detail-content .table-scroll table,
+  .detail-content table,
+  .detail-content table.kv-table,
+  .detail-content table.mini-table {
+    width: 100% !important;
+    display: block !important;
+    min-width: 0 !important;
+  }
+  .detail-content .table-scroll table thead,
+  .detail-content .table-scroll table tbody,
+  .detail-content table thead,
+  .detail-content table tbody,
+  .detail-content .table-scroll table tr,
+  .detail-content table tr {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 0.35rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.35rem 0.5rem;
+  }
+  .detail-content .table-scroll table th,
+  .detail-content .table-scroll table td,
+  .detail-content table th,
+  .detail-content table td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    white-space: normal;
+    word-break: break-word;
+    padding-left: 0;
+    border: none !important;
+  }
+  .detail-content .table-scroll table th,
+  .detail-content table th {
+    background: transparent;
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0.15rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+  .detail-content .table-scroll table th,
+  .detail-content table th {
+    width: auto !important;
+    max-width: none !important;
+  }
+  .detail-content .table-scroll table td,
+  .detail-content table td {
+    padding-left: 0;
+  }
+  .detail-content .table-scroll table.kv-table,
+  .detail-content .table-scroll table.mini-table,
+  .detail-content table.kv-table,
+  .detail-content table.mini-table {
+    border: none !important;
+  }
+  .detail-content .table-scroll table.kv-table th,
+  .detail-content .table-scroll table.mini-table th,
+  .detail-content table.kv-table th,
+  .detail-content table.mini-table th {
+    background: transparent !important;
+    width: auto !important;
+    max-width: none !important;
+    white-space: normal !important;
+  }
   .link-btn {
     display: inline-block;
     border: 1px solid var(--border);
@@ -285,15 +356,16 @@
   .link-btn.danger { border-color: var(--danger); color: var(--danger); }
 
   /* proper small tables for nested data */
-  table.kv-table, table.mini-table {
+  .detail-content table.kv-table,
+  .detail-content table.mini-table {
     border-collapse: collapse;
-    width: 100%;
+    width: auto;
     table-layout: auto;
     font-size: 0.82rem;
     margin: 0.3rem 0 0.6rem;
   }
-  table.kv-table th, table.kv-table td,
-  table.mini-table th, table.mini-table td {
+  .detail-content table.kv-table th, .detail-content table.kv-table td,
+  .detail-content table.mini-table th, .detail-content table.mini-table td {
     border: 1px solid var(--border);
     padding: 0.3rem 0.5rem;
     text-align: left;
@@ -308,11 +380,51 @@
   .detail-content .table-scroll table {
     min-width: 100%;
   }
-  table.kv-table th { width: min(9rem, 35%); color: var(--muted); font-weight: 500; text-transform: capitalize; background: var(--chip-bg); }
+  .detail-content .table-scroll table.kv-table,
+  .detail-content .table-scroll table.mini-table {
+    width: auto;
+    min-width: 0;
+  }
+  .detail-content .table-scroll > table.kv-table,
+  .detail-content .table-scroll > table.mini-table {
+    width: 100%;
+  }
+  table.kv-table th { width: auto; min-width: 10rem; max-width: 40%; color: var(--muted); font-weight: 500; text-transform: capitalize; background: var(--chip-bg); word-break: normal; }
   table.mini-table th { background: var(--chip-bg); text-transform: capitalize; }
   .na { color: var(--muted); }
   #basic-slot table.mini-table,
   #basic-plan-slot table.mini-table { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  #basic-slot, #basic-slot table, #basic-slot th, #basic-slot td, #basic-slot a {
+    font-family: inherit;
+  }
+  #basic-slot table.mini-table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+    font-size: 0.92rem;
+  }
+  #basic-slot table.mini-table th,
+  #basic-slot table.mini-table td {
+    padding: 0.4rem 0.55rem;
+  }
+  #basic-slot table.mini-table th:first-child,
+  #basic-slot table.mini-table td:first-child {
+    width: 48%;
+  }
+  #basic-slot table.mini-table th:nth-child(2),
+  #basic-slot table.mini-table td:nth-child(2) {
+    width: 10%;
+  }
+  #basic-slot table.mini-table th:nth-child(3),
+  #basic-slot table.mini-table td:nth-child(3) {
+    width: 10%;
+  }
+  #basic-slot table.mini-table th:nth-child(4),
+  #basic-slot table.mini-table td:nth-child(4),
+  #basic-slot table.mini-table th:nth-child(5),
+  #basic-slot table.mini-table td:nth-child(5) {
+    width: 16%;
+  }
   #basic-slot table.mini-table th,
   #basic-slot table.mini-table td,
   #basic-plan-slot table.mini-table th,
@@ -2129,14 +2241,16 @@
     };
     const rows = plan.entries.map(entry => `
       <tr>
-        <th>${escapeHtml(icon(entry.date) + " " + entry.date)}</th>
-        <td><ul>${entry.details.map(detail => `<li>${escapeHtml(detail)}</li>`).join("")}</ul></td>
+        <th colspan="2">${escapeHtml(icon(entry.date) + " " + entry.date)}</th>
+      </tr>
+      <tr>
+        <td colspan="2"><ul>${entry.details.map(detail => `<li>${escapeHtml(detail)}</li>`).join("")}</ul></td>
       </tr>`).join("");
     document.getElementById("basic-plan-slot").innerHTML = `
       <div class="plan-block">
         <h3>${escapeHtml(plan.title)}</h3>
         ${plan.subtitle ? `<p>${escapeHtml(plan.subtitle)}</p>` : ""}
-        <table class="mini-table plan-table"><tbody>${rows}</tbody></table>
+        <div class="table-scroll"><table class="mini-table plan-table"><tbody>${rows}</tbody></table></div>
       </div>`;
   }
 
