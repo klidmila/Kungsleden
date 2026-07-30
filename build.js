@@ -22,6 +22,7 @@ const route = readJson("route.json");
 const alertsFile = readJson("alerts.json");
 const crossingDefs = readJson("crossings.json");
 const foodFile = readJson("food.json");
+const planFile = readJson("plan.json");
 
 const legs = [...route.segments]
   .sort((a, b) => a.order - b.order)
@@ -51,6 +52,8 @@ const dataBlock = `
   const legs = ${JSON.stringify(legs, null, 2)};
 
   const foodShops = ${JSON.stringify(foodFile.shops, null, 2)};
+
+  const plan = ${JSON.stringify(planFile, null, 2)};
 `;
 
 const htmlPath = path.join(repoRoot, "index.html");
