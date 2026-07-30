@@ -348,6 +348,36 @@
     max-width: none !important;
     white-space: normal !important;
   }
+  .crossing-data {
+    margin-top: 0.75rem;
+  }
+  .crossing-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .crossing-list > li {
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    background: var(--card-bg);
+  }
+  .crossing-list li li {
+    margin-top: 0.35rem;
+    padding-left: 0.8rem;
+    border: none;
+    background: transparent;
+  }
+  .crossing-list strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .crossing-list li > span {
+    display: block;
+  }
   .link-btn {
     display: inline-block;
     border: 1px solid var(--border);
@@ -1958,8 +1988,23 @@
     return renderScalar(value);
   }
 
-  // ---- navigation state ----
+  function renderJsonList(value) {
+    if (Array.isArray(value)) {
+      if (value.length === 0) return '<span class="na">—</span>';
+      if (typeof value[0] === 'object') {
+        return `<ul class="crossing-list">${value.map(item => `<li>${renderJsonList(item)}</li>`).join('')}</ul>`;
+      }
+      return `<span>${value.map(escapeHtml).join(', ')}</span>`;
+    }
+    if (typeof value === 'object' && value !== null) {
+      return `<ul class="crossing-list">${Object.entries(value).map(([k, v]) => `
+        <li><strong>${escapeHtml(k.replace(/_/g, ' '))}</strong>${renderJsonList(v)}</li>
+      `).join('')}</ul>`;
+    }
+    return renderScalar(value);
+  }
 
+  // ---- navigation state ----n
   function showTab(tab) {
     document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === "view-" + tab));
     document.querySelectorAll(".tabbar button").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
@@ -2064,7 +2109,7 @@
       <h2>${escapeHtml(c.label)}</h2>
       <div class="badges">${badge(c.subtitle)}</div>
       ${alertHtml}
-      <div class="table-scroll">${renderTable(c.data)}</div>
+      <div class="crossing-data">${renderJsonList(c.data)}</div>
     `);
   }
 
