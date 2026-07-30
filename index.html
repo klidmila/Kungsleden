@@ -170,6 +170,12 @@
 
   .view { display: none; }
   .view.active { display: block; }
+  #view-basic {
+    font-size: 0.92rem;
+  }
+  #view-basic h2.section-title {
+    font-size: 0.95rem;
+  }
 
   /* cards */
   .cards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
@@ -406,6 +412,7 @@
   #basic-slot table.mini-table th,
   #basic-slot table.mini-table td {
     padding: 0.4rem 0.55rem;
+    border: 1px solid var(--border);
   }
   #basic-slot table.mini-table th:first-child,
   #basic-slot table.mini-table td:first-child {
