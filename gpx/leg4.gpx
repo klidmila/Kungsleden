@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="https://mapy.com/">
+	<trk>
+		<name>Leg4: Aktse → STF Aktse</name>
+		<trkseg>
+			<trkpt lat="67.143381" lon="18.289565">
+				<ele>500.000000</ele>
+			</trkpt>
+			<trkpt lat="67.143458" lon="18.289779">
+				<ele>500.000000</ele>
+			</trkpt>
+			<trkpt lat="67.143573" lon="18.289897">
+				<ele>500.000000</ele>
+			</trkpt>
+			<trkpt lat="67.143765" lon="18.289924">
+				<ele>501.000000</ele>
+			</trkpt>
+			<trkpt lat="67.143964" lon="18.289888">
+				<ele>502.000000</ele>
+			</trkpt>
+			<trkpt lat="67.144327" lon="18.289798">
+				<ele>504.000000</ele>
+			</trkpt>
+			<trkpt lat="67.144529" lon="18.289645">
+				<ele>506.000000</ele>
+			</trkpt>
+			<trkpt lat="67.144766" lon="18.289393">
+				<ele>507.000000</ele>
+			</trkpt>
+			<trkpt lat="67.144864" lon="18.289376">
+				<ele>508.000000</ele>
+			</trkpt>
+			<trkpt lat="67.145004" lon="18.289448">
+				<ele>509.000000</ele>
+			</trkpt>
+			<trkpt lat="67.145171" lon="18.289726">
+				<ele>510.000000</ele>
+			</trkpt>
+			<trkpt lat="67.145488" lon="18.290525">
+				<ele>512.000000</ele>
+			</trkpt>
+			<trkpt lat="67.145698" lon="18.290804">
+				<ele>513.000000</ele>
+			</trkpt>
+			<trkpt lat="67.145862" lon="18.291173">
+				<ele>515.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146043" lon="18.291792">
+				<ele>516.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146249" lon="18.292232">
+				<ele>518.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146413" lon="18.292969">
+				<ele>519.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146577" lon="18.293400">
+				<ele>520.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146650" lon="18.293706">
+				<ele>521.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146713" lon="18.293940">
+				<ele>521.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146787" lon="18.294280">
+				<ele>522.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146853" lon="18.294792">
+				<ele>522.000000</ele>
+			</trkpt>
+			<trkpt lat="67.146936" lon="18.295125">
+				<ele>523.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147027" lon="18.295332">
+				<ele>523.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147115" lon="18.295421">
+				<ele>523.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147379" lon="18.295565">
+				<ele>524.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147536" lon="18.295880">
+				<ele>525.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147690" lon="18.296419">
+				<ele>526.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147756" lon="18.296840">
+				<ele>526.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147763" lon="18.297146">
+				<ele>527.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147638" lon="18.298781">
+				<ele>529.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147487" lon="18.300848">
+				<ele>532.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147442" lon="18.302060">
+				<ele>534.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147442" lon="18.302356">
+				<ele>535.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147512" lon="18.302905">
+				<ele>536.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147561" lon="18.303327">
+				<ele>537.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147620" lon="18.303767">
+				<ele>538.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147718" lon="18.303983">
+				<ele>538.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147854" lon="18.304224">
+				<ele>539.000000</ele>
+			</trkpt>
+			<trkpt lat="67.147955" lon="18.304593">
+				<ele>540.000000</ele>
+			</trkpt>
+			<trkpt lat="67.148060" lon="18.304701">
+				<ele>542.000000</ele>
+			</trkpt>
+			<trkpt lat="67.148283" lon="18.305079">
+				<ele>546.000000</ele>
+			</trkpt>
+			<trkpt lat="67.148437" lon="18.305293">
+				<ele>549.000000</ele>
+			</trkpt>
+			<trkpt lat="67.148489" lon="18.305509">
+				<ele>550.000000</ele>
+			</trkpt>
+			<trkpt lat="67.148600" lon="18.305815">
+				<ele>552.000000</ele>
+			</trkpt>
+			<trkpt lat="67.148615" lon="18.305859">
+				<ele>552.000000</ele>
+			</trkpt>
+		</trkseg>
+	</trk>
+</gpx>
+
