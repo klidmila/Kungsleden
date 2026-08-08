@@ -1,0 +1,15 @@
+{
+  "name": "Kungsleden Companion",
+  "short_name": "Kungsleden",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f6f3",
+  "theme_color": "#1f2420",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

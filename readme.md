@@ -86,6 +86,12 @@ Repo Settings -> Pages -> Source: Deploy from a branch -> `main` / `(root)`.
 Note: GitHub Pages is free only for public repositories; private repos
 require a paid GitHub plan, or an alternative like Netlify/Cloudflare Pages.
 
+The app now includes a registered service worker and manifest, so the
+GitHub Pages version can be installed as a standalone Home Screen app and
+cache the shell explicitly. After a GitHub Pages deploy, reopen the app at
+least once with a network connection so the new service worker can activate
+and refresh the cached version.
+
 ## Data accuracy and safety note
 
 Boat/bus schedules, prices, and contact details were gathered from official
@@ -188,5 +194,5 @@ Brief, newest first. See git history for full detail.
 
 - [ ] Offline map with GPX track and GPS position
 - [ ] Journal / packing checklist (local device storage)
-- [ ] Full PWA install + service worker caching
+- [x] Full PWA install + service worker caching
 - [x] Print/PDF stylesheet for a paper backup
