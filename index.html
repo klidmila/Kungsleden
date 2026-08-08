@@ -536,7 +536,10 @@
         <h1>Kungsleden Companion</h1>
         <p class="subtitle">Kvikkjokk → Abisko, full south-to-north route</p>
       </div>
-      <button id="settings-btn" class="settings-btn" type="button" aria-label="Settings">⚙️</button>
+      <div style="display:flex; gap:0.45rem; align-items:center;">
+        <button id="save-html-btn" class="settings-btn" type="button" aria-label="Save HTML">⬇️</button>
+        <button id="settings-btn" class="settings-btn" type="button" aria-label="Settings">⚙️</button>
+      </div>
     </div>
 
     <div id="view-basic" class="view active">
@@ -2375,6 +2378,39 @@
       </div>
     `).join("");
   }
+
+  // Save/share HTML: tries native share-to-files on iOS, falls back to download
+  function saveHtmlToFile() {
+    try {
+      const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+      const filename = (location.pathname && location.pathname.split('/').pop()) || 'index.html';
+      const blob = new Blob([html], { type: 'text/html' });
+
+      // Prefer native share with files (iOS / modern browsers)
+      if (navigator.canShare && navigator.canShare({ files: [new File([blob], filename, { type: 'text/html' })] }) && navigator.share) {
+        const file = new File([blob], filename, { type: 'text/html' });
+        navigator.share({ files: [file] }).catch(() => {});
+        return;
+      }
+
+      // Fallback: create a download link
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+    } catch (err) {
+      console.error('saveHtmlToFile error', err);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('save-html-btn');
+    if (btn) btn.addEventListener('click', saveHtmlToFile);
+  });
 
   renderItinerary();
   renderRouteBasic();
