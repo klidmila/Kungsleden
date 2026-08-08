@@ -536,8 +536,7 @@
         <h1>Kungsleden Companion</h1>
         <p class="subtitle">Kvikkjokk → Abisko, full south-to-north route</p>
       </div>
-      <div style="display:flex; gap:0.45rem; align-items:center;">
-        <button id="save-html-btn" class="settings-btn" type="button" aria-label="Save HTML">⬇️</button>
+      <div>
         <button id="settings-btn" class="settings-btn" type="button" aria-label="Settings">⚙️</button>
       </div>
     </div>
@@ -2101,6 +2100,15 @@
         <div class="badges">${badge("download")}</div>
       </button>
     `).join("");
+    const hasAnyGpx = gpxFiles && Object.keys(gpxFiles).length;
+    const downloadAllBtn = hasAnyGpx ? `
+      <button class="card" type="button" onclick="downloadAllGpx()">
+        <div class="card-head">
+          <span class="card-title">Download all GPX</span>
+        </div>
+        <div class="badges">${badge("download")}</div>
+      </button>
+    ` : "";
 
     openDetail(`
       <h2>Settings</h2>
@@ -2117,11 +2125,12 @@
         `).join("")}
       </div>
       <h3>GPX downloads</h3>
-      ${gpxButtons ? `
+      ${hasAnyGpx ? `
       <div class="cards">
+        ${downloadAllBtn}
         ${gpxButtons}
       </div>
-      <p class="na" style="font-size:0.85rem">Download the GPX file and import it into mapy.com.</p>
+      <p class="na" style="font-size:0.85rem">Download the GPX file(s) and import them into mapy.com.</p>
       ` : '<p class="na">No GPX files are embedded in this build.</p>'}
     `);
   }
@@ -2441,10 +2450,46 @@
     setTimeout(() => URL.revokeObjectURL(url), 10000);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('save-html-btn');
-    if (btn) btn.addEventListener('click', saveHtmlToFile);
-  });
+  // Combine all embedded GPX tracks into a single GPX file and download/share it
+  function downloadAllGpx() {
+    if (!gpxFiles) return;
+    const filenames = Object.keys(gpxFiles);
+    if (!filenames.length) return;
+    const trackParts = [];
+    for (const name of filenames) {
+      const txt = gpxFiles[name];
+      // remove XML prolog and outer <gpx> tags
+      const inner = txt.replace(/<\?xml[\s\S]*?\?>/i, '').replace(/<gpx[^>]*>/i, '').replace(/<\/gpx>/i, '');
+      trackParts.push(inner.trim());
+    }
+    const header = '<?xml version="1.0" encoding="utf-8"?>\n<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="Kungsleden Companion">\n';
+    const footer = '\n</gpx>';
+    const combined = header + trackParts.join('\n') + footer;
+    const filename = 'kungsleden-all.gpx';
+    const file = new File([combined], filename, { type: 'application/gpx+xml;charset=utf-8' });
+    // Prefer Web Share API if it supports files
+    if (navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share) {
+      navigator.share({ files: [file] }).catch(() => {
+        // fallback to download
+        const url = URL.createObjectURL(file);
+        const a = document.createElement('a');
+        a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 10000);
+      });
+      return;
+    }
+    // fallback: single download of combined GPX
+    const url = URL.createObjectURL(file);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+  }
+
+  // no top-level save-html button present anymore
 
   renderItinerary();
   renderRouteBasic();
