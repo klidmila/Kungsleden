@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
   <rect width="192" height="192" rx="32" fill="#1f2420" />
-  <path d="M48 136 L96 56 L144 136 Z" fill="#f7f6f3" />
-  <circle cx="96" cy="104" r="12" fill="#1f2420" />
+  <path d="M0 118 H192 V138 H0 Z" fill="#2f9bd6" />
+  <path d="M18 118 L54 86 L74 104 L98 74 L118 98 L148 68 L174 102 L192 88 V118 Z" fill="#f7f6f3" />
+  <path d="M32 118 L62 92 L84 112 L106 84 L124 106 L146 82 L170 108" fill="#1f2420" opacity="0.8" />
+  <path d="M56 132 C68 122 82 124 96 118 C110 112 124 114 138 110 C152 106 166 112 180 120" stroke="#4c7a3f" stroke-width="10" fill="none" stroke-linecap="round" />
+  <circle cx="144" cy="40" r="18" fill="#f7f6f3" opacity="0.95" />
+  <path d="M96 92 L88 76 L80 86 L72 74" stroke="#1f2420" stroke-width="9" fill="none" stroke-linecap="round" />
+  <path d="M62 146 L70 132 L78 146" stroke="#1f2420" stroke-width="9" fill="none" stroke-linecap="round" />
 </svg>
