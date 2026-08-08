@@ -33,6 +33,7 @@ hand-edited directly (see "Editing the data" below).
 | `data/boat_teusajaure_vakkotavare.json` | Teusajaure <-> Vakkotavare (Dievssajavri) boat crossing |
 | `data/boat_kebnats_saltoluokta.json` | Kebnats <-> Saltoluokta boat crossing (M/S Langas), official STF timetable |
 | `data/bus_vakkotavare_kebnants.json` | The Kebnats <-> Vakkotavare bus connection (Road to Ritsem), including a known 2026 scheduling gap |
+| `icon.svg` | App icon used by the PWA manifest and service worker for installable shell branding |
 | `CLAUDE.md` | Architecture/design spec: why the app is built this way, the id scheme, the offline constraint |
 
 All data is in English, including place names left as-is (Swedish/Sami
@@ -156,6 +157,8 @@ Brief, newest first. See git history for full detail.
 - Added a "shore" badge for the boat/bus-pier waypoints, dropping
   "(shore)" from their names.
 - Fixed Skierfe's badge: it's a viewpoint, not a cabin.
+- Updated `icon.svg` to a new night-themed design with a Swedish flag detail
+  in the top-left corner.
 - Dropped the low-signal "crossing point" and "alt name" waypoint badges.
 - Confirmed the full Kebnats <-> Vakkotavare bus timetable (both trips, both
   directions) directly from the operator; fixed the alert to the real gap
