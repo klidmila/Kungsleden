@@ -23,6 +23,15 @@ const alertsFile = readJson("alerts.json");
 const crossingDefs = readJson("crossings.json");
 const foodFile = readJson("food.json");
 const planFile = readJson("plan.json");
+const gpxDir = path.join(repoRoot, "gpx");
+const gpxFiles = fs.existsSync(gpxDir)
+  ? fs.readdirSync(gpxDir)
+      .filter((name) => name.toLowerCase().endsWith(".gpx"))
+      .reduce((obj, name) => {
+        obj[name] = fs.readFileSync(path.join(gpxDir, name), "utf8");
+        return obj;
+      }, {})
+  : {};
 
 const legs = [...route.segments]
   .sort((a, b) => a.order - b.order)
@@ -54,6 +63,8 @@ const dataBlock = `
   const foodShops = ${JSON.stringify(foodFile.shops, null, 2)};
 
   const plan = ${JSON.stringify(planFile, null, 2)};
+
+  const gpxFiles = ${JSON.stringify(gpxFiles, null, 2)};
 `;
 
 const htmlPath = path.join(repoRoot, "index.html");
